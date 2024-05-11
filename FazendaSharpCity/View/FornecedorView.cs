@@ -10,22 +10,11 @@ using System.Windows.Forms;
 
 namespace FazendaSharpCity.View
 {
-    public partial class LoginView : Form
+    public partial class FornecedorView : Form
     {
-        public LoginView()
+        public FornecedorView()
         {
             InitializeComponent();
-            
-        }
-
-        public void btnEntrar_Click(object sender, EventArgs e)
-        {
-            LoginClick();
-        }
-        public bool LoginClick() 
-        {
-            Show();
-            return true;
         }
     }
 }

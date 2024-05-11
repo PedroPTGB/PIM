@@ -2,7 +2,7 @@ using FazendaSharpCity.View;
 
 namespace FazendaSharpCity
 {
-    public partial class MainView : Form, IMainView
+    public partial class MainView : Form
     {
         public MainView()
         {
@@ -10,9 +10,19 @@ namespace FazendaSharpCity
             CostumizeDesign();
         }
         
-        public event EventHandler ShowClienteView;
-        public event EventHandler ShowFornecedorView;
-        public event EventHandler ShowProdutoView;
+        public void LoadForm(object Form)
+        {
+            if (this.panelViewChange.Controls.Count > 0)
+            {
+                this.panelViewChange.Controls.RemoveAt(0);
+            }
+            Form f = Form as Form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            this.panelViewChange.Controls.Add(f);
+            this.panelViewChange.Tag = f;
+            f.Show();
+        }
         
         private void CostumizeDesign()
         {
@@ -46,6 +56,7 @@ namespace FazendaSharpCity
         private void btnCliente_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelSubMenuCliente);
+            LoadForm(new ClienteView());
         }
 
         private void btnListaCliente_Click(object sender, EventArgs e)
@@ -65,6 +76,7 @@ namespace FazendaSharpCity
         private void btnFornecedor_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelSubMenuFornecedor);
+            LoadForm(new FornecedorView());
         }
 
         private void btnListaFornecedor_Click(object sender, EventArgs e)
@@ -86,6 +98,7 @@ namespace FazendaSharpCity
         private void btnProduto_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelSubMenuProduto);
+            LoadForm(new ProdutoView());
         }
 
         private void btnListaProduto_Click(object sender, EventArgs e)

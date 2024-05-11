@@ -11,6 +11,6 @@ namespace FazendaSharpCity.Model
         private int CNPJ;
         private string NomeFantasia;
         private int InscricaoEstadual;
-        private int InscricaoMunicipal
+        private int InscricaoMunicipal;
     }
 }

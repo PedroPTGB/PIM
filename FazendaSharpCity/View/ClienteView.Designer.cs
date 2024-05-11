@@ -1,6 +1,6 @@
 ﻿namespace FazendaSharpCity.View
 {
-    partial class LoginView
+    partial class ClienteView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnEntrar = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
-            // btnEntrar
+            // label1
             // 
-            btnEntrar.Location = new Point(261, 127);
-            btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(94, 29);
-            btnEntrar.TabIndex = 0;
-            btnEntrar.Text = "Entrar";
-            btnEntrar.UseVisualStyleBackColor = true;
-            btnEntrar.Click += btnEntrar_Click;
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(204, 163);
+            label1.Name = "label1";
+            label1.Size = new Size(393, 81);
+            label1.TabIndex = 0;
+            label1.Text = "Form Cliente";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // LoginView
+            // ClienteView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnEntrar);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
-            Name = "LoginView";
-            Text = "FazendaSharpCity - Login";
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "ClienteView";
+            Text = "ClienteView";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Button btnEntrar;
+        private Label label1;
     }
 }

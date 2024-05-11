@@ -54,6 +54,7 @@ namespace FazendaSharpCity
             btnCliente = new Button();
             panelLogo = new Panel();
             pictureBox1 = new PictureBox();
+            panelViewChange = new Panel();
             panelLateral.SuspendLayout();
             panelSubMenuProduto.SuspendLayout();
             panelSubMenuFornecedor.SuspendLayout();
@@ -290,12 +291,23 @@ namespace FazendaSharpCity
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // panelViewChange
+            // 
+            panelViewChange.BackgroundImage = (Image)resources.GetObject("panelViewChange.BackgroundImage");
+            panelViewChange.Dock = DockStyle.Fill;
+            panelViewChange.Location = new Point(250, 0);
+            panelViewChange.Name = "panelViewChange";
+            panelViewChange.Size = new Size(1012, 673);
+            panelViewChange.TabIndex = 1;
+            // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 673);
+            Controls.Add(panelViewChange);
             Controls.Add(panelLateral);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             MinimumSize = new Size(1280, 720);
             Name = "MainView";
             Text = "FazendaSharpCity";
@@ -326,5 +338,6 @@ namespace FazendaSharpCity
         private Button btnCliente;
         private Panel panelLogo;
         private PictureBox pictureBox1;
+        private Panel panelViewChange;
     }
 }

@@ -1,5 +1,6 @@
 using FazendaSharpCity.Controller;
 using FazendaSharpCity.View;
+using FazendaSharpCity.Model;
 
 namespace FazendaSharpCity
 {
@@ -11,12 +12,17 @@ namespace FazendaSharpCity
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            IMainView mainView = new MainView();
-            new MainController(mainView);
-            Application.Run(new LoginView());
+            
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new LoginView());
+
+            LoginController loginController = new LoginController();
+            //bool t = loginController.LoginViewRun();
+            if (loginController.LoginViewRun())
+            {
+                MainController mainController = new MainController();
+                mainController.MainViewRun();
+            }
         }
     }
 }
