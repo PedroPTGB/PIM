@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FazendaSharpCity.Model
 {
-    internal class GerenteModel : FuncionarioModel
+    public class GerenteModel : FuncionarioModel
     {
 
     }

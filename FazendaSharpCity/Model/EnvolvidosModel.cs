@@ -6,21 +6,24 @@ using System.Threading.Tasks;
 
 namespace FazendaSharpCity.Model
 {
-    internal class EnvolvidosModel
+    public class EnvolvidosModel
     {
-        private string Nome;
-        private string Telefone;
+        private string nome;
+        private string telefone;
         private string email;
 
-        //Endereco;
-        private string Logradouro;
-        private string numero;
-        private string Complemento;
-        private string Bairro;
-        private string Estado;
-        private string Cidade;
+        public string Nome { get => Nome; set => Nome = value; }
+        public string Telefone { get => Telefone; set => Telefone = value; }
+        public string Email { get => email; set => email = value; }
 
-        private string LoginName;
-        private string Senha;
+        public EnvolvidosModel(string nome, string telefone, string email) 
+        { 
+            Nome = nome;
+            Telefone = telefone;
+            Email = email;
+        }
+
+
+
     }
 }

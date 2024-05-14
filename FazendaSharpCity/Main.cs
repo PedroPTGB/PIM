@@ -5,10 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using FazendaSharpCity.Controller;
 using FazendaSharpCity.Model;
+using FazendaSharpCity.View;
+using Npgsql;
 
-namespace FazendaSharpCity.View
+
+namespace FazendaSharpCity
 {
-    public class LoginView
+    internal class Main
     {
 
     }

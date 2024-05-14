@@ -8,6 +8,8 @@ namespace FazendaSharpCity.Model
 {
     internal class ClienteModel : EnvolvidosModel
     {
-        private int IdCliente;
+        private int idCliente;
+
+        public int IdCliente { get => idCliente; set => idCliente = value; }
     }
 }

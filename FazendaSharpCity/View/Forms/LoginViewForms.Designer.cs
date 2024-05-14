@@ -1,6 +1,6 @@
 ﻿namespace FazendaSharpCity.View
 {
-    partial class LoginView
+    partial class LoginViewForms
     {
         /// <summary>
         /// Required designer variable.

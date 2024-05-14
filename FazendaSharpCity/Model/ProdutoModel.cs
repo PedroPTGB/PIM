@@ -6,11 +6,25 @@ using System.Threading.Tasks;
 
 namespace FazendaSharpCity.Model
 {
-    internal class ProdutoModel
+    public class ProdutoModel
     {
-        private int IdProduto;
-        private string Nome;
-        private string TipoProduto;
-        private decimal Preco;
+        private int idProduto;
+        private string nome;
+        private string tipoProduto;
+        private decimal preco;
+
+        public int IdProduto { get => idProduto; set => idProduto = value; }
+        public string Nome { get => nome; set => nome = value; }
+        public string TipoProduto { get => tipoProduto; set => tipoProduto = value; }
+        public decimal Preco { get => preco; set => preco = value; }
+
+        public ProdutoModel(int idProduto, string nome, string tipoProduto, decimal preco)
+        {
+            IdProduto = idProduto;
+            Nome = nome;
+            TipoProduto = tipoProduto;
+            Preco = preco;
+        }
+
     }
 }

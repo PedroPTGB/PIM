@@ -14,7 +14,7 @@ namespace FazendaSharpCity.Controller
         public bool LoginViewRun()
         {
             bool resp;
-            LoginView lv = new LoginView();
+            LoginViewForms lv = new LoginViewForms();
             lv.Show();
             resp = lv.LoginClick();
             return resp;
