@@ -20,9 +20,14 @@ namespace FazendaSharpCity.Controller
             return resp;
         }
 
-        public void VerificaLogin()
+        public bool VerificaLogin(Ususario usuario)
         {
-            throw new NotImplementedException();
+            if (usuario.login == "admin")
+            {
+                return true;
+            }
+            return false;
+            
         }
     }
 }

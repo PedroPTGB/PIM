@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FazendaSharpCity.Model
 {
-    internal class FuncionarioModel : EnvolvidosModel
+    public class FuncionarioModel : EnvolvidosModel
     {
         private int idFuncionario;
         private int cpf;
@@ -27,5 +27,20 @@ namespace FazendaSharpCity.Model
 
         public string LoginName { get => loginName; set => loginName = value; }
         public string Senha { get => senha; set => senha = value; }
+        
+        public FuncionarioModel(string nome, string telefone, string email, int idFuncionario, int cpf, string dtNasc, string rg, string cargo, int nivelAcesso, string loginName, string senha) : base (nome, telefone, email)
+        {
+            IdFuncionario = idFuncionario;
+            Cpf = cpf;
+            DtNasc = dtNasc;
+            Rg = rg;
+            Cargo = cargo;
+            NivelAcesso = nivelAcesso;
+            LoginName = loginName;
+            Senha = senha;
+            Nome = nome;
+            Telefone = telefone;
+            Email = email;
+        }
     }
 }

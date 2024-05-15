@@ -17,15 +17,16 @@ namespace FazendaSharpCity.Model
         public int Cnpj { get => cnpj; set => cnpj = value; }
         public int InscricaoEstadual { get => inscricaoEstadual; set => inscricaoEstadual = value; }
         public int InscricaoMunicipal { get => inscricaoMunicipal; set => inscricaoMunicipal = value; }
-        public string NomeFantasia { get => Nome; set => Nome = value; }
     
-        public FornecedorModel(int idFornecedor, int cnpj, int inscricaoEstadual, int inscriaoMunicipal, string nomeFantasia)
+        public FornecedorModel(string email, string telefone, int idFornecedor, int cnpj, int inscricaoEstadual, int inscriaoMunicipal, string nome) : base (nome, telefone, email)
         {
             IdFornecedor = idFornecedor;
             Cnpj = cnpj;
             InscricaoEstadual = inscricaoEstadual;
             InscricaoMunicipal = inscricaoMunicipal;
-            NomeFantasia = nomeFantasia;
+            Nome = nome;
+            Email = email;
+            Telefone = telefone;
         }
     }
 }

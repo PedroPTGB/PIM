@@ -11,7 +11,6 @@ namespace FazendaSharpCity.Controller
 {
     public class MainController
     {
-
         public void MainViewRun()
         {
             MainView mv = new MainView();
