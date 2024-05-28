@@ -19,7 +19,8 @@ namespace FazendaSharpCity.View
         {
             InitializeComponent();
             loginController = new LoginController();
-            
+            this.AcceptButton = btnEntrar;
+
         }
 
         public void btnEntrar_Click(object sender, EventArgs e)
@@ -36,15 +37,64 @@ namespace FazendaSharpCity.View
             }
             else
             {
-                MessageBox.Show("Invalid login");
+              
             }
 
 
         }
-        public bool LoginClick() 
+        public bool LoginClick()
         {
             Show();
             return true;
+        }
+
+        private void LoginViewForms_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginTbx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Ususario ususario = new Ususario();
+            ususario.login = loginTbx.Text;
+            ususario.password = senhaTbx.Text;
+            if (loginController.VerificaLogin(ususario))
+            {
+                MessageBox.Show("Login bem-sucedido!");
+                MainView mainView = new MainView();
+                this.Visible = false;
+                mainView.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nome ou senha incorretos. Tente novamente.");
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void senhaTbx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

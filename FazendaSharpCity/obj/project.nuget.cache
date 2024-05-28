@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "0bRiwueoY0Fgc0H1yK7VlLnB6czkQ8kNi/UJvz7QoS2Kjb2d2A6M6LQRj1jwZdtyjSAQ4MhX86PDQXnenOf4kg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Macho Alpha\\Desktop\\PIM-master\\FazendaSharpCity\\FazendaSharpCity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Macho Alpha\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Macho Alpha\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Macho Alpha\\.nuget\\packages\\npgsql\\8.0.3\\npgsql.8.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
