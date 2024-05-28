@@ -17,7 +17,7 @@ namespace FazendaSharpCity.Model
         public int InscricaoEstadual { get => inscricaoEstadual; set => inscricaoEstadual = value; }
         public int InscricaoMunicipal { get => inscricaoMunicipal; set => inscricaoMunicipal = value; }
 
-        public ClientePJModel(int id, string email, string telefone, int cnpj, string nome, int inscEstadual, int inscMunicipal) : base (id, nome, telefone, email)
+        public ClientePJModel(string email, string telefone, int cnpj, string nome, int inscEstadual, int inscMunicipal) : base (nome, telefone, email)
         {
             Cnpj = cnpj;
             NomeFantasia = nome;
@@ -25,7 +25,6 @@ namespace FazendaSharpCity.Model
             InscricaoMunicipal = inscMunicipal;
             Email = email;
             Telefone = telefone;
-            IdCliente = id;
         }
     }
 }

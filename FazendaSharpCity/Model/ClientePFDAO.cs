@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FazendaSharpCity.Model
 {
-    internal class ClientePFDAO : IDAO
+    public class ClientePFDAO : IDAO
     {
 
         public NpgsqlConnection Connection { get; set; } = null;
@@ -17,7 +17,7 @@ namespace FazendaSharpCity.Model
         }
         public void Search(ClientePFModel cliente)
         {
-            string query = "SELECT * FROM Pessoas WHERE ID = @ID";
+            string query = "SELECT * FROM cliente WHERE ID = @ID";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
@@ -27,7 +27,7 @@ namespace FazendaSharpCity.Model
         }
         public void Insert(ClientePFModel cliente)
         {
-            string query = "INSERT INTO Pessoas (nome, CPF, RG, dtNasc, email, telefone) VALUES (@Nome, @CPF, @RG, @DtNasc, @email, @telefone)";
+            string query = "INSERT INTO cliente (nome, CPF, RG, dtNasc, email, telefone) VALUES (@Nome, @CPF, @RG, @DtNasc, @email, @telefone)";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
@@ -43,7 +43,7 @@ namespace FazendaSharpCity.Model
 
         public void Update(ClientePFModel cliente)
         {
-            string query = "UPDATE Pessoas (nome, sexo, CPF, RG, dtNasc, email, telefone) VALUES (@Nome, @Sexo, @CPF, @RG, @DtNasc, @email, @telefone)";
+            string query = "UPDATE cliente (nome, sexo, CPF, RG, dtNasc, email, telefone) VALUES (@Nome, @Sexo, @CPF, @RG, @DtNasc, @email, @telefone)";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
@@ -60,12 +60,23 @@ namespace FazendaSharpCity.Model
 
         public void Delete(ClientePFModel cliente)
         {
-            string query = "DELETE FROM Pessoas WHERE ID = @ID";
+            string query = "DELETE FROM cliente WHERE ID = @ID";
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
             c2.Parameters.AddWithValue("ID", cliente.IdCliente);
 
             c2.ExecuteNonQuery();
+        }
+        public System.Data.DataTable List()
+        {
+            string query = "SELECT * FROM cliente;";
+            NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+            System.Data.DataTable table = new System.Data.DataTable();
+            da.Fill(table);
+            return table;
         }
 
         private void Connect(string host, string port, string database, string user, string pass)

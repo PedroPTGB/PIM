@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FazendaSharpCity.Model
 {
-    internal class ClientePFModel : ClienteModel
+    public class ClientePFModel : ClienteModel
     {
         private int cpf;
         private string rg;
@@ -18,7 +18,7 @@ namespace FazendaSharpCity.Model
         public string Sexo { get => sexo; set => sexo = value; }
         public string DtNasc { get => dtNasc; set => dtNasc = value; }
 
-        public ClientePFModel(int id, int cpf, string rg, string sexo, string dtNasc, string nome, string telefone, string email) : base (id, nome, telefone, email)
+        public ClientePFModel(int cpf, string rg, string sexo, string dtNasc, string nome, string telefone, string email) : base (nome, telefone, email)
         {
             Cpf = cpf;
             Rg = rg;
@@ -27,7 +27,6 @@ namespace FazendaSharpCity.Model
             Nome = nome;
             Email = email;
             Telefone = telefone;
-            IdCliente = id;
         }
     }
 }
