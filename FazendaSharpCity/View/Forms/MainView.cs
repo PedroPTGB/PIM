@@ -56,14 +56,12 @@ namespace FazendaSharpCity
         private void btnCliente_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelSubMenuCliente);
-            LoadForm(new ClienteView());
+            
         }
 
         private void btnListaCliente_Click(object sender, EventArgs e)
         {
-            //...
-
-            //...
+            LoadForm(new ClienteView());
             HideSubMenu();
         }
         private void btnCadastraCliente_Click(object sender, EventArgs e)
