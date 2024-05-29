@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FazendaSharpCity.Controller;
 using FazendaSharpCity.Model;
+using Microsoft.VisualBasic;
 
 namespace FazendaSharpCity.View
 {
@@ -21,13 +22,25 @@ namespace FazendaSharpCity.View
             tabCliente.DataSource = BindList();
         }
 
-        ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "cliente", "postgres", "dbadmin");
-        //ClientePFModel cliente = new ClientePFModel();
+        ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            //cliente.Nome = txtPesquisa.Text.ToString();
-            //pfDao.Search(cliente);
+            ClientePFModel cliente = new ClientePFModel();
+
+            if (Information.IsNumeric(txtPesquisa.Text))
+            {
+                cliente.IdCliente = Convert.ToInt32(txtPesquisa.Text);
+            }
+            else
+            {
+                cliente.Nome = txtPesquisa.Text.ToLower();
+            }
+
+
+            System.Data.DataTable table = new System.Data.DataTable();
+            table = pfDao.Search(cliente);
+            tabCliente.DataSource = table;
         }
 
         public System.Data.DataTable BindList()
@@ -35,6 +48,12 @@ namespace FazendaSharpCity.View
             System.Data.DataTable table = new System.Data.DataTable();
             table = pfDao.List();
             return table;
+        }
+
+        private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnPesquisar_Click(sender, e);
         }
     }
 }

@@ -51,3 +51,4 @@ C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\refint
 C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.pdb
 C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.genruntimeconfig.cache
 C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\ref\FazendaSharpCity.dll
+C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.csproj.ResolveComReference.cache

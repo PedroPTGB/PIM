@@ -84,6 +84,7 @@
             txtPesquisa.Name = "txtPesquisa";
             txtPesquisa.Size = new Size(522, 27);
             txtPesquisa.TabIndex = 4;
+            txtPesquisa.KeyDown += txtPesquisa_KeyDown;
             // 
             // btnPesquisar
             // 

@@ -8,13 +8,11 @@ namespace FazendaSharpCity.Model
 {
     public class EnvolvidosModel
     {
-        private string nome;
-        private string telefone;
-        private string email;
+        public string Nome;
+        public string Telefone;
+        public string Email;
 
-        public string Nome { get => Nome; set => Nome = value; }
-        public string Telefone { get => Telefone; set => Telefone = value; }
-        public string Email { get => email; set => email = value; }
+        public EnvolvidosModel() { }
 
         public EnvolvidosModel(string nome, string telefone, string email) 
         { 

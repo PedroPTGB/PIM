@@ -15,15 +15,54 @@ namespace FazendaSharpCity.Model
         {
             Connect(host, port, database, user, pass);
         }
-        public void Search(ClientePFModel cliente)
+        public System.Data.DataTable Search(ClientePFModel cliente)
         {
-            string query = "SELECT * FROM cliente WHERE ID = @ID";
+            /*if(cliente.Nome == null) 
+            {
+                string query = "SELECT * FROM cliente WHERE idcliente = @ID;";
+
+                NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+                c2.Parameters.AddWithValue("ID", cliente.IdCliente);
+
+                System.Data.DataTable table = new System.Data.DataTable();
+                da.Fill(table);
+
+                return table;
+            }
+            else
+            {
+                string query = "SELECT * FROM cliente WHERE nome LIKE @Nome;";
+
+                NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+                c2.Parameters.AddWithValue("Nome", "%"+cliente.Nome+"%");
+
+                System.Data.DataTable table = new System.Data.DataTable();
+                da.Fill(table);
+
+                return table;
+            }*/
+
+            string query = "SELECT * FROM cliente WHERE idcliente = @ID OR nome LIKE @Nome;";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
-            c2.Parameters.AddWithValue("ID", cliente.IdCliente);
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
 
-            c2.ExecuteNonQuery();
+            c2.Parameters.AddWithValue("ID", cliente.IdCliente);
+            c2.Parameters.AddWithValue("Nome", "%" + cliente.Nome + "%");
+
+            System.Data.DataTable table = new System.Data.DataTable();
+            da.Fill(table);
+
+            return table;
+
+
         }
         public void Insert(ClientePFModel cliente)
         {

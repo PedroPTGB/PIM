@@ -18,6 +18,7 @@ namespace FazendaSharpCity.Model
         public string Sexo { get => sexo; set => sexo = value; }
         public string DtNasc { get => dtNasc; set => dtNasc = value; }
 
+        public ClientePFModel()  { }
         public ClientePFModel(int cpf, string rg, string sexo, string dtNasc, string nome, string telefone, string email) : base (nome, telefone, email)
         {
             Cpf = cpf;
