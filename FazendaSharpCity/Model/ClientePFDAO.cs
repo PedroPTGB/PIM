@@ -17,9 +17,9 @@ namespace FazendaSharpCity.Model
         }
         public System.Data.DataTable Search(ClientePFModel cliente)
         {
-            /*if(cliente.Nome == null) 
+            if(cliente.Nome == null) 
             {
-                string query = "SELECT * FROM cliente WHERE idcliente = @ID;";
+                string query = "SELECT * FROM cliente WHERE idcliente = @ID";
 
                 NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
@@ -34,7 +34,7 @@ namespace FazendaSharpCity.Model
             }
             else
             {
-                string query = "SELECT * FROM cliente WHERE nome LIKE @Nome;";
+                string query = "SELECT * FROM cliente WHERE nome LIKE @Nome";
 
                 NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
@@ -46,21 +46,7 @@ namespace FazendaSharpCity.Model
                 da.Fill(table);
 
                 return table;
-            }*/
-
-            string query = "SELECT * FROM cliente WHERE idcliente = @ID OR nome LIKE @Nome;";
-
-            NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
-
-            NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
-
-            c2.Parameters.AddWithValue("ID", cliente.IdCliente);
-            c2.Parameters.AddWithValue("Nome", "%" + cliente.Nome + "%");
-
-            System.Data.DataTable table = new System.Data.DataTable();
-            da.Fill(table);
-
-            return table;
+            }
 
 
         }
@@ -99,7 +85,7 @@ namespace FazendaSharpCity.Model
 
         public void Delete(ClientePFModel cliente)
         {
-            string query = "DELETE FROM cliente WHERE ID = @ID";
+            string query = "DELETE FROM cliente WHERE idcliente = @ID;";
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
             c2.Parameters.AddWithValue("ID", cliente.IdCliente);

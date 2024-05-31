@@ -21,6 +21,7 @@ namespace FazendaSharpCity.View
             InitializeComponent();
             tabCliente.DataSource = BindList();
         }
+        private int CellIndex;
 
         ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
 
@@ -55,5 +56,24 @@ namespace FazendaSharpCity.View
             if (e.KeyCode == Keys.Enter)
                 btnPesquisar_Click(sender, e);
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = tabCliente.Rows[CellIndex];
+
+            ClientePFModel cliente = new ClientePFModel();
+            cliente.IdCliente = (int)row.Cells[0].Value;
+
+            pfDao.Delete(cliente);
+
+            tabCliente.DataSource = BindList();
+        }
+
+        private void tabCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CellIndex = e.RowIndex;
+        }
+
+        
     }
 }
