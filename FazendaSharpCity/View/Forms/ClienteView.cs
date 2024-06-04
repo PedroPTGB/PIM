@@ -201,7 +201,7 @@ namespace FazendaSharpCity.View
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception(ex.Message);
+                        MessageBox.Show(ex.Message);
                         sucess = false;
                     }
                     if (sucess)
