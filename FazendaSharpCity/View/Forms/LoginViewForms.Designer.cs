@@ -46,12 +46,11 @@
             loginTbx.BackColor = Color.SeaGreen;
             loginTbx.Font = new Font("Corbel", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             loginTbx.ForeColor = SystemColors.Window;
-            loginTbx.Location = new Point(700, 245);
-            loginTbx.Margin = new Padding(3, 2, 3, 2);
+            loginTbx.Location = new Point(800, 327);
             loginTbx.Multiline = true;
             loginTbx.Name = "loginTbx";
             loginTbx.PlaceholderText = "        USUARIO";
-            loginTbx.Size = new Size(234, 54);
+            loginTbx.Size = new Size(267, 71);
             loginTbx.TabIndex = 3;
             loginTbx.TextChanged += loginTbx_TextChanged;
             // 
@@ -62,13 +61,12 @@
             senhaTbx.BackColor = Color.SeaGreen;
             senhaTbx.Font = new Font("Corbel", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             senhaTbx.ForeColor = SystemColors.Window;
-            senhaTbx.Location = new Point(700, 322);
-            senhaTbx.Margin = new Padding(3, 2, 3, 2);
+            senhaTbx.Location = new Point(800, 429);
             senhaTbx.Multiline = true;
             senhaTbx.Name = "senhaTbx";
             senhaTbx.PasswordChar = '*';
             senhaTbx.PlaceholderText = "          SENHA";
-            senhaTbx.Size = new Size(234, 53);
+            senhaTbx.Size = new Size(267, 69);
             senhaTbx.TabIndex = 4;
             senhaTbx.TextChanged += senhaTbx_TextChanged;
             // 
@@ -80,9 +78,9 @@
             linkLabel1.AutoSize = true;
             linkLabel1.BackColor = Color.Transparent;
             linkLabel1.LinkColor = Color.SeaGreen;
-            linkLabel1.Location = new Point(764, 442);
+            linkLabel1.Location = new Point(873, 589);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(97, 15);
+            linkLabel1.Size = new Size(122, 20);
             linkLabel1.TabIndex = 5;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Esqueceu Senha?";
@@ -96,9 +94,9 @@
             linkLabel2.AutoSize = true;
             linkLabel2.BackColor = Color.Transparent;
             linkLabel2.LinkColor = Color.SeaGreen;
-            linkLabel2.Location = new Point(778, 467);
+            linkLabel2.Location = new Point(889, 623);
             linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(67, 15);
+            linkLabel2.Size = new Size(83, 20);
             linkLabel2.TabIndex = 6;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Criar Conta";
@@ -109,9 +107,10 @@
             btnEntrar.AllowDrop = true;
             btnEntrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEntrar.BackColor = Color.SeaGreen;
-            btnEntrar.Location = new Point(737, 392);
+            btnEntrar.Location = new Point(842, 523);
+            btnEntrar.Margin = new Padding(3, 4, 3, 4);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(155, 40);
+            btnEntrar.Size = new Size(177, 53);
             btnEntrar.TabIndex = 7;
             btnEntrar.Text = "ENTRAR";
             btnEntrar.UseVisualStyleBackColor = false;
@@ -125,20 +124,20 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SeaGreen;
-            label1.Location = new Point(729, 162);
+            label1.Location = new Point(833, 216);
             label1.Name = "label1";
-            label1.Size = new Size(175, 56);
+            label1.Size = new Size(221, 70);
             label1.TabIndex = 8;
             label1.Text = "LOGIN";
             label1.Click += label1_Click;
             // 
             // LoginViewForms
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1184, 661);
+            ClientSize = new Size(1353, 881);
             Controls.Add(label1);
             Controls.Add(btnEntrar);
             Controls.Add(linkLabel2);
@@ -147,8 +146,8 @@
             Controls.Add(loginTbx);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginViewForms";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
             Load += LoginViewForms_Load;
             ResumeLayout(false);

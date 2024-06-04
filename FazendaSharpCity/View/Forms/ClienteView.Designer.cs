@@ -35,14 +35,18 @@
             txtPesquisa = new TextBox();
             btnPesquisar = new Button();
             tControlCliente = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            tpgListar = new TabPage();
+            tpgCadastro = new TabPage();
             panel3 = new Panel();
+            btnCancelar = new Button();
+            btnSalvar = new Button();
             lblTelefone = new Label();
             lblEmail = new Label();
-            textBox10 = new TextBox();
-            textBox9 = new TextBox();
+            txtTelefone = new TextBox();
+            txtEmail = new TextBox();
             panel2 = new Panel();
+            txtCidade = new TextBox();
+            lblCidade = new Label();
             lblComplemento = new Label();
             lblBairro = new Label();
             lblLogradouro = new Label();
@@ -59,20 +63,20 @@
             lblCpf = new Label();
             lblNome = new Label();
             panel5 = new Panel();
+            rdbPJ = new RadioButton();
+            rdbPF = new RadioButton();
             panel4 = new Panel();
+            rdbIndef = new RadioButton();
+            rdvFem = new RadioButton();
+            rdbMasc = new RadioButton();
             txtCpf = new TextBox();
             txtNome = new TextBox();
             txtId = new TextBox();
             lblId = new Label();
-            rdbPF = new RadioButton();
-            rdbPJ = new RadioButton();
-            rdbMasc = new RadioButton();
-            rdvFem = new RadioButton();
-            rdbIndef = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)tabCliente).BeginInit();
             tControlCliente.SuspendLayout();
-            tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
+            tpgListar.SuspendLayout();
+            tpgCadastro.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -94,34 +98,36 @@
             tabCliente.ReadOnly = true;
             tabCliente.RowHeadersWidth = 51;
             tabCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tabCliente.Size = new Size(531, 317);
+            tabCliente.Size = new Size(697, 440);
             tabCliente.TabIndex = 0;
             tabCliente.CellClick += tabCliente_CellClick;
             // 
             // btnAdicionar
             // 
             btnAdicionar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdicionar.Location = new Point(564, 79);
+            btnAdicionar.Location = new Point(742, 79);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(94, 29);
             btnAdicionar.TabIndex = 1;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
             // btnEditar
             // 
             btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnEditar.Location = new Point(564, 128);
+            btnEditar.Location = new Point(742, 128);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 2;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnExcluir
             // 
             btnExcluir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExcluir.Location = new Point(564, 178);
+            btnExcluir.Location = new Point(742, 178);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(94, 29);
             btnExcluir.TabIndex = 3;
@@ -131,16 +137,17 @@
             // 
             // txtPesquisa
             // 
+            txtPesquisa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPesquisa.Location = new Point(11, 26);
             txtPesquisa.Name = "txtPesquisa";
-            txtPesquisa.Size = new Size(531, 27);
+            txtPesquisa.Size = new Size(585, 27);
             txtPesquisa.TabIndex = 4;
             txtPesquisa.KeyDown += txtPesquisa_KeyDown;
             // 
             // btnPesquisar
             // 
             btnPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnPesquisar.Location = new Point(564, 24);
+            btnPesquisar.Location = new Point(614, 26);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(94, 29);
             btnPesquisar.TabIndex = 5;
@@ -150,59 +157,83 @@
             // 
             // tControlCliente
             // 
-            tControlCliente.Controls.Add(tabPage1);
-            tControlCliente.Controls.Add(tabPage2);
+            tControlCliente.Controls.Add(tpgListar);
+            tControlCliente.Controls.Add(tpgCadastro);
             tControlCliente.Dock = DockStyle.Fill;
             tControlCliente.Location = new Point(0, 0);
             tControlCliente.Name = "tControlCliente";
             tControlCliente.SelectedIndex = 0;
-            tControlCliente.Size = new Size(871, 565);
+            tControlCliente.Size = new Size(1063, 668);
             tControlCliente.TabIndex = 6;
             // 
-            // tabPage1
+            // tpgListar
             // 
-            tabPage1.Controls.Add(btnPesquisar);
-            tabPage1.Controls.Add(txtPesquisa);
-            tabPage1.Controls.Add(tabCliente);
-            tabPage1.Controls.Add(btnExcluir);
-            tabPage1.Controls.Add(btnAdicionar);
-            tabPage1.Controls.Add(btnEditar);
-            tabPage1.Location = new Point(4, 29);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(863, 532);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Listar";
-            tabPage1.UseVisualStyleBackColor = true;
+            tpgListar.Controls.Add(btnPesquisar);
+            tpgListar.Controls.Add(txtPesquisa);
+            tpgListar.Controls.Add(tabCliente);
+            tpgListar.Controls.Add(btnExcluir);
+            tpgListar.Controls.Add(btnAdicionar);
+            tpgListar.Controls.Add(btnEditar);
+            tpgListar.Location = new Point(4, 29);
+            tpgListar.Name = "tpgListar";
+            tpgListar.Padding = new Padding(3);
+            tpgListar.Size = new Size(1055, 635);
+            tpgListar.TabIndex = 0;
+            tpgListar.Text = "Listar";
+            tpgListar.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tpgCadastro
             // 
-            tabPage2.Controls.Add(panel3);
-            tabPage2.Controls.Add(panel2);
-            tabPage2.Controls.Add(panel1);
-            tabPage2.Controls.Add(txtId);
-            tabPage2.Controls.Add(lblId);
-            tabPage2.Location = new Point(4, 29);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(863, 532);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Cadastro";
-            tabPage2.UseVisualStyleBackColor = true;
+            tpgCadastro.Controls.Add(panel3);
+            tpgCadastro.Controls.Add(panel2);
+            tpgCadastro.Controls.Add(panel1);
+            tpgCadastro.Controls.Add(txtId);
+            tpgCadastro.Controls.Add(lblId);
+            tpgCadastro.Location = new Point(4, 29);
+            tpgCadastro.Name = "tpgCadastro";
+            tpgCadastro.Padding = new Padding(3);
+            tpgCadastro.Size = new Size(1055, 635);
+            tpgCadastro.TabIndex = 1;
+            tpgCadastro.Text = "Cadastro";
+            tpgCadastro.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.Controls.Add(btnCancelar);
+            panel3.Controls.Add(btnSalvar);
             panel3.Controls.Add(lblTelefone);
             panel3.Controls.Add(lblEmail);
-            panel3.Controls.Add(textBox10);
-            panel3.Controls.Add(textBox9);
-            panel3.Location = new Point(11, 368);
+            panel3.Controls.Add(txtTelefone);
+            panel3.Controls.Add(txtEmail);
+            panel3.Location = new Point(11, 440);
             panel3.Name = "panel3";
-            panel3.Size = new Size(847, 119);
+            panel3.Size = new Size(1038, 185);
             panel3.TabIndex = 4;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(373, 154);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(94, 29);
+            btnCancelar.TabIndex = 5;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnSalvar
+            // 
+            btnSalvar.Location = new Point(123, 149);
+            btnSalvar.Name = "btnSalvar";
+            btnSalvar.Size = new Size(94, 29);
+            btnSalvar.TabIndex = 4;
+            btnSalvar.Text = "Salvar";
+            btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // lblTelefone
             // 
+            lblTelefone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTelefone.AutoSize = true;
             lblTelefone.Location = new Point(3, 66);
             lblTelefone.Name = "lblTelefone";
@@ -212,6 +243,7 @@
             // 
             // lblEmail
             // 
+            lblEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblEmail.AutoSize = true;
             lblEmail.Location = new Point(3, 10);
             lblEmail.Name = "lblEmail";
@@ -219,22 +251,27 @@
             lblEmail.TabIndex = 2;
             lblEmail.Text = "Email";
             // 
-            // textBox10
+            // txtTelefone
             // 
-            textBox10.Location = new Point(3, 89);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(426, 27);
-            textBox10.TabIndex = 1;
+            txtTelefone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtTelefone.Location = new Point(3, 89);
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.Size = new Size(617, 27);
+            txtTelefone.TabIndex = 1;
             // 
-            // textBox9
+            // txtEmail
             // 
-            textBox9.Location = new Point(3, 33);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(426, 27);
-            textBox9.TabIndex = 0;
+            txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtEmail.Location = new Point(3, 33);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(617, 27);
+            txtEmail.TabIndex = 0;
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(txtCidade);
+            panel2.Controls.Add(lblCidade);
             panel2.Controls.Add(lblComplemento);
             panel2.Controls.Add(lblBairro);
             panel2.Controls.Add(lblLogradouro);
@@ -247,13 +284,31 @@
             panel2.Controls.Add(cBoxUF);
             panel2.Location = new Point(8, 240);
             panel2.Name = "panel2";
-            panel2.Size = new Size(849, 122);
+            panel2.Size = new Size(1041, 255);
             panel2.TabIndex = 3;
+            // 
+            // txtCidade
+            // 
+            txtCidade.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtCidade.Location = new Point(6, 155);
+            txtCidade.Name = "txtCidade";
+            txtCidade.Size = new Size(654, 27);
+            txtCidade.TabIndex = 17;
+            // 
+            // lblCidade
+            // 
+            lblCidade.AutoSize = true;
+            lblCidade.Location = new Point(6, 132);
+            lblCidade.Name = "lblCidade";
+            lblCidade.Size = new Size(56, 20);
+            lblCidade.TabIndex = 16;
+            lblCidade.Text = "Cidade";
             // 
             // lblComplemento
             // 
+            lblComplemento.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblComplemento.AutoSize = true;
-            lblComplemento.Location = new Point(364, 68);
+            lblComplemento.Location = new Point(556, 68);
             lblComplemento.Name = "lblComplemento";
             lblComplemento.Size = new Size(104, 20);
             lblComplemento.TabIndex = 15;
@@ -261,6 +316,7 @@
             // 
             // lblBairro
             // 
+            lblBairro.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblBairro.AutoSize = true;
             lblBairro.Location = new Point(6, 68);
             lblBairro.Name = "lblBairro";
@@ -270,6 +326,7 @@
             // 
             // lblLogradouro
             // 
+            lblLogradouro.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblLogradouro.AutoSize = true;
             lblLogradouro.Location = new Point(158, 8);
             lblLogradouro.Name = "lblLogradouro";
@@ -279,6 +336,7 @@
             // 
             // lblCep
             // 
+            lblCep.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblCep.AutoSize = true;
             lblCep.Location = new Point(6, 8);
             lblCep.Name = "lblCep";
@@ -288,8 +346,9 @@
             // 
             // lblUF
             // 
+            lblUF.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblUF.AutoSize = true;
-            lblUF.Location = new Point(768, 68);
+            lblUF.Location = new Point(666, 132);
             lblUF.Name = "lblUF";
             lblUF.Size = new Size(26, 20);
             lblUF.TabIndex = 11;
@@ -297,42 +356,47 @@
             // 
             // txtComplemento
             // 
-            txtComplemento.Location = new Point(364, 92);
+            txtComplemento.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtComplemento.Location = new Point(556, 92);
             txtComplemento.Name = "txtComplemento";
-            txtComplemento.Size = new Size(398, 27);
+            txtComplemento.Size = new Size(474, 27);
             txtComplemento.TabIndex = 3;
             // 
             // txtBairro
             // 
+            txtBairro.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtBairro.Location = new Point(6, 91);
             txtBairro.Name = "txtBairro";
-            txtBairro.Size = new Size(352, 27);
+            txtBairro.Size = new Size(544, 27);
             txtBairro.TabIndex = 2;
             // 
             // txtLogradouro
             // 
+            txtLogradouro.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtLogradouro.Location = new Point(158, 31);
             txtLogradouro.Name = "txtLogradouro";
-            txtLogradouro.Size = new Size(675, 27);
+            txtLogradouro.Size = new Size(866, 27);
             txtLogradouro.TabIndex = 1;
             // 
             // txtCep
             // 
             txtCep.Location = new Point(3, 31);
             txtCep.Name = "txtCep";
-            txtCep.Size = new Size(149, 27);
+            txtCep.Size = new Size(152, 27);
             txtCep.TabIndex = 0;
             // 
             // cBoxUF
             // 
+            cBoxUF.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cBoxUF.FormattingEnabled = true;
-            cBoxUF.Location = new Point(768, 91);
+            cBoxUF.Location = new Point(666, 155);
             cBoxUF.Name = "cBoxUF";
-            cBoxUF.Size = new Size(68, 28);
+            cBoxUF.Size = new Size(364, 28);
             cBoxUF.TabIndex = 7;
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.Controls.Add(dtPicker);
             panel1.Controls.Add(lblDtNasc);
             panel1.Controls.Add(lblCpf);
@@ -343,18 +407,25 @@
             panel1.Controls.Add(txtNome);
             panel1.Location = new Point(8, 39);
             panel1.Name = "panel1";
-            panel1.Size = new Size(849, 195);
+            panel1.Size = new Size(1041, 333);
             panel1.TabIndex = 2;
             // 
             // dtPicker
             // 
-            dtPicker.Location = new Point(0, 149);
+            dtPicker.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtPicker.CustomFormat = "dd/MM/yyyy";
+            dtPicker.Format = DateTimePickerFormat.Custom;
+            dtPicker.Location = new Point(3, 149);
+            dtPicker.MaxDate = new DateTime(2024, 6, 3, 0, 0, 0, 0);
+            dtPicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtPicker.Name = "dtPicker";
-            dtPicker.Size = new Size(299, 27);
+            dtPicker.Size = new Size(201, 27);
             dtPicker.TabIndex = 11;
+            dtPicker.Value = new DateTime(2024, 6, 3, 0, 0, 0, 0);
             // 
             // lblDtNasc
             // 
+            lblDtNasc.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblDtNasc.AutoSize = true;
             lblDtNasc.Location = new Point(3, 126);
             lblDtNasc.Name = "lblDtNasc";
@@ -364,6 +435,7 @@
             // 
             // lblCpf
             // 
+            lblCpf.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblCpf.AutoSize = true;
             lblCpf.Location = new Point(6, 63);
             lblCpf.Name = "lblCpf";
@@ -373,6 +445,7 @@
             // 
             // lblNome
             // 
+            lblNome.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblNome.AutoSize = true;
             lblNome.Location = new Point(6, 8);
             lblNome.Name = "lblNome";
@@ -384,33 +457,95 @@
             // 
             panel5.Controls.Add(rdbPJ);
             panel5.Controls.Add(rdbPF);
-            panel5.Location = new Point(530, 0);
+            panel5.Location = new Point(670, 0);
             panel5.Name = "panel5";
             panel5.Size = new Size(325, 83);
             panel5.TabIndex = 6;
+            // 
+            // rdbPJ
+            // 
+            rdbPJ.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rdbPJ.AutoSize = true;
+            rdbPJ.Location = new Point(178, 32);
+            rdbPJ.Name = "rdbPJ";
+            rdbPJ.Size = new Size(128, 24);
+            rdbPJ.TabIndex = 1;
+            rdbPJ.TabStop = true;
+            rdbPJ.Text = "Pessoa Jurídica";
+            rdbPJ.UseVisualStyleBackColor = true;
+            // 
+            // rdbPF
+            // 
+            rdbPF.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rdbPF.AutoSize = true;
+            rdbPF.Location = new Point(33, 32);
+            rdbPF.Name = "rdbPF";
+            rdbPF.Size = new Size(114, 24);
+            rdbPF.TabIndex = 0;
+            rdbPF.TabStop = true;
+            rdbPF.Text = "Pessoa Física";
+            rdbPF.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
             panel4.Controls.Add(rdbIndef);
             panel4.Controls.Add(rdvFem);
             panel4.Controls.Add(rdbMasc);
-            panel4.Location = new Point(530, 86);
+            panel4.Location = new Point(670, 86);
             panel4.Name = "panel4";
             panel4.Size = new Size(319, 109);
             panel4.TabIndex = 5;
             // 
+            // rdbIndef
+            // 
+            rdbIndef.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rdbIndef.AutoSize = true;
+            rdbIndef.Location = new Point(111, 63);
+            rdbIndef.Name = "rdbIndef";
+            rdbIndef.Size = new Size(98, 24);
+            rdbIndef.TabIndex = 2;
+            rdbIndef.TabStop = true;
+            rdbIndef.Text = "Indefinido";
+            rdbIndef.UseVisualStyleBackColor = true;
+            // 
+            // rdvFem
+            // 
+            rdvFem.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rdvFem.AutoSize = true;
+            rdvFem.Location = new Point(178, 16);
+            rdvFem.Name = "rdvFem";
+            rdvFem.Size = new Size(91, 24);
+            rdvFem.TabIndex = 1;
+            rdvFem.TabStop = true;
+            rdvFem.Text = "Feminino";
+            rdvFem.UseVisualStyleBackColor = true;
+            // 
+            // rdbMasc
+            // 
+            rdbMasc.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rdbMasc.AutoSize = true;
+            rdbMasc.Location = new Point(33, 16);
+            rdbMasc.Name = "rdbMasc";
+            rdbMasc.Size = new Size(97, 24);
+            rdbMasc.TabIndex = 0;
+            rdbMasc.TabStop = true;
+            rdbMasc.Text = "Masculino";
+            rdbMasc.UseVisualStyleBackColor = true;
+            // 
             // txtCpf
             // 
+            txtCpf.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtCpf.Location = new Point(3, 86);
             txtCpf.Name = "txtCpf";
-            txtCpf.Size = new Size(521, 27);
+            txtCpf.Size = new Size(621, 27);
             txtCpf.TabIndex = 1;
             // 
             // txtNome
             // 
+            txtNome.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtNome.Location = new Point(3, 31);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(521, 27);
+            txtNome.Size = new Size(621, 27);
             txtNome.TabIndex = 0;
             // 
             // txtId
@@ -429,76 +564,21 @@
             lblId.TabIndex = 0;
             lblId.Text = "ID";
             // 
-            // rdbPF
-            // 
-            rdbPF.AutoSize = true;
-            rdbPF.Location = new Point(33, 32);
-            rdbPF.Name = "rdbPF";
-            rdbPF.Size = new Size(114, 24);
-            rdbPF.TabIndex = 0;
-            rdbPF.TabStop = true;
-            rdbPF.Text = "Pessoa Física";
-            rdbPF.UseVisualStyleBackColor = true;
-            // 
-            // rdbPJ
-            // 
-            rdbPJ.AutoSize = true;
-            rdbPJ.Location = new Point(178, 32);
-            rdbPJ.Name = "rdbPJ";
-            rdbPJ.Size = new Size(128, 24);
-            rdbPJ.TabIndex = 1;
-            rdbPJ.TabStop = true;
-            rdbPJ.Text = "Pessoa Jurídica";
-            rdbPJ.UseVisualStyleBackColor = true;
-            // 
-            // rdbMasc
-            // 
-            rdbMasc.AutoSize = true;
-            rdbMasc.Location = new Point(33, 16);
-            rdbMasc.Name = "rdbMasc";
-            rdbMasc.Size = new Size(97, 24);
-            rdbMasc.TabIndex = 0;
-            rdbMasc.TabStop = true;
-            rdbMasc.Text = "Masculino";
-            rdbMasc.UseVisualStyleBackColor = true;
-            // 
-            // rdvFem
-            // 
-            rdvFem.AutoSize = true;
-            rdvFem.Location = new Point(178, 16);
-            rdvFem.Name = "rdvFem";
-            rdvFem.Size = new Size(91, 24);
-            rdvFem.TabIndex = 1;
-            rdvFem.TabStop = true;
-            rdvFem.Text = "Feminino";
-            rdvFem.UseVisualStyleBackColor = true;
-            // 
-            // rdbIndef
-            // 
-            rdbIndef.AutoSize = true;
-            rdbIndef.Location = new Point(111, 63);
-            rdbIndef.Name = "rdbIndef";
-            rdbIndef.Size = new Size(98, 24);
-            rdbIndef.TabIndex = 2;
-            rdbIndef.TabStop = true;
-            rdbIndef.Text = "Indefinido";
-            rdbIndef.UseVisualStyleBackColor = true;
-            // 
             // ClienteView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(871, 565);
+            ClientSize = new Size(1063, 668);
             Controls.Add(tControlCliente);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ClienteView";
             Text = "ClienteView";
             ((System.ComponentModel.ISupportInitialize)tabCliente).EndInit();
             tControlCliente.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
+            tpgListar.ResumeLayout(false);
+            tpgListar.PerformLayout();
+            tpgCadastro.ResumeLayout(false);
+            tpgCadastro.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
@@ -521,8 +601,8 @@
         private TextBox txtPesquisa;
         private Button btnPesquisar;
         private TabControl tControlCliente;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private TabPage tpgListar;
+        private TabPage tpgCadastro;
         private Label lblId;
         private Panel panel4;
         private Panel panel3;
@@ -543,8 +623,8 @@
         private Label lblNome;
         private Label lblTelefone;
         private Label lblEmail;
-        private TextBox textBox10;
-        private TextBox textBox9;
+        private TextBox txtTelefone;
+        private TextBox txtEmail;
         private Label lblComplemento;
         private Label lblBairro;
         private Label lblLogradouro;
@@ -555,5 +635,9 @@
         private RadioButton rdbIndef;
         private RadioButton rdvFem;
         private RadioButton rdbMasc;
+        private TextBox txtCidade;
+        private Label lblCidade;
+        private Button btnCancelar;
+        private Button btnSalvar;
     }
 }

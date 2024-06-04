@@ -14,6 +14,7 @@ namespace FazendaSharpCity.Model
         private string bairro;
         private string estado;
         private string cidade;
+        public string cep { get; set; }
 
         public string Logradouro {  get { return logradouro; } set { logradouro = value; } } 
         public string Numero { get {  return numero; } set {  numero = value; } }

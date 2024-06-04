@@ -310,6 +310,7 @@ namespace FazendaSharpCity
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             MinimumSize = new Size(1280, 720);
             Name = "MainView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FazendaSharpCity";
             panelLateral.ResumeLayout(false);
             panelSubMenuProduto.ResumeLayout(false);

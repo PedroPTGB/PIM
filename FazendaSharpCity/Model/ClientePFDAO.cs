@@ -50,35 +50,71 @@ namespace FazendaSharpCity.Model
 
 
         }
+
+        public EnderecoModel SearchEndereco(ClientePFModel cliente)
+        {
+            EnderecoModel endereco = new EnderecoModel();
+            string query = "SELECT cidade, bairro, logradouro, complemento, estado, cep FROM cliente WHERE idcliente = @ID";
+
+            NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+            c2.Parameters.AddWithValue("ID", cliente.IdCliente);
+            
+            NpgsqlDataReader reader = c2.ExecuteReader();
+
+            while (reader.Read())
+            {
+                endereco.Cidade = reader[0].ToString();
+                endereco.Bairro = reader[1].ToString();
+                endereco.Logradouro = reader[2].ToString();
+                endereco.Complemento = reader[3].ToString();
+                endereco.Estado = reader[4].ToString();
+                endereco.cep = reader[5].ToString();
+            }
+
+            reader.Close();
+
+
+            return endereco;
+        }
+        
         public void Insert(ClientePFModel cliente)
         {
-            string query = "INSERT INTO cliente (nome, CPF, RG, dtNasc, email, telefone) VALUES (@Nome, @CPF, @RG, @DtNasc, @email, @telefone)";
+            string query = "INSERT INTO cliente (nome, CPF, dtNasc, email, telefone, estado, cidade, bairro, logradouro, complemento, cep) VALUES (@Nome, @CPF, @DtNasc, @email, @telefone, @estado, @cidade, @bairro, @logradouro, @complemento, @cep)";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
             c2.Parameters.AddWithValue("Nome", cliente.Nome);
             c2.Parameters.AddWithValue("CPF", cliente.Cpf);
-            c2.Parameters.AddWithValue("RG", cliente.Rg);
             c2.Parameters.AddWithValue("dtNasc", cliente.DtNasc);
             c2.Parameters.AddWithValue("email", cliente.Email);
             c2.Parameters.AddWithValue("telefone", cliente.Telefone);
+            c2.Parameters.AddWithValue("estado", cliente.Endereco.Estado);
+            c2.Parameters.AddWithValue("cidade", cliente.Endereco.Cidade);
+            c2.Parameters.AddWithValue("bairro", cliente.Endereco.Bairro);
+            c2.Parameters.AddWithValue("logradouro", cliente.Endereco.Logradouro);
+            c2.Parameters.AddWithValue("complemento", cliente.Endereco.Complemento);
+            c2.Parameters.AddWithValue("cep", cliente.Endereco.cep);
 
             c2.ExecuteNonQuery();
         }
 
         public void Update(ClientePFModel cliente)
         {
-            string query = "UPDATE cliente (nome, sexo, CPF, RG, dtNasc, email, telefone) VALUES (@Nome, @Sexo, @CPF, @RG, @DtNasc, @email, @telefone)";
+            string query = "UPDATE cliente (nome, CPF, dtNasc, email, telefone, estado, cidade, bairro, logradouro, complemento, cep) VALUES (@Nome, @CPF, @DtNasc, @email, @telefone, @estado, @cidade, @bairro, @logradouro, @complemento, @cep)";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
             c2.Parameters.AddWithValue("Nome", cliente.Nome);
-            c2.Parameters.AddWithValue("Sexo", cliente.Sexo);
             c2.Parameters.AddWithValue("CPF", cliente.Cpf);
-            c2.Parameters.AddWithValue("RG", cliente.Rg);
             c2.Parameters.AddWithValue("dtNasc", cliente.DtNasc);
             c2.Parameters.AddWithValue("email", cliente.Email);
             c2.Parameters.AddWithValue("telefone", cliente.Telefone);
+            c2.Parameters.AddWithValue("estado", cliente.Endereco.Estado);
+            c2.Parameters.AddWithValue("cidade", cliente.Endereco.Cidade);
+            c2.Parameters.AddWithValue("bairro", cliente.Endereco.Bairro);
+            c2.Parameters.AddWithValue("logradouro", cliente.Endereco.Logradouro);
+            c2.Parameters.AddWithValue("complemento", cliente.Endereco.Complemento);
+            c2.Parameters.AddWithValue("cep", cliente.Endereco.cep);
 
             c2.ExecuteNonQuery();
         }
@@ -94,7 +130,7 @@ namespace FazendaSharpCity.Model
         }
         public System.Data.DataTable List()
         {
-            string query = "SELECT * FROM cliente;";
+            string query = "SELECT idcliente, nome, cpf, dtnascimento, email, telefone FROM cliente C INNER JOIN telefone T ON C.idtelefonecliente = T.idtelefone;";
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
