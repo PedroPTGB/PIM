@@ -56,42 +56,17 @@ namespace FazendaSharpCity
         private void btnCliente_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelSubMenuCliente);
-            
-        }
-
-        private void btnListaCliente_Click(object sender, EventArgs e)
-        {
             LoadForm(new ClienteView());
-            HideSubMenu();
-        }
-        private void btnCadastraCliente_Click(object sender, EventArgs e)
-        {
-            //...
 
-            //...
-            HideSubMenu();
         }
+
+        
         private void btnFornecedor_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelSubMenuFornecedor);
             LoadForm(new FornecedorView());
         }
 
-        private void btnListaFornecedor_Click(object sender, EventArgs e)
-        {
-            //...
-
-            //...
-            HideSubMenu();
-        }
-
-        private void btnCadastraFornecedor_Click(object sender, EventArgs e)
-        {
-            //...
-
-            //...
-            HideSubMenu();
-        }
 
         private void btnProduto_Click(object sender, EventArgs e)
         {
@@ -99,21 +74,6 @@ namespace FazendaSharpCity
             LoadForm(new ProdutoView());
         }
 
-        private void btnListaProduto_Click(object sender, EventArgs e)
-        {
-            //...
-            
-            //...
-            HideSubMenu();
-        }
-
-        private void btnCadastraProduto_Click(object sender, EventArgs e)
-        {
-            //...
-            
-            //...
-            HideSubMenu();
-        }
 
     }
 }
