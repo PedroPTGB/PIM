@@ -98,14 +98,14 @@
             tabCliente.ReadOnly = true;
             tabCliente.RowHeadersWidth = 51;
             tabCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tabCliente.Size = new Size(697, 440);
+            tabCliente.Size = new Size(854, 548);
             tabCliente.TabIndex = 0;
             tabCliente.CellClick += tabCliente_CellClick;
             // 
             // btnAdicionar
             // 
             btnAdicionar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdicionar.Location = new Point(742, 79);
+            btnAdicionar.Location = new Point(923, 79);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(94, 29);
             btnAdicionar.TabIndex = 1;
@@ -116,7 +116,7 @@
             // btnEditar
             // 
             btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnEditar.Location = new Point(742, 128);
+            btnEditar.Location = new Point(923, 127);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 2;
@@ -127,7 +127,7 @@
             // btnExcluir
             // 
             btnExcluir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExcluir.Location = new Point(742, 178);
+            btnExcluir.Location = new Point(923, 175);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(94, 29);
             btnExcluir.TabIndex = 3;
@@ -140,14 +140,14 @@
             txtPesquisa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPesquisa.Location = new Point(11, 26);
             txtPesquisa.Name = "txtPesquisa";
-            txtPesquisa.Size = new Size(585, 27);
+            txtPesquisa.Size = new Size(737, 27);
             txtPesquisa.TabIndex = 4;
             txtPesquisa.KeyDown += txtPesquisa_KeyDown;
             // 
             // btnPesquisar
             // 
             btnPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnPesquisar.Location = new Point(614, 26);
+            btnPesquisar.Location = new Point(771, 25);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(94, 29);
             btnPesquisar.TabIndex = 5;
@@ -213,7 +213,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(373, 154);
+            btnCancelar.Location = new Point(379, 149);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 29);
             btnCancelar.TabIndex = 5;
@@ -284,7 +284,7 @@
             panel2.Controls.Add(cBoxUF);
             panel2.Location = new Point(8, 240);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1041, 255);
+            panel2.Size = new Size(1041, 194);
             panel2.TabIndex = 3;
             // 
             // txtCidade
@@ -292,7 +292,7 @@
             txtCidade.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtCidade.Location = new Point(6, 155);
             txtCidade.Name = "txtCidade";
-            txtCidade.Size = new Size(654, 27);
+            txtCidade.Size = new Size(910, 27);
             txtCidade.TabIndex = 17;
             // 
             // lblCidade
@@ -348,7 +348,7 @@
             // 
             lblUF.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblUF.AutoSize = true;
-            lblUF.Location = new Point(666, 132);
+            lblUF.Location = new Point(922, 132);
             lblUF.Name = "lblUF";
             lblUF.Size = new Size(26, 20);
             lblUF.TabIndex = 11;
@@ -357,7 +357,7 @@
             // txtComplemento
             // 
             txtComplemento.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtComplemento.Location = new Point(556, 92);
+            txtComplemento.Location = new Point(556, 91);
             txtComplemento.Name = "txtComplemento";
             txtComplemento.Size = new Size(474, 27);
             txtComplemento.TabIndex = 3;
@@ -389,9 +389,9 @@
             // 
             cBoxUF.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cBoxUF.FormattingEnabled = true;
-            cBoxUF.Location = new Point(666, 155);
+            cBoxUF.Location = new Point(922, 155);
             cBoxUF.Name = "cBoxUF";
-            cBoxUF.Size = new Size(364, 28);
+            cBoxUF.Size = new Size(108, 28);
             cBoxUF.TabIndex = 7;
             // 
             // panel1
@@ -455,6 +455,7 @@
             // 
             // panel5
             // 
+            panel5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel5.Controls.Add(rdbPJ);
             panel5.Controls.Add(rdbPF);
             panel5.Location = new Point(670, 0);
@@ -488,6 +489,7 @@
             // 
             // panel4
             // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel4.Controls.Add(rdbIndef);
             panel4.Controls.Add(rdvFem);
             panel4.Controls.Add(rdbMasc);
@@ -552,6 +554,7 @@
             // 
             txtId.Location = new Point(38, 6);
             txtId.Name = "txtId";
+            txtId.ReadOnly = true;
             txtId.Size = new Size(125, 27);
             txtId.TabIndex = 1;
             // 

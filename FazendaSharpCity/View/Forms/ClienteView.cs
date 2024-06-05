@@ -145,7 +145,7 @@ namespace FazendaSharpCity.View
             dtPicker.Text = cliente.DtNasc;
             txtCep.Text = cliente.Endereco.cep;
             txtLogradouro.Text = cliente.Endereco.Logradouro;
-            txtBairro.Text = cliente.Endereco.Bairro;
+            txtBairro.Text = cliente.Endereco.bairro;
             txtComplemento.Text = cliente.Endereco.Complemento;
             txtCidade.Text = cliente.Endereco.Cidade;
 
@@ -170,6 +170,21 @@ namespace FazendaSharpCity.View
             Edita = false;
             tControlCliente.TabPages.Remove(tpgListar);
             tControlCliente.TabPages.Add(tpgCadastro);
+
+            txtId.Text = "";
+            txtNome.Text = "";
+            txtCpf.Text = "";
+            dtPicker.Text = "";
+            txtCep.Text = "";
+            txtLogradouro.Text = "";
+            txtBairro.Text = "";
+            txtComplemento.Text = "";
+            txtCidade.Text = "";
+
+            cBoxUF.SelectedItem = -1;
+
+            txtEmail.Text = "";
+            txtTelefone.Text = "";
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -188,7 +203,7 @@ namespace FazendaSharpCity.View
                     cliente.DtNasc = dtPicker.Text;
                     cliente.Endereco.cep = txtCep.Text;
                     cliente.Endereco.Logradouro = txtLogradouro.Text;
-                    cliente.Endereco.Bairro = txtBairro.Text;
+                    cliente.Endereco.bairro = txtBairro.Text;
                     cliente.Endereco.Complemento = txtComplemento.Text;
                     cliente.Endereco.Cidade = txtCidade.Text;
                     cliente.Endereco.Estado = cBoxUF.Text;
@@ -201,7 +216,7 @@ namespace FazendaSharpCity.View
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        throw new Exception(ex.Message);
                         sucess = false;
                     }
                     if (sucess)
@@ -211,6 +226,14 @@ namespace FazendaSharpCity.View
                     else
                     {
                         MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                    }
+
+                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (r == DialogResult.Yes)
+                    {
+                        tControlCliente.TabPages.Remove(tpgCadastro);
+                        tControlCliente.TabPages.Add(tpgListar);
+                        tabCliente.DataSource = BindList();
                     }
                 }
             }
@@ -224,7 +247,7 @@ namespace FazendaSharpCity.View
                     cliente.DtNasc = dtPicker.Text;
                     cliente.Endereco.cep = txtCep.Text.ToString();
                     cliente.Endereco.Logradouro = txtLogradouro.Text;
-                    cliente.Endereco.Bairro = txtBairro.Text;
+                    cliente.Endereco.bairro = txtBairro.Text;
                     cliente.Endereco.Complemento = txtComplemento.Text;
                     cliente.Endereco.Cidade = txtCidade.Text;
                     cliente.Endereco.Estado = cBoxUF.Text;
@@ -237,7 +260,7 @@ namespace FazendaSharpCity.View
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        throw new Exception(ex.Message);
                         sucess = false;
                     }
                     if (sucess)
@@ -248,7 +271,16 @@ namespace FazendaSharpCity.View
                     {
                         MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
                     }
-                    
+
+                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (r == DialogResult.Yes)
+                    {
+                        tControlCliente.TabPages.Remove(tpgCadastro);
+                        tControlCliente.TabPages.Add(tpgListar);
+                        tabCliente.DataSource = BindList();
+                    }
+
+
                 }
             }
 
@@ -258,6 +290,7 @@ namespace FazendaSharpCity.View
         {
             tControlCliente.TabPages.Remove(tpgCadastro);
             tControlCliente.TabPages.Add(tpgListar);
+            tabCliente.DataSource = BindList();
         }
     }
 }
