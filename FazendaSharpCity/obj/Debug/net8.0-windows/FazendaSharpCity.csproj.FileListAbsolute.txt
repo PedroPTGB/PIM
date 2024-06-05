@@ -52,3 +52,31 @@ C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\Fazend
 C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.genruntimeconfig.cache
 C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\ref\FazendaSharpCity.dll
 C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.csproj.ResolveComReference.cache
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.csproj.AssemblyReference.cache
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.csproj.ResolveComReference.cache
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.Properties.Resources.resources
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.View.ClienteView.resources
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.View.FornecedorView.resources
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.View.LoginViewForms.resources
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.MainView.resources
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.View.ProdutoView.resources
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.csproj.GenerateResource.cache
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.AssemblyInfoInputs.cache
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.AssemblyInfo.cs
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.csproj.CoreCompileInputs.cache
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.sourcelink.json
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.dll
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\refint\FazendaSharpCity.dll
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.pdb
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\bin\Debug\net8.0-windows\FazendaSharpCity.exe
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\bin\Debug\net8.0-windows\FazendaSharpCity.deps.json
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\bin\Debug\net8.0-windows\FazendaSharpCity.runtimeconfig.json
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\bin\Debug\net8.0-windows\FazendaSharpCity.dll
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\bin\Debug\net8.0-windows\FazendaSharpCity.pdb
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\bin\Debug\net8.0-windows\Npgsql.dll
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaS.AFA13FB6.Up2Date
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.genruntimeconfig.cache
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\ref\FazendaSharpCity.dll

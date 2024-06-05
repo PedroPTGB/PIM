@@ -56,7 +56,7 @@ namespace FazendaSharpCity.View
         private int CellIndex;
         private bool Edita;
 
-        ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
+        ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "pim", "postgres", "2709");
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -197,7 +197,7 @@ namespace FazendaSharpCity.View
                 var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    cliente.IdCliente  = Convert.ToInt32(txtId.Text);
+                    cliente.IdCliente = Convert.ToInt32(txtId.Text);
                     cliente.Nome = txtNome.Text;
                     cliente.Cpf = txtCpf.Text;
                     cliente.DtNasc = dtPicker.Text;
@@ -292,5 +292,6 @@ namespace FazendaSharpCity.View
             tControlCliente.TabPages.Add(tpgListar);
             tabCliente.DataSource = BindList();
         }
+
     }
 }

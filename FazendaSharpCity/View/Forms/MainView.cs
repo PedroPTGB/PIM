@@ -26,27 +26,17 @@ namespace FazendaSharpCity
         
         private void CostumizeDesign()
         {
-            panelSubMenuCliente.Visible = false;
-            panelSubMenuFornecedor.Visible = false;
-            panelSubMenuProduto.Visible = false;
+            
             //...
         }
 
-        private void HideSubMenu()
-        {
-            if (panelSubMenuCliente.Visible == true)
-                panelSubMenuCliente.Visible = false;
-            if (panelSubMenuFornecedor.Visible == true)
-                panelSubMenuFornecedor.Visible = false;
-            if (panelSubMenuProduto.Visible == true)
-                panelSubMenuProduto.Visible = false;
-        }
+       
 
         private void ShowSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
             {
-                HideSubMenu();
+                
                 subMenu.Visible = true;
             }
             else
@@ -55,7 +45,7 @@ namespace FazendaSharpCity
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(panelSubMenuCliente);
+            
             LoadForm(new ClienteView());
 
         }
@@ -63,14 +53,14 @@ namespace FazendaSharpCity
         
         private void btnFornecedor_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(panelSubMenuFornecedor);
+            
             LoadForm(new FornecedorView());
         }
 
 
         private void btnProduto_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(panelSubMenuProduto);
+           
             LoadForm(new ProdutoView());
         }
 
