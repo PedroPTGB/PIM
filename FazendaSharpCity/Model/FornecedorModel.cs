@@ -8,24 +8,25 @@ namespace FazendaSharpCity.Model
 {
     public class FornecedorModel : EnvolvidosModel
     {
-        private int idFornecedor;
-        private int cnpj;
-        private int inscricaoEstadual;
-        private int inscricaoMunicipal;
-        private string nomeFantasia;
+        public EnderecoModel Endereco { get; set; }
 
-        public int IdFornecedor { get => idFornecedor; set => idFornecedor = value; }
-        public int Cnpj { get => cnpj; set => cnpj = value; }
-        public int InscricaoEstadual { get => inscricaoEstadual; set => inscricaoEstadual = value; }
-        public int InscricaoMunicipal { get => inscricaoMunicipal; set => inscricaoMunicipal = value; }
+
+        public int idFornecedor { get; set; }
+        public string cnpj {  get; set; }
+        public string razaoSocial { get; set; }
+
+        private string nomeFantasia;
         public string NomeFantasia { get => Nome; set => Nome = value; }
 
-        public FornecedorModel(string email, string telefone, int idFornecedor, int cnpj, int inscricaoEstadual, int inscriaoMunicipal, string nome) : base (nome, telefone, email)
+        public FornecedorModel() 
         {
-            IdFornecedor = idFornecedor;
-            Cnpj = cnpj;
-            InscricaoEstadual = inscricaoEstadual;
-            InscricaoMunicipal = inscricaoMunicipal;
+            EnderecoModel Endereco = new EnderecoModel();
+        }
+
+        public FornecedorModel(string email, string telefone, int id, string CNPJ, string nome) : base (nome, telefone, email)
+        {
+            idFornecedor = id;
+            cnpj = CNPJ;
             NomeFantasia = nome;
             Email = email;
             Telefone = telefone;

@@ -19,7 +19,7 @@ namespace FazendaSharpCity.Model
         {
             if(cliente.Nome == null) 
             {
-                string query = "SELECT * FROM cliente WHERE idcliente = @ID";
+                string query = "SELECT idcliente, nome, cpf, dtnascimento, email, telefone FROM cliente C INNER JOIN telefone T ON C.idtelefonecliente = T.idtelefone WHERE C.idcliente = @ID ORDER BY C.idcliente ;";
 
                 NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
@@ -34,7 +34,7 @@ namespace FazendaSharpCity.Model
             }
             else
             {
-                string query = "SELECT * FROM cliente WHERE nome ILIKE ANY (ARRAY[@Nome, @Nome2, @Nome3]);";
+                string query = "SELECT idcliente, nome, cpf, dtnascimento, email, telefone FROM cliente C INNER JOIN telefone T ON C.idtelefonecliente = T.idtelefone WHERE C.nome ILIKE ANY (ARRAY[@Nome, @Nome2, @Nome3]) ORDER BY C.idcliente;";
 
                 NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 

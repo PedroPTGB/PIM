@@ -56,7 +56,7 @@ namespace FazendaSharpCity.View
         private int CellIndex;
         private bool Edita;
 
-        ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "pim", "postgres", "2709");
+        ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
