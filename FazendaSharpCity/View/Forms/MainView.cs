@@ -54,14 +54,14 @@ namespace FazendaSharpCity
         private void btnFornecedor_Click(object sender, EventArgs e)
         {
             
-            LoadForm(new FornecedorView());
+            LoadForm(new ProdutoView());
         }
 
 
         private void btnProduto_Click(object sender, EventArgs e)
         {
            
-            LoadForm(new ProdutoView());
+            LoadForm(new FornecedorView());
         }
 
 

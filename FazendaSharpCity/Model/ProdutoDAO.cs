@@ -18,48 +18,97 @@ namespace FazendaSharpCity.Model
         }
 
 
-        public void Search(ProdutoModel produto)
+        public System.Data.DataTable Search(ProdutoModel produto)
         {
-            string query = "SELECT * FROM Produtos WHERE ID = @ID";
+            if (produto.nome == null)
+            {
+                string query = "SELECT * FROM produto WHERE idproduto = @ID ORDER BY idproduto;";
 
+                NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+                c2.Parameters.AddWithValue("ID", produto.idProduto);
+
+                System.Data.DataTable table = new System.Data.DataTable();
+                da.Fill(table);
+
+                return table;
+            }
+            else
+            {
+                string query = "SELECT * FROM produto WHERE produto.produto ILIKE ANY (ARRAY[@Nome, @Nome2, @Nome3]) ORDER BY idproduto;";
+
+                NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+                c2.Parameters.AddWithValue("Nome", "%" + produto.nome + "%");
+                c2.Parameters.AddWithValue("Nome2", produto.nome + "%");
+                c2.Parameters.AddWithValue("Nome3", "%" + produto.nome);
+
+
+                System.Data.DataTable table = new System.Data.DataTable();
+                da.Fill(table);
+
+                return table;
+            }
+
+        }
+
+        public System.Data.DataTable List()
+        {
+            string query = "SELECT * FROM produto ORDER BY idproduto;";
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
-            c2.Parameters.AddWithValue("ID", produto.IdProduto);
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
 
-            c2.ExecuteNonQuery();
+            System.Data.DataTable table = new System.Data.DataTable();
+            da.Fill(table);
+            return table;
         }
+
         public void Insert(ProdutoModel produto)
         {
-            string query = "INSERT INTO Produtos (produto, preco, tipoProduto) VALUES (@Nome, @Preco, @TipoProduto)";
+            string query = "INSERT INTO Produtos (produto, qtdproduto, validade, preco, descricao ) VALUES (@Nome, @QTD, @Validade, @Preco, @Descricao)";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
-            c2.Parameters.AddWithValue("Nome", produto.Nome);
-            c2.Parameters.AddWithValue("Preco", produto.Preco);
-            c2.Parameters.AddWithValue("TipoProduto", produto.TipoProduto);
+            c2.Parameters.AddWithValue("Nome", produto.nome);
+            c2.Parameters.AddWithValue("QTD", produto.qtd);
+            c2.Parameters.AddWithValue("Validade", produto.validade);
+            c2.Parameters.AddWithValue("Preco", produto.preco);
+            c2.Parameters.AddWithValue("Descricao", produto.qtd);
 
             c2.ExecuteNonQuery();
         }
 
         public void Update(ProdutoModel produto)
         {
-            string query = "UPDATE Produtos (produto, preco, tipoProduto) VALUES (@Nome, @Preco, @TipoProduto)";
+            string query = "UPDATE Produtos SET" +
+                "produto = @Nome, " +
+                "qtdproduto = @QTD, " +
+                "validade = @Validade" +
+                "preco = @preco, " +
+                "descricao = @Descricao";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
-            c2.Parameters.AddWithValue("Nome", produto.Nome);
-            c2.Parameters.AddWithValue("Preco", produto.Preco);
-            c2.Parameters.AddWithValue("TipoProduto", produto.TipoProduto);
+            c2.Parameters.AddWithValue("Nome", produto.nome);
+            c2.Parameters.AddWithValue("QTD", produto.qtd);
+            c2.Parameters.AddWithValue("Validade", produto.validade);
+            c2.Parameters.AddWithValue("Preco", produto.preco);
+            c2.Parameters.AddWithValue("Descricao", produto.qtd);
 
             c2.ExecuteNonQuery();
         }
 
         public void Delete(ProdutoModel produto)
         {
-            string query = "DELETE FROM Produtos WHERE ID = @ID";
+            string query = "DELETE FROM Produtos WHERE idproduto = @ID";
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
-            c2.Parameters.AddWithValue("ID", produto.IdProduto);
+            c2.Parameters.AddWithValue("ID", produto.idProduto);
 
             c2.ExecuteNonQuery();
         }

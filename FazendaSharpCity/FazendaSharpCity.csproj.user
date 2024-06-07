@@ -5,7 +5,7 @@
     <Compile Update="View\Forms\ClienteView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Forms\FornecedorView.cs">
+    <Compile Update="View\Forms\ProdutoView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Forms\LoginViewForms.cs">
@@ -14,7 +14,7 @@
     <Compile Update="View\Forms\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Forms\ProdutoView.cs">
+    <Compile Update="View\Forms\FornecedorView.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
