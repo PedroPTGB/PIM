@@ -10,13 +10,13 @@ namespace FazendaSharpCity
             CostumizeDesign();
         }
 
-        public void LoadForm(object Form)
+        public void LoadForm(object form)
         {
             if (this.pictureBox2.Controls.Count > 0)
             {
                 this.pictureBox2.Controls.RemoveAt(0);
             }
-            Form f = Form as Form;
+            Form f = form as Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
             this.pictureBox2.Controls.Add(f);
