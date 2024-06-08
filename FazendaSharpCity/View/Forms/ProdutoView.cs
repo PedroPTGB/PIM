@@ -23,7 +23,7 @@ namespace FazendaSharpCity.View
         private int CellIndex = 0;
         private bool Edita;
 
-        ProdutoDAO pDao = new ProdutoDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
+        ProdutoDAO pDao = new ProdutoDAO("localhost", "5432", "pim", "postgres", "2709");
 
         public System.Data.DataTable BindList()
         {

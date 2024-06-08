@@ -12,15 +12,15 @@ namespace FazendaSharpCity
 
         public void LoadForm(object Form)
         {
-            if (this.panelViewChange.Controls.Count > 0)
+            if (this.pictureBox2.Controls.Count > 0)
             {
-                this.panelViewChange.Controls.RemoveAt(0);
+                this.pictureBox2.Controls.RemoveAt(0);
             }
             Form f = Form as Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
-            this.panelViewChange.Controls.Add(f);
-            this.panelViewChange.Tag = f;
+            this.pictureBox2.Controls.Add(f);
+            this.pictureBox2.Tag = f;
             f.Show();
         }
 
