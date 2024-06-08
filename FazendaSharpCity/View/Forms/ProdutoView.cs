@@ -20,7 +20,7 @@ namespace FazendaSharpCity.View
             tabProduto.DataSource = BindList();
             tabControllerProduto.TabPages.Remove(tabPageCadastro);
         }
-        private int CellIndex;
+        private int CellIndex = 0;
         private bool Edita;
 
         ProdutoDAO pDao = new ProdutoDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
@@ -32,7 +32,7 @@ namespace FazendaSharpCity.View
             return table;
         }
 
-        private void tabCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void tabProduto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = tabProduto.Rows[e.RowIndex];
             CellIndex = e.RowIndex;
@@ -56,6 +56,11 @@ namespace FazendaSharpCity.View
             table = pDao.Search(produto);
             tabProduto.DataSource = table;
         }
+        private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnPesquisar_Click(sender, e);
+        }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -70,6 +75,7 @@ namespace FazendaSharpCity.View
                 pDao.Delete(produto);
 
                 tabProduto.DataSource = BindList();
+                CellIndex = 0;
             }
         }
 
@@ -86,6 +92,129 @@ namespace FazendaSharpCity.View
             dtPickerValidade.Text = "";
             txtDescricao.Text = "";
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Edita = true;
+            DataGridViewRow row = tabProduto.Rows[CellIndex];
+            ProdutoModel produto = new ProdutoModel();
+
+            produto.idProduto = (int)row.Cells[0].Value;
+            produto.nome = (string)row.Cells[1].Value;
+            produto.qtd = (int)row.Cells[2].Value;
+            produto.validade = (DateTime)row.Cells[3].Value;
+            produto.preco = (decimal)row.Cells[4].Value;
+            produto.descricao = (string)row.Cells[5].Value;
+
+            tabControllerProduto.TabPages.Remove(tabPageListar);
+            tabControllerProduto.TabPages.Add(tabPageCadastro);
+
+            txtId.Text = produto.idProduto.ToString();
+            txtNome.Text = produto.nome;
+            txtQtd.Text = produto.qtd.ToString();
+            txtPreco.Text = produto.preco.ToString();
+            dtPickerValidade.Text = produto.validade.ToString();
+            txtDescricao.Text = produto.descricao;
+
+
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            bool sucess = true;
+            ProdutoModel produto = new ProdutoModel();
+
+            if (Edita)
+            {
+                var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+
+                    produto.idProduto = Convert.ToInt32(txtId.Text);
+                    produto.nome = txtNome.Text;
+                    produto.qtd = Convert.ToInt32(txtQtd.Text);
+                    produto.preco = (decimal)float.Parse(txtPreco.Text);
+                    produto.validade = dtPickerValidade.Value;
+                    produto.descricao = txtDescricao.Text;
+
+
+                    try
+                    {
+                        pDao.Update(produto);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                        sucess = false;
+                    }
+                    if (sucess)
+                    {
+                        MessageBox.Show("Alteração realizada com sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                    }
+
+                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (r == DialogResult.Yes)
+                    {
+                        tabControllerProduto.TabPages.Remove(tabPageCadastro);
+                        tabControllerProduto.TabPages.Add(tabPageListar);
+                        tabProduto.DataSource = BindList();
+                    }
+                }
+            }
+            else
+            {
+                var result = MessageBox.Show("Deseja adicionar novo produto?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    produto.nome = txtNome.Text;
+                    produto.qtd = Convert.ToInt32(txtQtd.Text);
+                    produto.preco = (decimal)float.Parse(txtPreco.Text);
+                    produto.validade = dtPickerValidade.Value;
+                    produto.descricao = txtDescricao.Text;
+
+                    try
+                    {
+                        pDao.Insert(produto);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                        sucess = false;
+                    }
+                    if (sucess)
+                    {
+                        MessageBox.Show("Produto adicionado com sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                    }
+
+                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (r == DialogResult.Yes)
+                    {
+                        tabControllerProduto.TabPages.Remove(tabPageCadastro);
+                        tabControllerProduto.TabPages.Add(tabPageListar);
+                        tabProduto.DataSource = BindList();
+                    }
+
+
+                }
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            tabControllerProduto.TabPages.Add(tabPageListar);
+            tabControllerProduto.TabPages.Remove(tabPageCadastro);
+            tabProduto.DataSource = BindList();
+        }
+
     }
 
 }

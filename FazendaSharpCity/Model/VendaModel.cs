@@ -8,19 +8,11 @@ namespace FazendaSharpCity.Model
 {
     internal class VendaModel
     {
-        private int idCliente;
-        private int idProduto;
-        private int idFornecedor;
+        public int idVenda {  get; set; }
+        public float precoUnit { get; set; }
+        public DateTime dtVenda { get; set; }
+        public string formaPag {  get; set; }
+        public int qtd {  get; set; }
 
-        public int IdCliente { get => idCliente; set => idCliente = value; }
-        public int IdProduto { get => idProduto; set => idProduto = value; }
-        public int IdFornecedor { get => idFornecedor; set => idFornecedor = value; }
-        
-        public VendaModel(int idCliente, int idProduto, int idFornecedor) 
-        {
-            IdCliente = idCliente;
-            IdProduto = idProduto;
-            IdFornecedor= idFornecedor;
-        } 
     }
 }

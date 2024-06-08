@@ -81,3 +81,4 @@ C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-wind
 C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.genruntimeconfig.cache
 C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\ref\FazendaSharpCity.dll
 C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.VendasView.resources
+C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.VendasView.resources

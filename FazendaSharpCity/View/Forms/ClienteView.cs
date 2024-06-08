@@ -53,10 +53,10 @@ namespace FazendaSharpCity.View
             cBoxUF.Items.Add("TO");
 
         }
-        private int CellIndex;
+        private int CellIndex = 0;
         private bool Edita;
 
-        ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "pim", "postgres", "2709");
+        ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -104,6 +104,8 @@ namespace FazendaSharpCity.View
                 pfDao.Delete(cliente);
 
                 tabCliente.DataSource = BindList();
+
+                CellIndex = 0;
             }
         }
 

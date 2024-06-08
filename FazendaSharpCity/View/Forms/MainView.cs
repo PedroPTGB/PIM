@@ -9,7 +9,7 @@ namespace FazendaSharpCity
             InitializeComponent();
             CostumizeDesign();
         }
-        
+
         public void LoadForm(object Form)
         {
             if (this.panelViewChange.Controls.Count > 0)
@@ -23,20 +23,20 @@ namespace FazendaSharpCity
             this.panelViewChange.Tag = f;
             f.Show();
         }
-        
+
         private void CostumizeDesign()
         {
-            
+
             //...
         }
 
-       
+
 
         private void ShowSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
             {
-                
+
                 subMenu.Visible = true;
             }
             else
@@ -45,25 +45,28 @@ namespace FazendaSharpCity
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            
+
             LoadForm(new ClienteView());
 
         }
 
-        
+
         private void btnFornecedor_Click(object sender, EventArgs e)
         {
-            
-            LoadForm(new ProdutoView());
+
+            LoadForm(new FornecedorView());
         }
 
 
         private void btnProduto_Click(object sender, EventArgs e)
         {
-           
-            LoadForm(new FornecedorView());
+
+            LoadForm(new ProdutoView());
         }
 
-
+        private void btnVendas_Click(object sender, EventArgs e)
+        {
+            LoadForm(new VendasView());
+        }
     }
 }
