@@ -23,13 +23,5 @@ namespace FazendaSharpCity.Model
             EnderecoModel Endereco = new EnderecoModel();
         }
 
-        public FornecedorModel(string email, string telefone, int id, string CNPJ, string nome) : base (nome, telefone, email)
-        {
-            idFornecedor = id;
-            cnpj = CNPJ;
-            NomeFantasia = nome;
-            Email = email;
-            Telefone = telefone;
-        }
     }
 }

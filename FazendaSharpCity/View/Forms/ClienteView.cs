@@ -76,6 +76,11 @@ namespace FazendaSharpCity.View
             table = pfDao.Search(cliente);
             tabCliente.DataSource = table;
         }
+        private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnPesquisar_Click(sender, e);
+        }
 
         public System.Data.DataTable BindList()
         {
@@ -84,11 +89,6 @@ namespace FazendaSharpCity.View
             return table;
         }
 
-        private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                btnPesquisar_Click(sender, e);
-        }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -290,9 +290,28 @@ namespace FazendaSharpCity.View
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            tControlCliente.TabPages.Remove(tpgCadastro);
-            tControlCliente.TabPages.Add(tpgListar);
-            tabCliente.DataSource = BindList();
+            var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (r == DialogResult.Yes)
+            {
+                txtId.Text = "";
+                txtNome.Text = "";
+                txtCpf.Text = "";
+                dtPicker.Text = "";
+                txtCep.Text = "";
+                txtLogradouro.Text = "";
+                txtBairro.Text = "";
+                txtComplemento.Text = "";
+                txtCidade.Text = "";
+
+                cBoxUF.SelectedItem = -1;
+
+                txtEmail.Text = "";
+                txtTelefone.Text = "";
+
+                tControlCliente.TabPages.Remove(tpgCadastro);
+                tControlCliente.TabPages.Add(tpgListar);
+                tabCliente.DataSource = BindList();
+            }
         }
 
     }

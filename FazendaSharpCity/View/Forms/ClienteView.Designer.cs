@@ -37,13 +37,13 @@
             tControlCliente = new TabControl();
             tpgListar = new TabPage();
             tpgCadastro = new TabPage();
-            panel3 = new Panel();
             btnCancelar = new Button();
-            btnSalvar = new Button();
+            panel3 = new Panel();
             lblTelefone = new Label();
             lblEmail = new Label();
             txtTelefone = new TextBox();
             txtEmail = new TextBox();
+            btnSalvar = new Button();
             panel2 = new Panel();
             txtCidade = new TextBox();
             lblCidade = new Label();
@@ -176,7 +176,7 @@
             tpgListar.Controls.Add(btnEditar);
             tpgListar.Location = new Point(4, 29);
             tpgListar.Name = "tpgListar";
-            tpgListar.Padding = new Padding(3, 3, 3, 3);
+            tpgListar.Padding = new Padding(3);
             tpgListar.Size = new Size(1055, 635);
             tpgListar.TabIndex = 0;
             tpgListar.Text = "Listar";
@@ -184,20 +184,30 @@
             // 
             // tpgCadastro
             // 
+            tpgCadastro.Controls.Add(btnSalvar);
             tpgCadastro.Controls.Add(btnCancelar);
             tpgCadastro.Controls.Add(panel3);
-            tpgCadastro.Controls.Add(btnSalvar);
             tpgCadastro.Controls.Add(panel2);
             tpgCadastro.Controls.Add(panel1);
             tpgCadastro.Controls.Add(txtId);
             tpgCadastro.Controls.Add(lblId);
             tpgCadastro.Location = new Point(4, 29);
             tpgCadastro.Name = "tpgCadastro";
-            tpgCadastro.Padding = new Padding(3, 3, 3, 3);
+            tpgCadastro.Padding = new Padding(3);
             tpgCadastro.Size = new Size(1055, 635);
             tpgCadastro.TabIndex = 1;
             tpgCadastro.Text = "Cadastro";
             tpgCadastro.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(505, 584);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(94, 29);
+            btnCancelar.TabIndex = 5;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // panel3
             // 
@@ -210,26 +220,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1038, 127);
             panel3.TabIndex = 4;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.Location = new Point(505, 584);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(94, 29);
-            btnCancelar.TabIndex = 5;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
-            // 
-            // btnSalvar
-            // 
-            btnSalvar.Location = new Point(137, 584);
-            btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(94, 29);
-            btnSalvar.TabIndex = 4;
-            btnSalvar.Text = "Salvar";
-            btnSalvar.UseVisualStyleBackColor = true;
-            btnSalvar.Click += btnSalvar_Click;
             // 
             // lblTelefone
             // 
@@ -266,6 +256,16 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(617, 27);
             txtEmail.TabIndex = 0;
+            // 
+            // btnSalvar
+            // 
+            btnSalvar.Location = new Point(137, 584);
+            btnSalvar.Name = "btnSalvar";
+            btnSalvar.Size = new Size(94, 29);
+            btnSalvar.TabIndex = 4;
+            btnSalvar.Text = "Salvar";
+            btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // panel2
             // 
