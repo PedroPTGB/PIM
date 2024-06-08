@@ -18,7 +18,7 @@ namespace FazendaSharpCity
         {
             InitializeComponent();
             tabVendas.DataSource = BindList();
-            tabControllerVendas.TabPages.Remove(tabPageCadastro);
+            tabControllerVendas.TabPages.Remove(tabPageListar);
         }
 
         private int CellIndex = 0;
@@ -73,7 +73,7 @@ namespace FazendaSharpCity
             txtQtd.Text = "";
             txtFormaPag.Text = "";
             dtPickerDataVenda.Text = "";
-            txtTotal.Text = "";
+            txtTotal.Text = "R$0.00";
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace FazendaSharpCity
             txtQtd.Text = venda.Qtd.ToString();
             txtFormaPag.Text = venda.FormaPag;
             dtPickerDataVenda.Text = venda.DtVenda.ToString();
-            txtTotal.Text = ObterTotal().ToString();
+            txtTotal.Text = "R$" + ObterTotal().ToString();
         }
 
 
@@ -167,8 +167,7 @@ namespace FazendaSharpCity
                 var result = MessageBox.Show("Deseja cadastrar a venda?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    venda.IdVenda = Convert.ToInt32(txtId.Text);
-                    venda.PrecoUnit = Convert.ToInt32(txtPrecoUnit.Text);
+                    venda.PrecoUnit = float.Parse(txtPrecoUnit.Text);
                     venda.DtVenda = dtPickerDataVenda.Value;
                     venda.FormaPag = txtFormaPag.Text;
                     venda.Qtd = Convert.ToInt32(txtQtd.Text);
@@ -185,20 +184,17 @@ namespace FazendaSharpCity
                     if (sucess)
                     {
                         MessageBox.Show("Venda cadastrada com sucesso!");
+                        txtId.Text = "";
+                        txtPrecoUnit.Text = "";
+                        txtQtd.Text = "";
+                        txtFormaPag.Text = "";
+                        dtPickerDataVenda.Text = "";
+                        txtTotal.Text = "R$0.00";
                     }
                     else
                     {
                         MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
                     }
-
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tabControllerVendas.TabPages.Remove(tabPageCadastro);
-                        tabControllerVendas.TabPages.Add(tabPageListar);
-                        tabVendas.DataSource = BindList();
-                    }
-
 
                 }
             }
@@ -214,7 +210,7 @@ namespace FazendaSharpCity
                 txtQtd.Text = "";
                 txtFormaPag.Text = "";
                 dtPickerDataVenda.Text = "";
-                txtTotal.Text = "";
+                txtTotal.Text = "R$0.00";
             }
         }
         private float ObterTotal()
@@ -226,7 +222,7 @@ namespace FazendaSharpCity
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            txtTotal.Text = ObterTotal().ToString();
+            txtTotal.Text = "R$" + ObterTotal().ToString();
         }
 
         private void btnListar_Click(object sender, EventArgs e)

@@ -55,7 +55,7 @@ namespace FazendaSharpCity.Model
             c2.Parameters.AddWithValue("PrecoU", venda.PrecoUnit);
             c2.Parameters.AddWithValue("DtVenda", venda.DtVenda);
             c2.Parameters.AddWithValue("FormPag", venda.FormaPag);
-            c2.Parameters.AddWithValue("QTD", venda.qtd);
+            c2.Parameters.AddWithValue("QTD", venda.Qtd);
 
             c2.ExecuteNonQuery();
         }

@@ -218,6 +218,7 @@
             // 
             txtId.Location = new Point(9, 37);
             txtId.Name = "txtId";
+            txtId.ReadOnly = true;
             txtId.Size = new Size(125, 27);
             txtId.TabIndex = 11;
             // 
@@ -246,6 +247,7 @@
             txtTotal.Location = new Point(8, 35);
             txtTotal.Multiline = true;
             txtTotal.Name = "txtTotal";
+            txtTotal.ReadOnly = true;
             txtTotal.Size = new Size(1003, 71);
             txtTotal.TabIndex = 3;
             // 

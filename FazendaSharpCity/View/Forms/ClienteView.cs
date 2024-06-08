@@ -56,7 +56,7 @@ namespace FazendaSharpCity.View
         private int CellIndex = 0;
         private bool Edita;
 
-        ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "pim", "postgres", "2709");
+        ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -290,39 +290,35 @@ namespace FazendaSharpCity.View
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (r == DialogResult.Yes)
-            {
                 
-                var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do cliente serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (c == DialogResult.Yes)
-                {
-                    txtId.Text = "";
-                    txtNome.Text = "";
-                    txtCpf.Text = "";
-                    dtPicker.Text = "";
-                    txtCep.Text = "";
-                    txtLogradouro.Text = "";
-                    txtBairro.Text = "";
-                    txtComplemento.Text = "";
-                    txtCidade.Text = "";
+            var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do cliente serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (c == DialogResult.Yes)
+            {
+                txtId.Text = "";
+                txtNome.Text = "";
+                txtCpf.Text = "";
+                dtPicker.Text = "";
+                txtCep.Text = "";
+                txtLogradouro.Text = "";
+                txtBairro.Text = "";
+                txtComplemento.Text = "";
+                txtCidade.Text = "";
 
-                    cBoxUF.SelectedItem = -1;
+                cBoxUF.SelectedItem = -1;
 
-                    txtEmail.Text = "";
-                    txtTelefone.Text = "";
-                }
+                txtEmail.Text = "";
+                txtTelefone.Text = "";
 
-                var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (r == DialogResult.Yes)
+                var f = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (f == DialogResult.Yes)
                 {
                     tControlCliente.TabPages.Remove(tpgCadastro);
                     tControlCliente.TabPages.Add(tpgListar);
                     tabCliente.DataSource = BindList();
                 }
 
-                
             }
+            
         }
 
     }

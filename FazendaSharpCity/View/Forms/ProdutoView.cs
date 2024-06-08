@@ -18,12 +18,12 @@ namespace FazendaSharpCity.View
         {
             InitializeComponent();
             tabProduto.DataSource = BindList();
-            tabControllerProduto.TabPages.Remove(tabPageListar);
+            tabControllerProduto.TabPages.Remove(tabPageCadastro);
         }
         private int CellIndex = 0;
         private bool Edita;
 
-        ProdutoDAO pDao = new ProdutoDAO("localhost", "5432", "pim", "postgres", "2709");
+        ProdutoDAO pDao = new ProdutoDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
 
         public System.Data.DataTable BindList()
         {
@@ -41,7 +41,7 @@ namespace FazendaSharpCity.View
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            VendaModel produto = new VendaModel();
+            ProdutoModel produto = new ProdutoModel();
 
             if (Information.IsNumeric(txtPesquisa.Text))
             {
@@ -67,7 +67,7 @@ namespace FazendaSharpCity.View
             {
                 DataGridViewRow row = tabProduto.Rows[CellIndex];
 
-                VendaModel produto = new VendaModel();
+                ProdutoModel produto = new ProdutoModel();
                 produto.idProduto = (int)row.Cells[0].Value;
 
                 pDao.Delete(produto);
@@ -95,7 +95,7 @@ namespace FazendaSharpCity.View
         {
             Edita = true;
             DataGridViewRow row = tabProduto.Rows[CellIndex];
-            VendaModel produto = new VendaModel();
+            ProdutoModel produto = new ProdutoModel();
 
             produto.idProduto = (int)row.Cells[0].Value;
             produto.nome = (string)row.Cells[1].Value;
@@ -121,7 +121,7 @@ namespace FazendaSharpCity.View
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             bool sucess = true;
-            VendaModel produto = new VendaModel();
+            ProdutoModel produto = new ProdutoModel();
 
             if (Edita)
             {

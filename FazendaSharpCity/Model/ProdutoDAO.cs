@@ -18,7 +18,7 @@ namespace FazendaSharpCity.Model
         }
 
 
-        public System.Data.DataTable Search(VendaModel produto)
+        public System.Data.DataTable Search(ProdutoModel produto)
         {
             if (produto.nome == null)
             {
@@ -68,7 +68,7 @@ namespace FazendaSharpCity.Model
             return table;
         }
 
-        public void Insert(VendaModel produto)
+        public void Insert(ProdutoModel produto)
         {
             string query = "INSERT INTO produto (produto, qtdproduto, validade, preco, descricao ) VALUES (@Nome, @QTD, @Validade, @Preco, @Descricao)";
 
@@ -83,7 +83,7 @@ namespace FazendaSharpCity.Model
             c2.ExecuteNonQuery();
         }
 
-        public void Update(VendaModel produto)
+        public void Update(ProdutoModel produto)
         {
             string query = "UPDATE produto SET " +
                 "produto = @Nome, " +
@@ -105,7 +105,7 @@ namespace FazendaSharpCity.Model
             c2.ExecuteNonQuery();
         }
 
-        public void Delete(VendaModel produto)
+        public void Delete(ProdutoModel produto)
         {
             string query = "DELETE FROM produto WHERE idproduto = @ID";
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
