@@ -18,7 +18,7 @@ namespace FazendaSharpCity.View
         {
             InitializeComponent();
             tabProduto.DataSource = BindList();
-            tabControllerProduto.TabPages.Remove(tabPageCadastro);
+            tabControllerProduto.TabPages.Remove(tabPageListar);
         }
         private int CellIndex = 0;
         private bool Edita;
@@ -41,16 +41,14 @@ namespace FazendaSharpCity.View
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            ProdutoModel produto = new ProdutoModel();
+            VendaModel produto = new VendaModel();
 
             if (Information.IsNumeric(txtPesquisa.Text))
             {
                 produto.idProduto = Convert.ToInt32(txtPesquisa.Text);
             }
-            else
-            {
-                produto.nome = txtPesquisa.Text.ToLower();
-            }
+            else { }
+            
 
             System.Data.DataTable table = new System.Data.DataTable();
             table = pDao.Search(produto);
@@ -69,7 +67,7 @@ namespace FazendaSharpCity.View
             {
                 DataGridViewRow row = tabProduto.Rows[CellIndex];
 
-                ProdutoModel produto = new ProdutoModel();
+                VendaModel produto = new VendaModel();
                 produto.idProduto = (int)row.Cells[0].Value;
 
                 pDao.Delete(produto);
@@ -97,7 +95,7 @@ namespace FazendaSharpCity.View
         {
             Edita = true;
             DataGridViewRow row = tabProduto.Rows[CellIndex];
-            ProdutoModel produto = new ProdutoModel();
+            VendaModel produto = new VendaModel();
 
             produto.idProduto = (int)row.Cells[0].Value;
             produto.nome = (string)row.Cells[1].Value;
@@ -123,7 +121,7 @@ namespace FazendaSharpCity.View
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             bool sucess = true;
-            ProdutoModel produto = new ProdutoModel();
+            VendaModel produto = new VendaModel();
 
             if (Edita)
             {
@@ -210,12 +208,16 @@ namespace FazendaSharpCity.View
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            txtId.Text = "";
-            txtNome.Text = "";
-            txtQtd.Text = "";
-            txtPreco.Text = "";
-            dtPickerValidade.Text = "";
-            txtDescricao.Text = "";
+            var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do produto serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (c == DialogResult.Yes)
+            {
+                txtId.Text = "";
+                txtNome.Text = "";
+                txtQtd.Text = "";
+                txtPreco.Text = "";
+                dtPickerValidade.Text = "";
+                txtDescricao.Text = "";
+            }
 
             var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (r == DialogResult.Yes)

@@ -25,7 +25,7 @@ namespace FazendaSharpCity.Model
 
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
 
-            c2.Parameters.AddWithValue("ID", venda.idVenda);
+            c2.Parameters.AddWithValue("ID", venda.IdVenda);
 
             System.Data.DataTable table = new System.Data.DataTable();
             da.Fill(table);
@@ -52,9 +52,9 @@ namespace FazendaSharpCity.Model
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
-            c2.Parameters.AddWithValue("PrecoU", venda.precoUnit);
-            c2.Parameters.AddWithValue("DtVenda", venda.dtVenda);
-            c2.Parameters.AddWithValue("FormPag", venda.formaPag);
+            c2.Parameters.AddWithValue("PrecoU", venda.PrecoUnit);
+            c2.Parameters.AddWithValue("DtVenda", venda.DtVenda);
+            c2.Parameters.AddWithValue("FormPag", venda.FormaPag);
             c2.Parameters.AddWithValue("QTD", venda.qtd);
 
             c2.ExecuteNonQuery();
@@ -71,11 +71,11 @@ namespace FazendaSharpCity.Model
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
-            c2.Parameters.AddWithValue("ID", venda.idVenda);
-            c2.Parameters.AddWithValue("PrecoU", venda.precoUnit);
-            c2.Parameters.AddWithValue("DtVenda", venda.dtVenda);
-            c2.Parameters.AddWithValue("FormPag", venda.formaPag);
-            c2.Parameters.AddWithValue("QTD", venda.qtd);
+            c2.Parameters.AddWithValue("ID", venda.IdVenda);
+            c2.Parameters.AddWithValue("PrecoU", venda.PrecoUnit);
+            c2.Parameters.AddWithValue("DtVenda", venda.DtVenda);
+            c2.Parameters.AddWithValue("FormPag", venda.FormaPag);
+            c2.Parameters.AddWithValue("QTD", venda.Qtd);
 
             c2.ExecuteNonQuery();
         }
@@ -85,7 +85,7 @@ namespace FazendaSharpCity.Model
             string query = "DELETE FROM venda WHERE idvenda = @ID";
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
-            c2.Parameters.AddWithValue("ID", venda.idVenda);
+            c2.Parameters.AddWithValue("ID", venda.IdVenda);
 
             c2.ExecuteNonQuery();
         }

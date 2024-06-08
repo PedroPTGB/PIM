@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FazendaSharpCity.Model
 {
-    public class ProdutoModel
+    public class VendaModel
     {
         public int idProduto {  get; set; }
         public string nome {  get; set; }

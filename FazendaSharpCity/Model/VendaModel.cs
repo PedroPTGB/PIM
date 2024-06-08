@@ -8,11 +8,11 @@ namespace FazendaSharpCity.Model
 {
     internal class VendaModel
     {
-        public int idVenda {  get; set; }
-        public float precoUnit { get; set; }
-        public DateTime dtVenda { get; set; }
-        public string formaPag {  get; set; }
-        public int qtd {  get; set; }
+        public int IdVenda {  get; set; }
+        public float PrecoUnit { get; set; }
+        public DateTime DtVenda { get; set; }
+        public string FormaPag {  get; set; }
+        public int Qtd {  get; set; }
 
     }
 }
