@@ -20,5 +20,8 @@
     <Compile Update="View\Forms\FornecedorView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Forms\VendasViewFunci.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

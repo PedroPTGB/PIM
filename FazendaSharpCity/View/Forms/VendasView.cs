@@ -184,17 +184,32 @@ namespace FazendaSharpCity
                     if (sucess)
                     {
                         MessageBox.Show("Venda cadastrada com sucesso!");
-                        txtId.Text = "";
-                        txtPrecoUnit.Text = "";
-                        txtQtd.Text = "";
-                        txtFormaPag.Text = "";
-                        dtPickerDataVenda.Text = "";
-                        txtTotal.Text = "R$0.00";
                     }
                     else
                     {
                         MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
                     }
+
+                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (r == DialogResult.Yes)
+                    {
+                        tabControllerVendas.TabPages.Remove(tabPageCadastro);
+                        tabControllerVendas.TabPages.Add(tabPageListar);
+                        tabVendas.DataSource = BindList();
+                    }
+                    else
+                    {
+                        if (sucess)
+                        {
+                            txtId.Text = "";
+                            txtPrecoUnit.Text = "";
+                            txtQtd.Text = "";
+                            txtFormaPag.Text = "";
+                            dtPickerDataVenda.Text = "";
+                            txtTotal.Text = "R$0.00";
+                        }
+                    }
+
 
                 }
             }
