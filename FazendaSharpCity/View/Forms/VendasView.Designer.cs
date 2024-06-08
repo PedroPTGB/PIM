@@ -28,331 +28,353 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            tabControllerVendas = new TabControl();
+            tabPageListar = new TabPage();
+            tabVendas = new DataGridView();
+            btnPesquisar = new Button();
+            txtPesquisa = new TextBox();
             btnExcluir = new Button();
             btnAdicionar = new Button();
             btnEditar = new Button();
-            btnPesquisar = new Button();
-            txtPesquisa = new TextBox();
-            tabCliente = new DataGridView();
-            txtId = new TextBox();
-            panel3 = new Panel();
-            txtDescricao = new TextBox();
-            lblDescricao = new Label();
-            lblId = new Label();
-            panel2 = new Panel();
-            dtPickerValidade = new DateTimePicker();
-            lblValidade = new Label();
-            panel1 = new Panel();
-            txtPreco = new TextBox();
-            txtQtd = new TextBox();
-            lblPreco = new Label();
-            txtNome = new TextBox();
-            lblQtd = new Label();
-            lblNome = new Label();
+            tabPageCadastro = new TabPage();
+            btnListar = new Button();
             btnCancelar = new Button();
             btnSalvar = new Button();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)tabCliente).BeginInit();
+            txtId = new TextBox();
+            panel3 = new Panel();
+            btnCalcular = new Button();
+            txtTotal = new TextBox();
+            lblTotal = new Label();
+            lblId = new Label();
+            panel2 = new Panel();
+            dtPickerDataVenda = new DateTimePicker();
+            lblDataVenda = new Label();
+            panel1 = new Panel();
+            txtFormaPag = new TextBox();
+            txtQtd = new TextBox();
+            lblFormaPag = new Label();
+            txtPrecoUnit = new TextBox();
+            lblQtd = new Label();
+            lblPrecoUnit = new Label();
+            tabControllerVendas.SuspendLayout();
+            tabPageListar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tabVendas).BeginInit();
+            tabPageCadastro.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // tabControl1
+            // tabControllerVendas
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(0, 0);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(975, 619);
-            tabControl1.TabIndex = 0;
+            tabControllerVendas.Controls.Add(tabPageListar);
+            tabControllerVendas.Controls.Add(tabPageCadastro);
+            tabControllerVendas.Dock = DockStyle.Fill;
+            tabControllerVendas.Location = new Point(0, 0);
+            tabControllerVendas.Margin = new Padding(3, 4, 3, 4);
+            tabControllerVendas.Name = "tabControllerVendas";
+            tabControllerVendas.SelectedIndex = 0;
+            tabControllerVendas.Size = new Size(1114, 825);
+            tabControllerVendas.TabIndex = 0;
             // 
-            // tabPage1
+            // tabPageListar
             // 
-            tabPage1.Controls.Add(tabCliente);
-            tabPage1.Controls.Add(btnPesquisar);
-            tabPage1.Controls.Add(txtPesquisa);
-            tabPage1.Controls.Add(btnExcluir);
-            tabPage1.Controls.Add(btnAdicionar);
-            tabPage1.Controls.Add(btnEditar);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(967, 591);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
-           
+            tabPageListar.Controls.Add(tabVendas);
+            tabPageListar.Controls.Add(btnPesquisar);
+            tabPageListar.Controls.Add(txtPesquisa);
+            tabPageListar.Controls.Add(btnExcluir);
+            tabPageListar.Controls.Add(btnAdicionar);
+            tabPageListar.Controls.Add(btnEditar);
+            tabPageListar.Location = new Point(4, 29);
+            tabPageListar.Margin = new Padding(3, 4, 3, 4);
+            tabPageListar.Name = "tabPageListar";
+            tabPageListar.Padding = new Padding(3, 4, 3, 4);
+            tabPageListar.Size = new Size(1106, 792);
+            tabPageListar.TabIndex = 0;
+            tabPageListar.Text = "Listar";
+            tabPageListar.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tabVendas
             // 
-            tabPage2.Controls.Add(btnCancelar);
-            tabPage2.Controls.Add(btnSalvar);
-            tabPage2.Controls.Add(txtId);
-            tabPage2.Controls.Add(panel3);
-            tabPage2.Controls.Add(lblId);
-            tabPage2.Controls.Add(panel2);
-            tabPage2.Controls.Add(panel1);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(967, 591);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnExcluir
-            // 
-            btnExcluir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExcluir.Location = new Point(842, 117);
-            btnExcluir.Margin = new Padding(3, 2, 3, 2);
-            btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(82, 22);
-            btnExcluir.TabIndex = 12;
-            btnExcluir.Text = "Excluir";
-            btnExcluir.UseVisualStyleBackColor = true;
-            // 
-            // btnAdicionar
-            // 
-            btnAdicionar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdicionar.Location = new Point(842, 46);
-            btnAdicionar.Margin = new Padding(3, 2, 3, 2);
-            btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(82, 22);
-            btnAdicionar.TabIndex = 10;
-            btnAdicionar.Text = "Adicionar";
-            btnAdicionar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnEditar.Location = new Point(842, 82);
-            btnEditar.Margin = new Padding(3, 2, 3, 2);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(82, 22);
-            btnEditar.TabIndex = 11;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            tabVendas.AllowUserToAddRows = false;
+            tabVendas.AllowUserToDeleteRows = false;
+            tabVendas.AllowUserToResizeColumns = false;
+            tabVendas.AllowUserToResizeRows = false;
+            tabVendas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tabVendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tabVendas.Location = new Point(27, 61);
+            tabVendas.MultiSelect = false;
+            tabVendas.Name = "tabVendas";
+            tabVendas.ReadOnly = true;
+            tabVendas.RowHeadersWidth = 51;
+            tabVendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            tabVendas.Size = new Size(910, 667);
+            tabVendas.TabIndex = 15;
+            tabVendas.CellClick += tabVendas_CellClick;
             // 
             // btnPesquisar
             // 
             btnPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnPesquisar.Location = new Point(685, 16);
-            btnPesquisar.Margin = new Padding(3, 2, 3, 2);
+            btnPesquisar.Location = new Point(783, 21);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(84, 26);
+            btnPesquisar.Size = new Size(96, 35);
             btnPesquisar.TabIndex = 14;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.Click += btnPesquisar_Click;
             // 
             // txtPesquisa
             // 
             txtPesquisa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtPesquisa.Location = new Point(24, 17);
-            txtPesquisa.Margin = new Padding(3, 2, 3, 2);
+            txtPesquisa.Location = new Point(27, 23);
             txtPesquisa.Name = "txtPesquisa";
-            txtPesquisa.Size = new Size(645, 23);
+            txtPesquisa.Size = new Size(737, 27);
             txtPesquisa.TabIndex = 13;
+            txtPesquisa.KeyDown += txtPesquisa_KeyDown;
             // 
-            // tabCliente
+            // btnExcluir
             // 
-            tabCliente.AllowUserToAddRows = false;
-            tabCliente.AllowUserToDeleteRows = false;
-            tabCliente.AllowUserToResizeColumns = false;
-            tabCliente.AllowUserToResizeRows = false;
-            tabCliente.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tabCliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tabCliente.Location = new Point(24, 46);
-            tabCliente.Margin = new Padding(3, 2, 3, 2);
-            tabCliente.MultiSelect = false;
-            tabCliente.Name = "tabCliente";
-            tabCliente.ReadOnly = true;
-            tabCliente.RowHeadersWidth = 51;
-            tabCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tabCliente.Size = new Size(796, 500);
-            tabCliente.TabIndex = 15;
+            btnExcluir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExcluir.Location = new Point(962, 156);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(94, 29);
+            btnExcluir.TabIndex = 12;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
+            // btnAdicionar
+            // 
+            btnAdicionar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdicionar.Location = new Point(962, 61);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(94, 29);
+            btnAdicionar.TabIndex = 10;
+            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEditar.Location = new Point(962, 109);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(94, 29);
+            btnEditar.TabIndex = 11;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // tabPageCadastro
+            // 
+            tabPageCadastro.Controls.Add(btnListar);
+            tabPageCadastro.Controls.Add(btnCancelar);
+            tabPageCadastro.Controls.Add(btnSalvar);
+            tabPageCadastro.Controls.Add(txtId);
+            tabPageCadastro.Controls.Add(panel3);
+            tabPageCadastro.Controls.Add(lblId);
+            tabPageCadastro.Controls.Add(panel2);
+            tabPageCadastro.Controls.Add(panel1);
+            tabPageCadastro.Location = new Point(4, 29);
+            tabPageCadastro.Margin = new Padding(3, 4, 3, 4);
+            tabPageCadastro.Name = "tabPageCadastro";
+            tabPageCadastro.Padding = new Padding(3, 4, 3, 4);
+            tabPageCadastro.Size = new Size(1106, 792);
+            tabPageCadastro.TabIndex = 1;
+            tabPageCadastro.Text = "Cadastro";
+            tabPageCadastro.UseVisualStyleBackColor = true;
+            // 
+            // btnListar
+            // 
+            btnListar.Location = new Point(809, 676);
+            btnListar.Name = "btnListar";
+            btnListar.Size = new Size(94, 29);
+            btnListar.TabIndex = 14;
+            btnListar.Text = "Listar";
+            btnListar.UseVisualStyleBackColor = true;
+            btnListar.Click += btnListar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(540, 676);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(94, 29);
+            btnCancelar.TabIndex = 13;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnSalvar
+            // 
+            btnSalvar.Location = new Point(327, 676);
+            btnSalvar.Name = "btnSalvar";
+            btnSalvar.Size = new Size(94, 29);
+            btnSalvar.TabIndex = 12;
+            btnSalvar.Text = "Salvar";
+            btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // txtId
             // 
-            txtId.Location = new Point(8, 28);
-            txtId.Margin = new Padding(3, 2, 3, 2);
+            txtId.Location = new Point(9, 37);
             txtId.Name = "txtId";
-            txtId.Size = new Size(110, 23);
+            txtId.Size = new Size(125, 27);
             txtId.TabIndex = 11;
             // 
             // panel3
             // 
-            panel3.Controls.Add(txtDescricao);
-            panel3.Controls.Add(lblDescricao);
-            panel3.Location = new Point(1, 299);
-            panel3.Margin = new Padding(3, 2, 3, 2);
+            panel3.Controls.Add(btnCalcular);
+            panel3.Controls.Add(txtTotal);
+            panel3.Controls.Add(lblTotal);
+            panel3.Location = new Point(1, 399);
             panel3.Name = "panel3";
-            panel3.Size = new Size(889, 118);
+            panel3.Size = new Size(1016, 189);
             panel3.TabIndex = 10;
             // 
-            // txtDescricao
+            // btnCalcular
             // 
-            txtDescricao.Location = new Point(7, 26);
-            txtDescricao.Margin = new Padding(3, 2, 3, 2);
-            txtDescricao.Multiline = true;
-            txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(878, 90);
-            txtDescricao.TabIndex = 3;
+            btnCalcular.Location = new Point(8, 136);
+            btnCalcular.Name = "btnCalcular";
+            btnCalcular.Size = new Size(151, 29);
+            btnCalcular.TabIndex = 15;
+            btnCalcular.Text = "Calcular Valor Total";
+            btnCalcular.UseVisualStyleBackColor = true;
+            btnCalcular.Click += btnCalcular_Click;
             // 
-            // lblDescricao
+            // txtTotal
             // 
-            lblDescricao.AutoSize = true;
-            lblDescricao.Location = new Point(7, 9);
-            lblDescricao.Name = "lblDescricao";
-            lblDescricao.Size = new Size(58, 15);
-            lblDescricao.TabIndex = 2;
-            lblDescricao.Text = "Descricao";
+            txtTotal.Location = new Point(8, 35);
+            txtTotal.Multiline = true;
+            txtTotal.Name = "txtTotal";
+            txtTotal.Size = new Size(1003, 71);
+            txtTotal.TabIndex = 3;
+            // 
+            // lblTotal
+            // 
+            lblTotal.AutoSize = true;
+            lblTotal.Enabled = false;
+            lblTotal.Location = new Point(8, 12);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(80, 20);
+            lblTotal.TabIndex = 2;
+            lblTotal.Text = "Valor Total";
             // 
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(8, 10);
+            lblId.Location = new Point(9, 13);
             lblId.Name = "lblId";
-            lblId.Size = new Size(18, 15);
+            lblId.Size = new Size(24, 20);
             lblId.TabIndex = 9;
             lblId.Text = "ID";
             // 
             // panel2
             // 
-            panel2.Controls.Add(dtPickerValidade);
-            panel2.Controls.Add(lblValidade);
-            panel2.Location = new Point(1, 228);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Controls.Add(dtPickerDataVenda);
+            panel2.Controls.Add(lblDataVenda);
+            panel2.Location = new Point(1, 304);
             panel2.Name = "panel2";
-            panel2.Size = new Size(892, 66);
+            panel2.Size = new Size(1019, 88);
             panel2.TabIndex = 8;
             // 
-            // dtPickerValidade
+            // dtPickerDataVenda
             // 
-            dtPickerValidade.Location = new Point(66, 22);
-            dtPickerValidade.Margin = new Padding(3, 2, 3, 2);
-            dtPickerValidade.Name = "dtPickerValidade";
-            dtPickerValidade.Size = new Size(219, 23);
-            dtPickerValidade.TabIndex = 2;
+            dtPickerDataVenda.CustomFormat = "dd/MMMM/yyyy";
+            dtPickerDataVenda.Format = DateTimePickerFormat.Custom;
+            dtPickerDataVenda.Location = new Point(121, 30);
+            dtPickerDataVenda.Name = "dtPickerDataVenda";
+            dtPickerDataVenda.Size = new Size(176, 27);
+            dtPickerDataVenda.TabIndex = 2;
+            dtPickerDataVenda.Value = new DateTime(2024, 6, 8, 16, 38, 26, 0);
             // 
-            // lblValidade
+            // lblDataVenda
             // 
-            lblValidade.AutoSize = true;
-            lblValidade.Location = new Point(7, 26);
-            lblValidade.Name = "lblValidade";
-            lblValidade.Size = new Size(51, 15);
-            lblValidade.TabIndex = 0;
-            lblValidade.Text = "Validade";
+            lblDataVenda.AutoSize = true;
+            lblDataVenda.Location = new Point(8, 35);
+            lblDataVenda.Name = "lblDataVenda";
+            lblDataVenda.Size = new Size(107, 20);
+            lblDataVenda.TabIndex = 0;
+            lblDataVenda.Text = "Data da Venda";
             // 
             // panel1
             // 
-            panel1.Controls.Add(txtPreco);
+            panel1.Controls.Add(txtFormaPag);
             panel1.Controls.Add(txtQtd);
-            panel1.Controls.Add(lblPreco);
-            panel1.Controls.Add(txtNome);
+            panel1.Controls.Add(lblFormaPag);
+            panel1.Controls.Add(txtPrecoUnit);
             panel1.Controls.Add(lblQtd);
-            panel1.Controls.Add(lblNome);
-            panel1.Location = new Point(1, 52);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Controls.Add(lblPrecoUnit);
+            panel1.Location = new Point(1, 69);
             panel1.Name = "panel1";
-            panel1.Size = new Size(892, 172);
+            panel1.Size = new Size(1019, 229);
             panel1.TabIndex = 7;
             // 
-            // txtPreco
+            // txtFormaPag
             // 
-            txtPreco.Location = new Point(7, 104);
-            txtPreco.Margin = new Padding(3, 2, 3, 2);
-            txtPreco.Name = "txtPreco";
-            txtPreco.Size = new Size(538, 23);
-            txtPreco.TabIndex = 4;
+            txtFormaPag.Location = new Point(8, 151);
+            txtFormaPag.Name = "txtFormaPag";
+            txtFormaPag.Size = new Size(614, 27);
+            txtFormaPag.TabIndex = 4;
             // 
             // txtQtd
             // 
-            txtQtd.Location = new Point(7, 64);
-            txtQtd.Margin = new Padding(3, 2, 3, 2);
+            txtQtd.Location = new Point(8, 97);
             txtQtd.Name = "txtQtd";
-            txtQtd.Size = new Size(538, 23);
+            txtQtd.Size = new Size(614, 27);
             txtQtd.TabIndex = 3;
             // 
-            // lblPreco
+            // lblFormaPag
             // 
-            lblPreco.AutoSize = true;
-            lblPreco.Location = new Point(7, 87);
-            lblPreco.Name = "lblPreco";
-            lblPreco.Size = new Size(37, 15);
-            lblPreco.TabIndex = 1;
-            lblPreco.Text = "Preço";
+            lblFormaPag.AutoSize = true;
+            lblFormaPag.Location = new Point(8, 128);
+            lblFormaPag.Name = "lblFormaPag";
+            lblFormaPag.Size = new Size(151, 20);
+            lblFormaPag.TabIndex = 1;
+            lblFormaPag.Text = "Forma de Pagamento";
             // 
-            // txtNome
+            // txtPrecoUnit
             // 
-            txtNome.Location = new Point(7, 17);
-            txtNome.Margin = new Padding(3, 2, 3, 2);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(538, 23);
-            txtNome.TabIndex = 2;
+            txtPrecoUnit.Location = new Point(8, 35);
+            txtPrecoUnit.Name = "txtPrecoUnit";
+            txtPrecoUnit.Size = new Size(614, 27);
+            txtPrecoUnit.TabIndex = 2;
             // 
             // lblQtd
             // 
             lblQtd.AutoSize = true;
-            lblQtd.Location = new Point(7, 47);
+            lblQtd.Location = new Point(8, 75);
             lblQtd.Name = "lblQtd";
-            lblQtd.Size = new Size(69, 15);
+            lblQtd.Size = new Size(87, 20);
             lblQtd.TabIndex = 1;
             lblQtd.Text = "Quantidade";
             // 
-            // lblNome
+            // lblPrecoUnit
             // 
-            lblNome.AutoSize = true;
-            lblNome.Location = new Point(7, 0);
-            lblNome.Name = "lblNome";
-            lblNome.Size = new Size(40, 15);
-            lblNome.TabIndex = 0;
-            lblNome.Text = "Nome";
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.Location = new Point(534, 507);
-            btnCancelar.Margin = new Padding(3, 2, 3, 2);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(82, 22);
-            btnCancelar.TabIndex = 13;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnSalvar
-            // 
-            btnSalvar.Location = new Point(286, 507);
-            btnSalvar.Margin = new Padding(3, 2, 3, 2);
-            btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(82, 22);
-            btnSalvar.TabIndex = 12;
-            btnSalvar.Text = "Salvar";
-            btnSalvar.UseVisualStyleBackColor = true;
+            lblPrecoUnit.AutoSize = true;
+            lblPrecoUnit.Location = new Point(8, 12);
+            lblPrecoUnit.Name = "lblPrecoUnit";
+            lblPrecoUnit.Size = new Size(103, 20);
+            lblPrecoUnit.TabIndex = 0;
+            lblPrecoUnit.Text = "Preco Unitário";
             // 
             // VendasView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(975, 619);
-            Controls.Add(tabControl1);
+            ClientSize = new Size(1114, 825);
+            Controls.Add(tabControllerVendas);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "VendasView";
             ShowIcon = false;
             ShowInTaskbar = false;
             TransparencyKey = Color.Transparent;
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)tabCliente).EndInit();
+            tabControllerVendas.ResumeLayout(false);
+            tabPageListar.ResumeLayout(false);
+            tabPageListar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)tabVendas).EndInit();
+            tabPageCadastro.ResumeLayout(false);
+            tabPageCadastro.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
@@ -364,31 +386,33 @@
 
         #endregion
 
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private TabControl tabControllerVendas;
+        private TabPage tabPageListar;
+        private TabPage tabPageCadastro;
         private Button btnExcluir;
         private Button btnAdicionar;
         private Button btnEditar;
         private Button btnPesquisar;
         private TextBox txtPesquisa;
-        private DataGridView tabCliente;
+        private DataGridView tabVendas;
         private TextBox txtId;
-        private Panel panel3;
-        private TextBox txtDescricao;
-        private Label lblDescricao;
         private Label lblId;
         private Panel panel2;
-        private DateTimePicker dtPickerValidade;
-        private Label lblValidade;
+        private DateTimePicker dtPickerDataVenda;
+        private Label lblDataVenda;
         private Panel panel1;
-        private TextBox txtPreco;
+        private TextBox txtFormaPag;
         private TextBox txtQtd;
-        private Label lblPreco;
-        private TextBox txtNome;
+        private Label lblFormaPag;
+        private TextBox txtPrecoUnit;
         private Label lblQtd;
-        private Label lblNome;
+        private Label lblPrecoUnit;
         private Button btnCancelar;
         private Button btnSalvar;
+        private Panel panel3;
+        private TextBox txtTotal;
+        private Label lblTotal;
+        private Button btnListar;
+        private Button btnCalcular;
     }
 }

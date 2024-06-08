@@ -77,8 +77,8 @@ namespace FazendaSharpCity.View
             }
             else
             {
-                fornecedor.NomeFantasia = txtPesquisa.Text.ToLower();
-                fornecedor.razaoSocial = txtPesquisa.Text.ToLower();
+                fornecedor.NomeFantasia = txtPesquisa.Text;
+                fornecedor.razaoSocial = txtPesquisa.Text;
             }
 
 
@@ -277,20 +277,24 @@ namespace FazendaSharpCity.View
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
-            txtId.Text = "";
-            txtRazaoSocial.Text = "";
-            txtNomeFantasia.Text = "";
-            txtCnpj.Text = "";
-            txtCep.Text = "";
-            txtLogradouro.Text = "";
-            txtBairro.Text = "";
-            txtComplemento.Text = "";
-            txtCidade.Text = "";
+            var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do fornecedor serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (c == DialogResult.Yes)
+            {
+                txtId.Text = "";
+                txtRazaoSocial.Text = "";
+                txtNomeFantasia.Text = "";
+                txtCnpj.Text = "";
+                txtCep.Text = "";
+                txtLogradouro.Text = "";
+                txtBairro.Text = "";
+                txtComplemento.Text = "";
+                txtCidade.Text = "";
 
-            cBoxUF.SelectedItem = -1;
+                cBoxUF.SelectedItem = -1;
 
-            txtEmail.Text = "";
-            txtTelefone.Text = "";
+                txtEmail.Text = "";
+                txtTelefone.Text = "";
+            }
 
             var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (r == DialogResult.Yes)
