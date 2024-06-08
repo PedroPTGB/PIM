@@ -210,9 +210,20 @@ namespace FazendaSharpCity.View
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            tabControllerProduto.TabPages.Add(tabPageListar);
-            tabControllerProduto.TabPages.Remove(tabPageCadastro);
-            tabProduto.DataSource = BindList();
+            txtId.Text = "";
+            txtNome.Text = "";
+            txtQtd.Text = "";
+            txtPreco.Text = "";
+            dtPickerValidade.Text = "";
+            txtDescricao.Text = "";
+
+            var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (r == DialogResult.Yes)
+            {
+                tabControllerProduto.TabPages.Remove(tabPageCadastro);
+                tabControllerProduto.TabPages.Add(tabPageListar);
+                tabProduto.DataSource = BindList();
+            }
         }
 
     }
