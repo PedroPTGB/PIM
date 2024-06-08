@@ -40,6 +40,7 @@ namespace FazendaSharpCity
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             panelLateral = new Panel();
+            btnVendas = new Button();
             btnProduto = new Button();
             btnFornecedor = new Button();
             btnCliente = new Button();
@@ -55,28 +56,52 @@ namespace FazendaSharpCity
             // 
             panelLateral.AutoScroll = true;
             panelLateral.BackColor = Color.DarkSeaGreen;
+            panelLateral.BackgroundImage = (Image)resources.GetObject("panelLateral.BackgroundImage");
+            panelLateral.Controls.Add(btnVendas);
             panelLateral.Controls.Add(btnProduto);
             panelLateral.Controls.Add(btnFornecedor);
             panelLateral.Controls.Add(btnCliente);
             panelLateral.Controls.Add(panelLogo);
             panelLateral.Dock = DockStyle.Left;
             panelLateral.Location = new Point(0, 0);
+            panelLateral.Margin = new Padding(3, 2, 3, 2);
             panelLateral.Name = "panelLateral";
-            panelLateral.Size = new Size(250, 673);
+            panelLateral.Size = new Size(200, 661);
             panelLateral.TabIndex = 0;
+            // 
+            // btnVendas
+            // 
+            btnVendas.BackColor = Color.DarkSeaGreen;
+            btnVendas.BackgroundImage = (Image)resources.GetObject("btnVendas.BackgroundImage");
+            btnVendas.Dock = DockStyle.Top;
+            btnVendas.FlatAppearance.BorderColor = Color.DarkSeaGreen;
+            btnVendas.FlatAppearance.MouseDownBackColor = Color.SeaGreen;
+            btnVendas.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
+            btnVendas.FlatStyle = FlatStyle.Flat;
+            btnVendas.Location = new Point(0, 224);
+            btnVendas.Margin = new Padding(3, 2, 3, 2);
+            btnVendas.Name = "btnVendas";
+            btnVendas.Padding = new Padding(9, 0, 0, 0);
+            btnVendas.Size = new Size(200, 34);
+            btnVendas.TabIndex = 5;
+            btnVendas.Text = "Vendas";
+            btnVendas.TextAlign = ContentAlignment.MiddleLeft;
+            btnVendas.UseVisualStyleBackColor = false;
             // 
             // btnProduto
             // 
             btnProduto.BackColor = Color.DarkSeaGreen;
+            btnProduto.BackgroundImage = (Image)resources.GetObject("btnProduto.BackgroundImage");
             btnProduto.Dock = DockStyle.Top;
             btnProduto.FlatAppearance.BorderColor = Color.DarkSeaGreen;
             btnProduto.FlatAppearance.MouseDownBackColor = Color.SeaGreen;
             btnProduto.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
             btnProduto.FlatStyle = FlatStyle.Flat;
-            btnProduto.Location = new Point(0, 253);
+            btnProduto.Location = new Point(0, 190);
+            btnProduto.Margin = new Padding(3, 2, 3, 2);
             btnProduto.Name = "btnProduto";
-            btnProduto.Padding = new Padding(10, 0, 0, 0);
-            btnProduto.Size = new Size(250, 45);
+            btnProduto.Padding = new Padding(9, 0, 0, 0);
+            btnProduto.Size = new Size(200, 34);
             btnProduto.TabIndex = 4;
             btnProduto.Text = "Produtos";
             btnProduto.TextAlign = ContentAlignment.MiddleLeft;
@@ -85,16 +110,18 @@ namespace FazendaSharpCity
             // 
             // btnFornecedor
             // 
-            btnFornecedor.BackColor = Color.DarkSeaGreen;
+            btnFornecedor.BackColor = Color.Black;
+            btnFornecedor.BackgroundImage = (Image)resources.GetObject("btnFornecedor.BackgroundImage");
             btnFornecedor.Dock = DockStyle.Top;
             btnFornecedor.FlatAppearance.BorderColor = Color.DarkSeaGreen;
             btnFornecedor.FlatAppearance.MouseDownBackColor = Color.SeaGreen;
             btnFornecedor.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
             btnFornecedor.FlatStyle = FlatStyle.Flat;
-            btnFornecedor.Location = new Point(0, 208);
+            btnFornecedor.Location = new Point(0, 156);
+            btnFornecedor.Margin = new Padding(3, 2, 3, 2);
             btnFornecedor.Name = "btnFornecedor";
-            btnFornecedor.Padding = new Padding(10, 0, 0, 0);
-            btnFornecedor.Size = new Size(250, 45);
+            btnFornecedor.Padding = new Padding(9, 0, 0, 0);
+            btnFornecedor.Size = new Size(200, 34);
             btnFornecedor.TabIndex = 2;
             btnFornecedor.Text = "Fornecedores";
             btnFornecedor.TextAlign = ContentAlignment.MiddleLeft;
@@ -103,16 +130,18 @@ namespace FazendaSharpCity
             // 
             // btnCliente
             // 
-            btnCliente.BackColor = Color.DarkSeaGreen;
+            btnCliente.BackColor = Color.Transparent;
+            btnCliente.BackgroundImage = (Image)resources.GetObject("btnCliente.BackgroundImage");
             btnCliente.Dock = DockStyle.Top;
             btnCliente.FlatAppearance.BorderColor = Color.DarkSeaGreen;
             btnCliente.FlatAppearance.MouseDownBackColor = Color.SeaGreen;
             btnCliente.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
             btnCliente.FlatStyle = FlatStyle.Flat;
-            btnCliente.Location = new Point(0, 163);
+            btnCliente.Location = new Point(0, 122);
+            btnCliente.Margin = new Padding(3, 2, 3, 2);
             btnCliente.Name = "btnCliente";
-            btnCliente.Padding = new Padding(10, 0, 0, 0);
-            btnCliente.Size = new Size(250, 45);
+            btnCliente.Padding = new Padding(9, 0, 0, 0);
+            btnCliente.Size = new Size(200, 34);
             btnCliente.TabIndex = 0;
             btnCliente.Text = "Clientes";
             btnCliente.TextAlign = ContentAlignment.MiddleLeft;
@@ -125,37 +154,41 @@ namespace FazendaSharpCity
             panelLogo.Controls.Add(pictureBox1);
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
+            panelLogo.Margin = new Padding(3, 2, 3, 2);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(250, 163);
+            panelLogo.Size = new Size(200, 122);
             panelLogo.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.Location = new Point(34, -10);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(163, 171);
+            pictureBox1.Size = new Size(200, 122);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // panelViewChange
             // 
+            panelViewChange.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panelViewChange.BackgroundImage = (Image)resources.GetObject("panelViewChange.BackgroundImage");
-            panelViewChange.Dock = DockStyle.Fill;
-            panelViewChange.Location = new Point(250, 0);
+            panelViewChange.Location = new Point(200, 0);
+            panelViewChange.Margin = new Padding(3, 2, 3, 2);
             panelViewChange.Name = "panelViewChange";
-            panelViewChange.Size = new Size(1012, 673);
+            panelViewChange.Size = new Size(982, 661);
             panelViewChange.TabIndex = 1;
             // 
             // MainView
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1262, 673);
+            ClientSize = new Size(1184, 661);
             Controls.Add(panelViewChange);
             Controls.Add(panelLateral);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
-            MinimumSize = new Size(1280, 720);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MainView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FazendaSharpCity";
@@ -174,6 +207,7 @@ namespace FazendaSharpCity
         private Button btnCliente;
         private Panel panelLogo;
         private PictureBox pictureBox1;
+        private Button btnVendas;
         private Panel panelViewChange;
     }
 }
