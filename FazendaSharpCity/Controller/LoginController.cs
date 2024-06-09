@@ -11,22 +11,17 @@ namespace FazendaSharpCity.Controller
 {
     public class LoginController
     {
-        public bool LoginViewRun()
+        public int  VerificaLogin(Usuario usuario)
         {
-            bool resp;
-            LoginViewForms lv = new LoginViewForms();
-            lv.Show();
-            resp = lv.LoginClick();
-            return resp;
-        }
-
-        public bool VerificaLogin(Usuario usuario)
-        {
-            if (usuario.login == "admin")
+            if (usuario.login == "admin" && usuario.password == "123456")
             {
-                return true;
+                return 1;
             }
-            return false;
+            else if (usuario.login == "funcionario" && usuario.password == "654321")
+            {
+                return 2;
+            }
+            return 0;
             
         }
     }

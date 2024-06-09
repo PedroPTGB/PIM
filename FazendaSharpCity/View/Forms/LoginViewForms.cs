@@ -28,66 +28,29 @@ namespace FazendaSharpCity.View
             Usuario ususario = new Usuario();
             ususario.login = loginTbx.Text;
             ususario.password = senhaTbx.Text;
-            if (loginController.VerificaLogin(ususario))
+            if (loginController.VerificaLogin(ususario) == 1)
             {
                 MainView mainView = new MainView();
                 this.Visible = false;
                 mainView.ShowDialog();
                 this.Close();
             }
-            else
+            else if (loginController.VerificaLogin(ususario) == 2)
             {
-              
-            }
-
-
-        }
-        public bool LoginClick()
-        {
-            Show();
-            return true;
-        }
-
-        private void LoginViewForms_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginTbx_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Usuario ususario = new Usuario();
-            ususario.login = loginTbx.Text;
-            ususario.password = senhaTbx.Text;
-            if (loginController.VerificaLogin(ususario))
-            {
-                MessageBox.Show("Login bem-sucedido!");
-                MainView mainView = new MainView();
+                /*MainViewFuncionario mainViewFunci = new MainViewFuncionario();
                 this.Visible = false;
-                mainView.ShowDialog();
-                this.Close();
+                mainViewFunci.ShowDialog();
+                this.Close();*/
             }
             else
             {
                 MessageBox.Show("Nome ou senha incorretos. Tente novamente.");
             }
-        }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void senhaTbx_TextChanged(object sender, EventArgs e)
         {
 
         }

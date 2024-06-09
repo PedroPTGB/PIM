@@ -52,7 +52,6 @@
             loginTbx.PlaceholderText = "        USUARIO";
             loginTbx.Size = new Size(267, 71);
             loginTbx.TabIndex = 3;
-            loginTbx.TextChanged += loginTbx_TextChanged;
             // 
             // senhaTbx
             // 
@@ -68,7 +67,6 @@
             senhaTbx.PlaceholderText = "          SENHA";
             senhaTbx.Size = new Size(267, 69);
             senhaTbx.TabIndex = 4;
-            senhaTbx.TextChanged += senhaTbx_TextChanged;
             // 
             // linkLabel1
             // 
@@ -114,7 +112,7 @@
             btnEntrar.TabIndex = 7;
             btnEntrar.Text = "ENTRAR";
             btnEntrar.UseVisualStyleBackColor = false;
-            btnEntrar.Click += button1_Click;
+            btnEntrar.Click += btnEntrar_Click;
             // 
             // label1
             // 
@@ -129,7 +127,6 @@
             label1.Size = new Size(221, 70);
             label1.TabIndex = 8;
             label1.Text = "LOGIN";
-            label1.Click += label1_Click;
             // 
             // LoginViewForms
             // 
@@ -149,7 +146,6 @@
             Name = "LoginViewForms";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
-            Load += LoginViewForms_Load;
             ResumeLayout(false);
             PerformLayout();
         }
