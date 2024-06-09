@@ -25,7 +25,7 @@ namespace FazendaSharpCity.View
 
         public void btnEntrar_Click(object sender, EventArgs e)
         {
-            Ususario ususario = new Ususario();
+            Usuario ususario = new Usuario();
             ususario.login = loginTbx.Text;
             ususario.password = senhaTbx.Text;
             if (loginController.VerificaLogin(ususario))
@@ -60,7 +60,7 @@ namespace FazendaSharpCity.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Ususario ususario = new Ususario();
+            Usuario ususario = new Usuario();
             ususario.login = loginTbx.Text;
             ususario.password = senhaTbx.Text;
             if (loginController.VerificaLogin(ususario))

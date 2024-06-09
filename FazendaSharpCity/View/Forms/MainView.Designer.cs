@@ -47,6 +47,7 @@ namespace FazendaSharpCity
             panelLogo = new Panel();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            btnFuncionario = new Button();
             panelLateral.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -58,6 +59,7 @@ namespace FazendaSharpCity
             panelLateral.AutoScroll = true;
             panelLateral.BackColor = Color.DarkSeaGreen;
             panelLateral.BackgroundImage = (Image)resources.GetObject("panelLateral.BackgroundImage");
+            panelLateral.Controls.Add(btnFuncionario);
             panelLateral.Controls.Add(btnVendas);
             panelLateral.Controls.Add(btnProduto);
             panelLateral.Controls.Add(btnFornecedor);
@@ -181,6 +183,26 @@ namespace FazendaSharpCity
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
+            // btnFuncionario
+            // 
+            btnFuncionario.BackColor = Color.DarkSeaGreen;
+            btnFuncionario.BackgroundImage = (Image)resources.GetObject("btnFuncionario.BackgroundImage");
+            btnFuncionario.Dock = DockStyle.Top;
+            btnFuncionario.FlatAppearance.BorderColor = Color.DarkSeaGreen;
+            btnFuncionario.FlatAppearance.MouseDownBackColor = Color.SeaGreen;
+            btnFuncionario.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
+            btnFuncionario.FlatStyle = FlatStyle.Flat;
+            btnFuncionario.Font = new Font("SimSun", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFuncionario.Location = new Point(0, 323);
+            btnFuncionario.Name = "btnFuncionario";
+            btnFuncionario.Padding = new Padding(10, 0, 0, 0);
+            btnFuncionario.Size = new Size(229, 40);
+            btnFuncionario.TabIndex = 6;
+            btnFuncionario.Text = "Funcionarios";
+            btnFuncionario.TextAlign = ContentAlignment.MiddleLeft;
+            btnFuncionario.UseVisualStyleBackColor = false;
+            btnFuncionario.Click += btnFuncionario_Click;
+            // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -211,5 +233,6 @@ namespace FazendaSharpCity
         private PictureBox pictureBox1;
         private Button btnVendas;
         private PictureBox pictureBox2;
+        private Button btnFuncionario;
     }
 }

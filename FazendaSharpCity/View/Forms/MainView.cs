@@ -1,4 +1,5 @@
 using FazendaSharpCity.View;
+using FazendaSharpCity.View.Forms;
 
 namespace FazendaSharpCity
 {
@@ -7,7 +8,6 @@ namespace FazendaSharpCity
         public MainView()
         {
             InitializeComponent();
-            CostumizeDesign();
         }
 
         public void LoadForm(object form)
@@ -22,25 +22,6 @@ namespace FazendaSharpCity
             this.pictureBox2.Controls.Add(f);
             this.pictureBox2.Tag = f;
             f.Show();
-        }
-
-        private void CostumizeDesign()
-        {
-
-            //...
-        }
-
-
-
-        private void ShowSubMenu(Panel subMenu)
-        {
-            if (subMenu.Visible == false)
-            {
-
-                subMenu.Visible = true;
-            }
-            else
-                subMenu.Visible = false;
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
@@ -67,6 +48,11 @@ namespace FazendaSharpCity
         private void btnVendas_Click(object sender, EventArgs e)
         {
             LoadForm(new VendasView());
+        }
+
+        private void btnFuncionario_Click(object sender, EventArgs e)
+        {
+            LoadForm(new FuncionarioView());
         }
     }
 }

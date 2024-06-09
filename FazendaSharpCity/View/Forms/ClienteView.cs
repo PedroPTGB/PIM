@@ -125,7 +125,7 @@ namespace FazendaSharpCity.View
             cliente.IdCliente = (int)row.Cells[0].Value;
             cliente.Nome = (string)row.Cells[1].Value;
             cliente.Cpf = (string)row.Cells[2].Value;
-            cliente.DtNasc = row.Cells[3].Value.ToString();
+            cliente.DtNasc = (DateTime)row.Cells[3].Value;
             cliente.Endereco = pfDao.SearchEndereco(cliente);
 
             if (!string.IsNullOrEmpty(row.Cells[4].Value.ToString()))
@@ -144,12 +144,44 @@ namespace FazendaSharpCity.View
             txtId.Text = cliente.IdCliente.ToString();
             txtNome.Text = cliente.Nome;
             txtCpf.Text = cliente.Cpf;
-            dtPicker.Text = cliente.DtNasc;
+            dtPicker.Text = cliente.DtNasc.ToString();
             txtCep.Text = cliente.Endereco.cep;
             txtLogradouro.Text = cliente.Endereco.Logradouro;
             txtBairro.Text = cliente.Endereco.bairro;
             txtComplemento.Text = cliente.Endereco.Complemento;
             txtCidade.Text = cliente.Endereco.Cidade;
+
+            if (cliente.Sexo == "M")
+            {
+                rdbMasc.Checked = true;
+                rdbFem.Checked = false;
+                rdbIndef.Checked = false;
+            }
+            else if (cliente.Sexo == "F")
+            {
+                rdbMasc.Checked = false;
+                rdbFem.Checked = true;
+                rdbIndef.Checked = false;
+            }
+            else
+            {
+                rdbMasc.Checked = false;
+                rdbFem.Checked = false;
+                rdbIndef.Checked = true;
+            }
+
+            if (cliente.TipoPessoa)
+            {
+                rdbPF.Checked = true;
+                rdbPJ.Checked = false;
+                lblCep.Text = "CPF";
+            }
+            else
+            {
+                rdbPF.Checked = false;
+                rdbPJ.Checked = true;
+                lblCpf.Text = "CNPJ";
+            }
 
             cBoxUF.SelectedItem = -1;
             for (int i = 0; i <= cBoxUF.Items.Count - 1; i++)
@@ -187,6 +219,11 @@ namespace FazendaSharpCity.View
 
             txtEmail.Text = "";
             txtTelefone.Text = "";
+            rdbPF.Checked = true;
+            rdbPJ.Checked = false;
+            rdbIndef.Checked = true;
+            rdbMasc.Checked = false;
+            rdbFem.Checked = false;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -202,7 +239,7 @@ namespace FazendaSharpCity.View
                     cliente.IdCliente = Convert.ToInt32(txtId.Text);
                     cliente.Nome = txtNome.Text;
                     cliente.Cpf = txtCpf.Text;
-                    cliente.DtNasc = dtPicker.Text;
+                    cliente.DtNasc = dtPicker.Value;
                     cliente.Endereco.cep = txtCep.Text;
                     cliente.Endereco.Logradouro = txtLogradouro.Text;
                     cliente.Endereco.bairro = txtBairro.Text;
@@ -211,6 +248,29 @@ namespace FazendaSharpCity.View
                     cliente.Endereco.Estado = cBoxUF.Text;
                     cliente.Email = txtEmail.Text;
                     cliente.Telefone = txtTelefone.Text;
+
+                    if (rdbPF.Checked)
+                    {
+                        cliente.TipoPessoa = true;
+                    }
+                    else
+                    {
+                        cliente.TipoPessoa = false;
+                    }
+
+                    if (rdbMasc.Checked)
+                    {
+                        cliente.Sexo = "M";
+                    }
+                    else if (rdbFem.Checked)
+                    {
+                        cliente.Sexo = "F";
+                    }
+                    else
+                    {
+                        cliente.Sexo = "I";
+                    }
+
 
                     try
                     {
@@ -246,7 +306,7 @@ namespace FazendaSharpCity.View
                 {
                     cliente.Nome = txtNome.Text;
                     cliente.Cpf = txtCpf.Text;
-                    cliente.DtNasc = dtPicker.Text;
+                    cliente.DtNasc = dtPicker.Value;
                     cliente.Endereco.cep = txtCep.Text.ToString();
                     cliente.Endereco.Logradouro = txtLogradouro.Text;
                     cliente.Endereco.bairro = txtBairro.Text;
@@ -255,6 +315,28 @@ namespace FazendaSharpCity.View
                     cliente.Endereco.Estado = cBoxUF.Text;
                     cliente.Email = txtEmail.Text;
                     cliente.Telefone = txtTelefone.Text;
+
+                    if (rdbPF.Checked)
+                    {
+                        cliente.TipoPessoa = true;
+                    }
+                    else
+                    {
+                        cliente.TipoPessoa = false;
+                    }
+
+                    if (rdbMasc.Checked)
+                    {
+                        cliente.Sexo = "M";
+                    }
+                    else if (rdbFem.Checked)
+                    {
+                        cliente.Sexo = "F";
+                    }
+                    else
+                    {
+                        cliente.Sexo = "I";
+                    }
 
                     try
                     {
@@ -290,7 +372,7 @@ namespace FazendaSharpCity.View
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-                
+
             var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do cliente serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (c == DialogResult.Yes)
             {
@@ -308,6 +390,11 @@ namespace FazendaSharpCity.View
 
                 txtEmail.Text = "";
                 txtTelefone.Text = "";
+                rdbPF.Checked = true;
+                rdbPJ.Checked = false;
+                rdbIndef.Checked = true;
+                rdbMasc.Checked = false;
+                rdbFem.Checked = false;
 
                 var f = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (f == DialogResult.Yes)
@@ -318,8 +405,23 @@ namespace FazendaSharpCity.View
                 }
 
             }
-            
+
         }
 
+        private void rdbPJ_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbPJ.Checked)
+            {
+                lblCpf.Text = "CNPJ";
+            }
+        }
+
+        private void rdbPF_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbPF.Checked)
+            {
+                lblCpf.Text = "CPF";
+            }
+        }
     }
 }

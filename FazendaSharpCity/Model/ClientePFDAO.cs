@@ -66,12 +66,12 @@ namespace FazendaSharpCity.Model
 
             while (reader.Read())
             {
-                endereco.Cidade = reader[0].ToString();
-                endereco.bairro = reader[1].ToString();
-                endereco.Logradouro = reader[2].ToString();
-                endereco.Complemento = reader[3].ToString();
-                endereco.Estado = reader[4].ToString();
-                endereco.cep = reader[5].ToString();
+                endereco.Cidade = (string)reader[0];
+                endereco.bairro = (string)reader[1];
+                endereco.Logradouro = (string)reader[2];
+                endereco.Complemento = (string)reader[3];
+                endereco.Estado = (string)reader[4];
+                endereco.cep = (string)reader[5];
             }
 
             reader.Close();
@@ -90,10 +90,7 @@ namespace FazendaSharpCity.Model
 
             c2.Parameters.AddWithValue("Nome", cliente.Nome);
             c2.Parameters.AddWithValue("CPF", cliente.Cpf);
-
-            if (DateTime.TryParse(cliente.DtNasc, out var data))
-                c2.Parameters.AddWithValue("dtNasc", data);
-
+            c2.Parameters.AddWithValue("dtNasc", cliente.DtNasc);
             c2.Parameters.AddWithValue("email", cliente.Email);
             c2.Parameters.AddWithValue("telefone", cliente.Telefone);
             c2.Parameters.AddWithValue("estado", cliente.Endereco.Estado);
@@ -130,10 +127,7 @@ namespace FazendaSharpCity.Model
             c2.Parameters.AddWithValue("ID", cliente.IdCliente);
             c2.Parameters.AddWithValue("Nome", (string)cliente.Nome);
             c2.Parameters.AddWithValue("CPF", cliente.Cpf); 
-
-            if (DateTime.TryParse(cliente.DtNasc, out var data))
-                c2.Parameters.AddWithValue("dtNasc", data);
-
+            c2.Parameters.AddWithValue("dtNasc", cliente.DtNasc);
             c2.Parameters.AddWithValue("email", cliente.Email);
             c2.Parameters.AddWithValue("telefone", cliente.Telefone);
             c2.Parameters.AddWithValue("estado", cliente.Endereco.Estado);

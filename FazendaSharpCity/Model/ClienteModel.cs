@@ -12,11 +12,5 @@ namespace FazendaSharpCity.Model
 
         public ClienteModel() { }
 
-        public ClienteModel(string nome, string telefone, string email) : base(nome, telefone, email)
-        {
-            Nome = nome;
-            Telefone = telefone;
-            Email = email;
-        }
     }
 }
