@@ -41,6 +41,7 @@ namespace FazendaSharpCity.View
                 this.Visible = false;
                 mainViewFunci.ShowDialog();
                 this.Close();*/
+                MessageBox.Show("Função ainda não implementada, aguardando MainView para funcionario");
             }
             else
             {
