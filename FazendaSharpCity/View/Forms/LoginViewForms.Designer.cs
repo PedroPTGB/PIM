@@ -37,6 +37,10 @@
             colorDialog2 = new ColorDialog();
             btnEntrar = new Button();
             label1 = new Label();
+            panelSuperior = new Panel();
+            panelCentro = new Panel();
+            btnClose = new Button();
+            panelSuperior.SuspendLayout();
             SuspendLayout();
             // 
             // loginTbx
@@ -128,6 +132,34 @@
             label1.TabIndex = 8;
             label1.Text = "LOGIN";
             // 
+            // panelSuperior
+            // 
+            panelSuperior.BackColor = Color.White;
+            panelSuperior.Controls.Add(btnClose);
+            panelSuperior.Dock = DockStyle.Top;
+            panelSuperior.Location = new Point(0, 0);
+            panelSuperior.Name = "panelSuperior";
+            panelSuperior.Size = new Size(1353, 54);
+            panelSuperior.TabIndex = 9;
+            // 
+            // panelCentro
+            // 
+            panelCentro.Dock = DockStyle.Fill;
+            panelCentro.Location = new Point(0, 0);
+            panelCentro.Name = "panelCentro";
+            panelCentro.Size = new Size(1353, 881);
+            panelCentro.TabIndex = 10;
+            // 
+            // btnClose
+            // 
+            btnClose.Image = Properties.Resources.botao_excluir_3_;
+            btnClose.Location = new Point(1296, 6);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(45, 45);
+            btnClose.TabIndex = 0;
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
             // LoginViewForms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -135,17 +167,20 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1353, 881);
+            Controls.Add(panelSuperior);
             Controls.Add(label1);
             Controls.Add(btnEntrar);
             Controls.Add(linkLabel2);
             Controls.Add(linkLabel1);
             Controls.Add(senhaTbx);
             Controls.Add(loginTbx);
+            Controls.Add(panelCentro);
             DoubleBuffered = true;
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "LoginViewForms";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
+            panelSuperior.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,5 +194,8 @@
         private ColorDialog colorDialog2;
         private Label label1;
         public Button btnEntrar;
+        private Panel panelSuperior;
+        private Panel panelCentro;
+        private Button btnClose;
     }
 }

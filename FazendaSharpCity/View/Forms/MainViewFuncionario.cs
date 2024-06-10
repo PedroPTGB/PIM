@@ -31,6 +31,8 @@ namespace FazendaSharpCity.View.Forms
             f.Show();
         }
 
+        public bool close;
+
         private void btnCliente_Click(object sender, EventArgs e)
         {
 
@@ -59,11 +61,15 @@ namespace FazendaSharpCity.View.Forms
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.close = true;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            this.close = false;
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

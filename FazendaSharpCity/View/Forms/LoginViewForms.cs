@@ -33,20 +33,37 @@ namespace FazendaSharpCity.View
             {
                 MainView mainView = new MainView();
                 this.Visible = false;
-                mainView.ShowDialog();
-                Application.Restart();
-                /*this.Visible = true;
-                loginTbx.Text = "";
-                senhaTbx.Text = "";*/
+                var result = mainView.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    if (mainView.close)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        Application.Restart();
+                    }
+                }
             }
             else if (loginController.VerificaLogin(ususario) == 2)
             {
                 MainViewFuncionario mainViewFunci = new MainViewFuncionario();
                 this.Visible = false;
-                mainViewFunci.ShowDialog();
-                this.Visible = true;
-                loginTbx.Text = "";
-                senhaTbx.Text = "";
+                var result = mainViewFunci.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    if (mainViewFunci.close)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        Application.Restart();
+                    }
+                }
             }
             else
             {
@@ -64,6 +81,11 @@ namespace FazendaSharpCity.View
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

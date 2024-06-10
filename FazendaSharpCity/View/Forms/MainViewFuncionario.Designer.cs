@@ -225,6 +225,7 @@
             FormBorderStyle = FormBorderStyle.None;
             MinimumSize = new Size(1371, 928);
             Name = "MainViewFuncionario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MainViewFuncionario";
             panelLateral.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
