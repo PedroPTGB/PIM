@@ -67,7 +67,7 @@ namespace FazendaSharpCity.View
             }
             else
             {
-                MessageBox.Show("Nome ou senha incorretos. Tente novamente.");
+                MessageBox.Show("Usuário ou senha incorretos. Tente novamente.");
             }
 
 
