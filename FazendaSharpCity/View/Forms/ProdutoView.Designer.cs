@@ -97,11 +97,11 @@
             // 
             btnPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnPesquisar.BackgroundImage = (Image)resources.GetObject("btnPesquisar.BackgroundImage");
-            btnPesquisar.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPesquisar.Location = new Point(673, 12);
+            btnPesquisar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPesquisar.Location = new Point(670, 15);
             btnPesquisar.Margin = new Padding(3, 2, 3, 2);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(82, 35);
+            btnPesquisar.Size = new Size(97, 31);
             btnPesquisar.TabIndex = 11;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
@@ -141,7 +141,7 @@
             // 
             btnExcluir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnExcluir.BackgroundImage = (Image)resources.GetObject("btnExcluir.BackgroundImage");
-            btnExcluir.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExcluir.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExcluir.Location = new Point(786, 127);
             btnExcluir.Margin = new Padding(3, 2, 3, 2);
             btnExcluir.Name = "btnExcluir";
@@ -155,7 +155,7 @@
             // 
             btnAdicionar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAdicionar.BackgroundImage = (Image)resources.GetObject("btnAdicionar.BackgroundImage");
-            btnAdicionar.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdicionar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdicionar.Location = new Point(786, 56);
             btnAdicionar.Margin = new Padding(3, 2, 3, 2);
             btnAdicionar.Name = "btnAdicionar";
@@ -169,7 +169,7 @@
             // 
             btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEditar.BackgroundImage = (Image)resources.GetObject("btnEditar.BackgroundImage");
-            btnEditar.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditar.Location = new Point(786, 92);
             btnEditar.Margin = new Padding(3, 2, 3, 2);
             btnEditar.Name = "btnEditar";
@@ -247,11 +247,11 @@
             // btnCancelar
             // 
             btnCancelar.BackgroundImage = (Image)resources.GetObject("btnCancelar.BackgroundImage");
-            btnCancelar.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelar.Location = new Point(458, 427);
             btnCancelar.Margin = new Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(87, 35);
+            btnCancelar.Size = new Size(95, 35);
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@
             // btnSalvar
             // 
             btnSalvar.BackgroundImage = (Image)resources.GetObject("btnSalvar.BackgroundImage");
-            btnSalvar.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSalvar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSalvar.Location = new Point(198, 427);
             btnSalvar.Margin = new Padding(3, 2, 3, 2);
             btnSalvar.Name = "btnSalvar";

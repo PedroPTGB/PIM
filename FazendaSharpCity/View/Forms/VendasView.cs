@@ -24,7 +24,7 @@ namespace FazendaSharpCity
         private int CellIndex = 0;
         private bool Edita;
 
-        VendaDAO vDao = new VendaDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
+        VendaDAO vDao = new VendaDAO("localhost", "5432", "pim", "postgres", "2709");
 
         public System.Data.DataTable BindList()
         {
