@@ -38,8 +38,8 @@
             btnEntrar = new Button();
             label1 = new Label();
             panelSuperior = new Panel();
-            panelCentro = new Panel();
             btnClose = new Button();
+            panelCentro = new Panel();
             panelSuperior.SuspendLayout();
             SuspendLayout();
             // 
@@ -142,6 +142,19 @@
             panelSuperior.Size = new Size(1353, 54);
             panelSuperior.TabIndex = 9;
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.White;
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Image = Properties.Resources.botao_excluir_3_;
+            btnClose.Location = new Point(1296, 6);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(45, 45);
+            btnClose.TabIndex = 0;
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
             // panelCentro
             // 
             panelCentro.Dock = DockStyle.Fill;
@@ -149,16 +162,6 @@
             panelCentro.Name = "panelCentro";
             panelCentro.Size = new Size(1353, 881);
             panelCentro.TabIndex = 10;
-            // 
-            // btnClose
-            // 
-            btnClose.Image = Properties.Resources.botao_excluir_3_;
-            btnClose.Location = new Point(1296, 6);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(45, 45);
-            btnClose.TabIndex = 0;
-            btnClose.UseVisualStyleBackColor = true;
-            btnClose.Click += btnClose_Click;
             // 
             // LoginViewForms
             // 
