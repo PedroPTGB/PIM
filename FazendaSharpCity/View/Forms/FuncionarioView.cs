@@ -53,7 +53,7 @@ namespace FazendaSharpCity.View.Forms
         private int CellIndex = 0;
         private bool Edita;
 
-        FuncionarioDAO fDao = new FuncionarioDAO("localhost", "5432", "pim", "postgres", "2709");
+        FuncionarioDAO fDao = new FuncionarioDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
 
         public System.Data.DataTable BindList()
         {
@@ -125,6 +125,7 @@ namespace FazendaSharpCity.View.Forms
             txtBairro.Text = "";
             txtComplemento.Text = "";
             txtCidade.Text = "";
+            txtNumero.Text = "";
 
             cBoxUF.SelectedItem = -1;
 
@@ -132,6 +133,8 @@ namespace FazendaSharpCity.View.Forms
             txtTelefone.Text = "";
             rdbFuncionario.Checked = true;
             rdbGerente.Checked = false;
+            txtLogin.Text = "";
+            txtSenha.Text = "";
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -157,8 +160,20 @@ namespace FazendaSharpCity.View.Forms
             txtLogradouro.Text = funcionario.Endereco.Logradouro;
             txtBairro.Text = funcionario.Endereco.bairro;
             txtComplemento.Text = funcionario.Endereco.Complemento;
-            txtNumero.Text = funcionario.Endereco.Numero;
+            txtNumero.Text = funcionario.Endereco.num.ToString();
             txtCidade.Text = funcionario.Endereco.Cidade;
+            txtLogin.Text = funcionario.login.ToString();
+            txtSenha.Text = funcionario.senha.ToString();
+            if (funcionario.gerente == 1)
+            {
+                rdbGerente.Checked = true;
+                rdbFuncionario.Checked = false;
+            }
+            else
+            {
+                rdbGerente.Checked = false;
+                rdbFuncionario.Checked = true;
+            }
 
             cBoxUF.SelectedItem = -1;
             for (int i = 0; i <= cBoxUF.Items.Count - 1; i++)
@@ -189,22 +204,27 @@ namespace FazendaSharpCity.View.Forms
                     funcionario.Nome = txtNome.Text;
                     funcionario.cpf = txtCpf.Text;
                     funcionario.dtNasc = dtPicker.Value;
-                    funcionario.salario = float.Parse(txtSalario.Text);
+                    funcionario.salario = decimal.Parse(txtSalario.Text);
                     funcionario.Endereco.cep = txtCep.Text;
                     funcionario.Endereco.Logradouro = txtLogradouro.Text;
                     funcionario.Endereco.bairro = txtBairro.Text;
                     funcionario.Endereco.Complemento = txtComplemento.Text;
                     funcionario.Endereco.Cidade = txtCidade.Text;
                     funcionario.Endereco.Estado = cBoxUF.Text;
+                    funcionario.Endereco.num = Convert.ToInt32(txtNumero.Text);
                     funcionario.Email = txtEmail.Text;
                     funcionario.Telefone = txtTelefone.Text;
+                    funcionario.login = txtLogin.Text;
+                    funcionario.senha = txtSenha.Text;
 
                     if (rdbGerente.Checked)
                     {
-                        funcionario.gerente = true;
+                        funcionario.gerente = 1;
                     }
-                    else
-                        funcionario.gerente = false;
+                    else if (rdbFuncionario.Checked)
+                    {
+                        funcionario.gerente = 0;
+                    }
 
                     try
                     {
@@ -241,22 +261,25 @@ namespace FazendaSharpCity.View.Forms
                     funcionario.Nome = txtNome.Text;
                     funcionario.cpf = txtCpf.Text;
                     funcionario.dtNasc = dtPicker.Value;
-                    funcionario.salario = float.Parse(txtSalario.Text);
+                    funcionario.salario = decimal.Parse(txtSalario.Text);
                     funcionario.Endereco.cep = txtCep.Text;
                     funcionario.Endereco.Logradouro = txtLogradouro.Text;
                     funcionario.Endereco.bairro = txtBairro.Text;
                     funcionario.Endereco.Complemento = txtComplemento.Text;
                     funcionario.Endereco.Cidade = txtCidade.Text;
                     funcionario.Endereco.Estado = cBoxUF.Text;
+                    funcionario.Endereco.num = Convert.ToInt32(txtNumero.Text);
                     funcionario.Email = txtEmail.Text;
                     funcionario.Telefone = txtTelefone.Text;
+                    funcionario.login = txtLogin.Text;
+                    funcionario.senha = txtSenha.Text;
 
                     if (rdbGerente.Checked)
                     {
-                        funcionario.gerente = true;
+                        funcionario.gerente = 1;
                     }
                     else
-                        funcionario.gerente = false;
+                        funcionario.gerente = 0;
 
 
                     try
@@ -292,34 +315,76 @@ namespace FazendaSharpCity.View.Forms
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do fornecedor serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (c == DialogResult.Yes)
+            if (Edita)
             {
-                txtId.Text = "";
-                txtNome.Text = "";
-                txtCpf.Text = "";
-                txtSalario.Text = "";
-                txtCep.Text = "";
-                txtLogradouro.Text = "";
-                txtBairro.Text = "";
-                txtComplemento.Text = "";
-                txtCidade.Text = "";
-
-                cBoxUF.SelectedItem = -1;
-
-                txtEmail.Text = "";
-                txtTelefone.Text = "";
-                rdbFuncionario.Checked = true;
-                rdbGerente.Checked = false;
-
-                var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (r == DialogResult.Yes)
+                var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados editados do funcionario serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (c == DialogResult.Yes)
                 {
-                    tabControllerFunci.TabPages.Remove(tabPageCadastro);
-                    tabControllerFunci.TabPages.Add(tabPageListar);
-                    tabFunci.DataSource = BindList();
+                    txtId.Text = "";
+                    txtNome.Text = "";
+                    txtCpf.Text = "";
+                    txtSalario.Text = "";
+                    txtCep.Text = "";
+                    txtLogradouro.Text = "";
+                    txtBairro.Text = "";
+                    txtComplemento.Text = "";
+                    txtCidade.Text = "";
+                    txtNumero.Text = "";
+
+                    cBoxUF.SelectedItem = -1;
+
+                    txtEmail.Text = "";
+                    txtTelefone.Text = "";
+                    rdbFuncionario.Checked = true;
+                    rdbGerente.Checked = false;
+                    txtLogin.Text = "";
+                    txtSenha.Text = "";
+
+                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (r == DialogResult.Yes)
+                    {
+                        tabControllerFunci.TabPages.Remove(tabPageCadastro);
+                        tabControllerFunci.TabPages.Add(tabPageListar);
+                        tabFunci.DataSource = BindList();
+                    }
+                }
+
+            }
+            else
+            {
+                var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do funcionario serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (c == DialogResult.Yes)
+                {
+                    txtId.Text = "";
+                    txtNome.Text = "";
+                    txtCpf.Text = "";
+                    txtSalario.Text = "";
+                    txtCep.Text = "";
+                    txtLogradouro.Text = "";
+                    txtBairro.Text = "";
+                    txtComplemento.Text = "";
+                    txtCidade.Text = "";
+                    txtNumero.Text = "";
+
+                    cBoxUF.SelectedItem = -1;
+
+                    txtEmail.Text = "";
+                    txtTelefone.Text = "";
+                    rdbFuncionario.Checked = true;
+                    rdbGerente.Checked = false;
+                    txtLogin.Text = "";
+                    txtSenha.Text = "";
+
+                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (r == DialogResult.Yes)
+                    {
+                        tabControllerFunci.TabPages.Remove(tabPageCadastro);
+                        tabControllerFunci.TabPages.Add(tabPageListar);
+                        tabFunci.DataSource = BindList();
+                    }
                 }
             }
+            
 
             
         }

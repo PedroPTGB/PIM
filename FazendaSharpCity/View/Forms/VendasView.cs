@@ -19,12 +19,18 @@ namespace FazendaSharpCity
             InitializeComponent();
             tabVendas.DataSource = BindList();
             tabControllerVendas.TabPages.Remove(tabPageListar);
+            txtId.Text = "";
+            txtPrecoUnit.Text = "0,00";
+            txtQtd.Text = "00";
+            txtFormaPag.Text = "";
+            dtPickerDataVenda.Text = "";
+            txtTotal.Text = "R$0.00";
         }
 
         private int CellIndex = 0;
         private bool Edita;
 
-        VendaDAO vDao = new VendaDAO("localhost", "5432", "pim", "postgres", "2709");
+        VendaDAO vDao = new VendaDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
 
         public System.Data.DataTable BindList()
         {
@@ -69,8 +75,8 @@ namespace FazendaSharpCity
             tabControllerVendas.TabPages.Add(tabPageCadastro);
 
             txtId.Text = "";
-            txtPrecoUnit.Text = "";
-            txtQtd.Text = "";
+            txtPrecoUnit.Text = "0,00";
+            txtQtd.Text = "00";
             txtFormaPag.Text = "";
             dtPickerDataVenda.Text = "";
             txtTotal.Text = "R$0.00";
@@ -202,8 +208,8 @@ namespace FazendaSharpCity
                         if (sucess)
                         {
                             txtId.Text = "";
-                            txtPrecoUnit.Text = "";
-                            txtQtd.Text = "";
+                            txtPrecoUnit.Text = "0,00";
+                            txtQtd.Text = "00";
                             txtFormaPag.Text = "";
                             dtPickerDataVenda.Text = "";
                             txtTotal.Text = "R$0.00";
@@ -217,22 +223,50 @@ namespace FazendaSharpCity
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            var r = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados da venda serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (r == DialogResult.Yes)
+            if (Edita)
             {
-                txtId.Text = "";
-                txtPrecoUnit.Text = "";
-                txtQtd.Text = "";
-                txtFormaPag.Text = "";
-                dtPickerDataVenda.Text = "";
-                txtTotal.Text = "R$0.00";
+                var r = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados editados da venda serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (r == DialogResult.Yes)
+                {
+                    txtId.Text = "";
+                    txtPrecoUnit.Text = "R$0,00";
+                    txtQtd.Text = "0";
+                    txtFormaPag.Text = "";
+                    dtPickerDataVenda.Text = "";
+                    txtTotal.Text = "R$0.00";
+                    var c = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (c == DialogResult.Yes)
+                    {
+                        tabControllerVendas.TabPages.Remove(tabPageCadastro);
+                        tabControllerVendas.TabPages.Add(tabPageListar);
+                        tabVendas.DataSource = BindList();
+                    }
+                }
             }
+            else
+            {
+                var r = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados da venda serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (r == DialogResult.Yes)
+                {
+                    txtId.Text = "";
+                    txtPrecoUnit.Text = "R$0,00";
+                    txtQtd.Text = "0";
+                    txtFormaPag.Text = "";
+                    dtPickerDataVenda.Text = "";
+                    txtTotal.Text = "R$0.00";
+                }
+            }
+            
         }
         private float ObterTotal()
         {
-            float n1 = float.Parse(txtPrecoUnit.Text);
-            float n2 = float.Parse(txtQtd.Text);
-            return n1 * n2;
+            if (Convert.ToInt32(txtQtd.Text) != 0 && Convert.ToInt32(txtPrecoUnit.Text) != 0)
+            {
+                float n1 = float.Parse(txtPrecoUnit.Text);
+                float n2 = float.Parse(txtQtd.Text);
+                return n1 * n2;
+            }
+            return 0;
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)

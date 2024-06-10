@@ -12,10 +12,10 @@ namespace FazendaSharpCity.Model
         public int idFuncionario{ get; set;}
         public string cpf  { get; set;}
         public DateTime dtNasc { get; set;}
-        public bool gerente { get; set;}
+        public int gerente { get; set; }
         public string login { get; set;}
         public string senha { get; set; }
-        public float salario {  get; set; }
+        public decimal salario {  get; set; }
 
         public FuncionarioModel()
         {

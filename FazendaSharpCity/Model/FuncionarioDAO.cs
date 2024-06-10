@@ -67,7 +67,7 @@ namespace FazendaSharpCity.Model
         {
             FuncionarioModel f = new FuncionarioModel();
 
-            string query = "SELECT idfuncionario, nome, cpf, dtnascimento, email, login, senha, gerente, telefone FROM funcionario F INNER JOIN telefone T ON F.idtelefonefunicionario = T.idtelefone WHERE F.idfuncionario = @ID;";
+            string query = "SELECT idfuncionario, nome, cpf, dtnascimento, email, login, senha, gerente, salario, telefone FROM funcionario F INNER JOIN telefone T ON F.idtelefonefuncionario = T.idtelefone WHERE F.idfuncionario = @ID;";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
@@ -91,10 +91,11 @@ namespace FazendaSharpCity.Model
                 
                 f.login = (string)reader[5];
                 f.senha = (string)reader[6];
-                f.gerente = (bool)reader[7];
+                f.gerente = (int)reader[7];
+                f.salario = (decimal)reader[8];
                 
-                if (!string.IsNullOrEmpty((string)reader[8]))
-                    f.Telefone = (string)reader[8];
+                if (!string.IsNullOrEmpty((string)reader[9]))
+                    f.Telefone = (string)reader[9];
                 else
                     f.Telefone = "";
             }
@@ -107,7 +108,7 @@ namespace FazendaSharpCity.Model
         public EnderecoModel SearchEndereco(FuncionarioModel funci)
         {
             EnderecoModel endereco = new EnderecoModel();
-            string query = "SELECT cidade, bairro, logradouro, complemento, estado, cep FROM funcionario WHERE idfuncionario = @ID";
+            string query = "SELECT cidade, bairro, logradouro, complemento, estado, cep, numero FROM funcionario WHERE idfuncionario = @ID";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
             c2.Parameters.AddWithValue("ID", funci.idFuncionario);
@@ -122,6 +123,7 @@ namespace FazendaSharpCity.Model
                 endereco.Complemento = (string)reader[3];
                 endereco.Estado = (string)reader[4];
                 endereco.cep = (string)reader[5];
+                endereco.num = (int)reader[6];
             }
 
             reader.Close();
@@ -133,8 +135,8 @@ namespace FazendaSharpCity.Model
         public void Insert(FuncionarioModel funcionario)
         {
             string query = "INSERT INTO telefone (telefone) VALUES (@telefone);" +
-                            "INSERT INTO funcionario (nome, CPF, dtnascimento, email, estado, cidade, bairro, logradouro, complemento, numero, cep, idtelefonefuncionario) " +
-                            "VALUES (@Nome, @CPF, @DtNasc, @email, @estado, @cidade, @bairro, @logradouro, @complemento, @numero, @cep, (SELECT idtelefone FROM telefone T WHERE T.telefone = @telefone));";
+                            "INSERT INTO funcionario (nome, CPF, dtnascimento, email, estado, cidade, bairro, logradouro, complemento, numero, cep, idtelefonefuncionario, salario) " +
+                            "VALUES (@Nome, @CPF, @DtNasc, @email, @estado, @cidade, @bairro, @logradouro, @complemento, @numero, @cep, (SELECT idtelefone FROM telefone T WHERE T.telefone = @telefone), @salario);";
             
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
@@ -146,13 +148,14 @@ namespace FazendaSharpCity.Model
             c2.Parameters.AddWithValue("cargo", funcionario.gerente);
             c2.Parameters.AddWithValue("login", funcionario.login);
             c2.Parameters.AddWithValue("senha", funcionario.senha);
-            
+            c2.Parameters.AddWithValue("salario", funcionario.salario);
+
             c2.Parameters.AddWithValue("estado", funcionario.Endereco.Estado);
             c2.Parameters.AddWithValue("cidade", funcionario.Endereco.Cidade);
             c2.Parameters.AddWithValue("bairro", funcionario.Endereco.bairro);
             c2.Parameters.AddWithValue("logradouro", funcionario.Endereco.Logradouro);
             c2.Parameters.AddWithValue("complemento", funcionario.Endereco.Complemento);
-            c2.Parameters.AddWithValue("numero", funcionario.Endereco.Numero);
+            c2.Parameters.AddWithValue("numero", funcionario.Endereco.num);
             c2.Parameters.AddWithValue("cep", funcionario.Endereco.cep);
 
             c2.ExecuteNonQuery();
@@ -170,7 +173,12 @@ namespace FazendaSharpCity.Model
                             "bairro = @bairro, " +
                             "logradouro = @logradouro, " +
                             "complemento = @complemento, " +
-                            "cep = @cep " +
+                            "cep = @cep , " +
+                            "numero = @numero, " +
+                            "salario = @salario, " +
+                            "gerente = @gerente, " +
+                            "login = @login, " +
+                            "senha = @senha " +
                             "WHERE idfuncionario = @ID;" +
 
                             "UPDATE telefone T SET " +
@@ -180,12 +188,13 @@ namespace FazendaSharpCity.Model
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
+            c2.Parameters.AddWithValue("ID", funcionario.idFuncionario);
             c2.Parameters.AddWithValue("Nome", funcionario.Nome);
             c2.Parameters.AddWithValue("CPF", funcionario.cpf);
             c2.Parameters.AddWithValue("dtNasc", funcionario.dtNasc);
             c2.Parameters.AddWithValue("email", funcionario.Email);
             c2.Parameters.AddWithValue("telefone", funcionario.Telefone);
-            c2.Parameters.AddWithValue("cargo", funcionario.gerente);
+            c2.Parameters.AddWithValue("gerente", funcionario.gerente);
             c2.Parameters.AddWithValue("login", funcionario.login);
             c2.Parameters.AddWithValue("senha", funcionario.senha);
 
@@ -195,6 +204,7 @@ namespace FazendaSharpCity.Model
             c2.Parameters.AddWithValue("logradouro", funcionario.Endereco.Logradouro);
             c2.Parameters.AddWithValue("complemento", funcionario.Endereco.Complemento);
             c2.Parameters.AddWithValue("cep", funcionario.Endereco.cep);
+            c2.Parameters.AddWithValue("numero", funcionario.Endereco.num);
 
             c2.ExecuteNonQuery();
         }

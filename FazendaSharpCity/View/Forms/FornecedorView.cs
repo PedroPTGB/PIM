@@ -53,7 +53,7 @@ namespace FazendaSharpCity.View
         private int CellIndex = 0;
         private bool Edita;
 
-        FornecedorDAO fDao = new FornecedorDAO("localhost", "5432", "pim", "postgres", "2709");
+        FornecedorDAO fDao = new FornecedorDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
 
         public System.Data.DataTable BindList()
         {

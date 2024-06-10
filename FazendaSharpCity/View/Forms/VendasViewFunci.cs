@@ -24,7 +24,7 @@ namespace FazendaSharpCity.View.Forms
         private int CellIndex = 0;
         private bool Edita;
 
-        VendaDAO vDao = new VendaDAO("localhost", "5432", "pim", "postgres", "2709");
+        VendaDAO vDao = new VendaDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
 
         public System.Data.DataTable BindList()
         {
@@ -69,8 +69,8 @@ namespace FazendaSharpCity.View.Forms
             tabControllerVendas.TabPages.Add(tabPageCadastro);
 
             txtId.Text = "";
-            txtPrecoUnit.Text = "";
-            txtQtd.Text = "";
+            txtPrecoUnit.Text = "0,00";
+            txtQtd.Text = "00";
             txtFormaPag.Text = "";
             dtPickerDataVenda.Text = "";
             txtTotal.Text = "R$0.00";
@@ -189,9 +189,13 @@ namespace FazendaSharpCity.View.Forms
         }
         private float ObterTotal()
         {
-            float n1 = float.Parse(txtPrecoUnit.Text);
-            float n2 = float.Parse(txtQtd.Text);
-            return n1 * n2;
+            if(Convert.ToInt32(txtQtd.Text) != 0 && Convert.ToInt32(txtPrecoUnit.Text) != 0)
+            {
+                float n1 = float.Parse(txtPrecoUnit.Text);
+                float n2 = float.Parse(txtQtd.Text);
+                return n1 * n2;
+            }
+            return 0;
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
