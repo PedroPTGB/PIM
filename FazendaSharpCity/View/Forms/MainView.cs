@@ -54,5 +54,15 @@ namespace FazendaSharpCity
         {
             LoadForm(new FuncionarioView());
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

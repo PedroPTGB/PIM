@@ -12,17 +12,8 @@ namespace FazendaSharpCity
         [STAThread]
         static void Main()
         {
-            
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginViewForms());
-
-            //LoginController loginController = new LoginController();
-            //bool t = loginController.LoginViewRun();
-            //if (loginController.LoginViewRun())
-            //{
-              //  MainController mainController = new MainController();
-              //  mainController.MainViewRun();
-            //}
         }
     }
 }

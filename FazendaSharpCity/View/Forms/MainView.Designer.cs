@@ -40,6 +40,7 @@ namespace FazendaSharpCity
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             panelLateral = new Panel();
+            btnFuncionario = new Button();
             btnVendas = new Button();
             btnProduto = new Button();
             btnFornecedor = new Button();
@@ -47,11 +48,14 @@ namespace FazendaSharpCity
             panelLogo = new Panel();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            btnFuncionario = new Button();
+            panelSuperior = new Panel();
+            btnLogOut = new Button();
+            btnClose = new Button();
             panelLateral.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panelSuperior.SuspendLayout();
             SuspendLayout();
             // 
             // panelLateral
@@ -68,8 +72,28 @@ namespace FazendaSharpCity
             panelLateral.Dock = DockStyle.Left;
             panelLateral.Location = new Point(0, 0);
             panelLateral.Name = "panelLateral";
-            panelLateral.Size = new Size(229, 881);
+            panelLateral.Size = new Size(229, 928);
             panelLateral.TabIndex = 0;
+            // 
+            // btnFuncionario
+            // 
+            btnFuncionario.BackColor = Color.DarkSeaGreen;
+            btnFuncionario.BackgroundImage = (Image)resources.GetObject("btnFuncionario.BackgroundImage");
+            btnFuncionario.Dock = DockStyle.Top;
+            btnFuncionario.FlatAppearance.BorderColor = Color.DarkSeaGreen;
+            btnFuncionario.FlatAppearance.MouseDownBackColor = Color.SeaGreen;
+            btnFuncionario.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
+            btnFuncionario.FlatStyle = FlatStyle.Flat;
+            btnFuncionario.Font = new Font("SimSun", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFuncionario.Location = new Point(0, 323);
+            btnFuncionario.Name = "btnFuncionario";
+            btnFuncionario.Padding = new Padding(10, 0, 0, 0);
+            btnFuncionario.Size = new Size(229, 40);
+            btnFuncionario.TabIndex = 6;
+            btnFuncionario.Text = "Funcionarios";
+            btnFuncionario.TextAlign = ContentAlignment.MiddleLeft;
+            btnFuncionario.UseVisualStyleBackColor = false;
+            btnFuncionario.Click += btnFuncionario_Click;
             // 
             // btnVendas
             // 
@@ -175,42 +199,62 @@ namespace FazendaSharpCity
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(224, 0);
+            pictureBox2.Location = new Point(224, 52);
             pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1128, 881);
+            pictureBox2.Size = new Size(1148, 876);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
-            // btnFuncionario
+            // panelSuperior
             // 
-            btnFuncionario.BackColor = Color.DarkSeaGreen;
-            btnFuncionario.BackgroundImage = (Image)resources.GetObject("btnFuncionario.BackgroundImage");
-            btnFuncionario.Dock = DockStyle.Top;
-            btnFuncionario.FlatAppearance.BorderColor = Color.DarkSeaGreen;
-            btnFuncionario.FlatAppearance.MouseDownBackColor = Color.SeaGreen;
-            btnFuncionario.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
-            btnFuncionario.FlatStyle = FlatStyle.Flat;
-            btnFuncionario.Font = new Font("SimSun", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnFuncionario.Location = new Point(0, 323);
-            btnFuncionario.Name = "btnFuncionario";
-            btnFuncionario.Padding = new Padding(10, 0, 0, 0);
-            btnFuncionario.Size = new Size(229, 40);
-            btnFuncionario.TabIndex = 6;
-            btnFuncionario.Text = "Funcionarios";
-            btnFuncionario.TextAlign = ContentAlignment.MiddleLeft;
-            btnFuncionario.UseVisualStyleBackColor = false;
-            btnFuncionario.Click += btnFuncionario_Click;
+            panelSuperior.BackColor = Color.White;
+            panelSuperior.Controls.Add(btnLogOut);
+            panelSuperior.Controls.Add(btnClose);
+            panelSuperior.Dock = DockStyle.Top;
+            panelSuperior.Location = new Point(229, 0);
+            panelSuperior.Name = "panelSuperior";
+            panelSuperior.Size = new Size(1142, 56);
+            panelSuperior.TabIndex = 5;
+            // 
+            // btnLogOut
+            // 
+            btnLogOut.FlatAppearance.BorderSize = 0;
+            btnLogOut.FlatStyle = FlatStyle.Flat;
+            btnLogOut.Font = new Font("SimSun", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
+            btnLogOut.Location = new Point(1018, 2);
+            btnLogOut.Margin = new Padding(0);
+            btnLogOut.Name = "btnLogOut";
+            btnLogOut.Size = new Size(42, 42);
+            btnLogOut.TabIndex = 1;
+            btnLogOut.UseVisualStyleBackColor = true;
+            btnLogOut.Click += btnLogOut_Click;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.White;
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Image = (Image)resources.GetObject("btnClose.Image");
+            btnClose.Location = new Point(1079, 3);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(42, 42);
+            btnClose.TabIndex = 0;
+            btnClose.Text = "X";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1353, 881);
+            ClientSize = new Size(1371, 928);
+            Controls.Add(panelSuperior);
             Controls.Add(pictureBox2);
             Controls.Add(panelLateral);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            FormBorderStyle = FormBorderStyle.None;
             MinimumSize = new Size(1371, 928);
             Name = "MainView";
             StartPosition = FormStartPosition.CenterScreen;
@@ -219,6 +263,7 @@ namespace FazendaSharpCity
             panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panelSuperior.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -234,5 +279,8 @@ namespace FazendaSharpCity
         private Button btnVendas;
         private PictureBox pictureBox2;
         private Button btnFuncionario;
+        private Panel panelSuperior;
+        private Button btnLogOut;
+        private Button btnClose;
     }
 }

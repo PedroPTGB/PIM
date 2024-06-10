@@ -1,5 +1,6 @@
 ﻿using FazendaSharpCity.Controller;
 using FazendaSharpCity.Model;
+using FazendaSharpCity.View.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,15 +34,19 @@ namespace FazendaSharpCity.View
                 MainView mainView = new MainView();
                 this.Visible = false;
                 mainView.ShowDialog();
-                this.Close();
+                Application.Restart();
+                /*this.Visible = true;
+                loginTbx.Text = "";
+                senhaTbx.Text = "";*/
             }
             else if (loginController.VerificaLogin(ususario) == 2)
             {
-                /*MainViewFuncionario mainViewFunci = new MainViewFuncionario();
+                MainViewFuncionario mainViewFunci = new MainViewFuncionario();
                 this.Visible = false;
                 mainViewFunci.ShowDialog();
-                this.Close();*/
-                MessageBox.Show("Função ainda não implementada, aguardando MainView para funcionario");
+                this.Visible = true;
+                loginTbx.Text = "";
+                senhaTbx.Text = "";
             }
             else
             {
