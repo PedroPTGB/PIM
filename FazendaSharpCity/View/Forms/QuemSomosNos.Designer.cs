@@ -32,9 +32,11 @@
             // 
             // QuemSomosNos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(875, 440);
+            ClientSize = new Size(1262, 673);
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(1280, 720);
             Name = "QuemSomosNos";
             Text = "Form1";
             ResumeLayout(false);

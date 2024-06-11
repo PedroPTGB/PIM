@@ -71,5 +71,10 @@ namespace FazendaSharpCity
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void btnRelatorios_Click(object sender, EventArgs e)
+        {
+            LoadForm(new RelatoriosView());
+        }
     }
 }

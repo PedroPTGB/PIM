@@ -52,6 +52,7 @@ namespace FazendaSharpCity
             btnLogOut = new Button();
             btnClose = new Button();
             panel1 = new Panel();
+            btnRelatorios = new Button();
             panelLateral.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -65,6 +66,7 @@ namespace FazendaSharpCity
             panelLateral.AutoScroll = true;
             panelLateral.BackColor = Color.DarkSeaGreen;
             panelLateral.BackgroundImage = (Image)resources.GetObject("panelLateral.BackgroundImage");
+            panelLateral.Controls.Add(btnRelatorios);
             panelLateral.Controls.Add(btnFuncionario);
             panelLateral.Controls.Add(btnVendas);
             panelLateral.Controls.Add(btnProduto);
@@ -258,6 +260,26 @@ namespace FazendaSharpCity
             panel1.Size = new Size(952, 605);
             panel1.TabIndex = 6;
             // 
+            // btnRelatorios
+            // 
+            btnRelatorios.BackColor = Color.DarkSeaGreen;
+            btnRelatorios.BackgroundImage = (Image)resources.GetObject("btnRelatorios.BackgroundImage");
+            btnRelatorios.Dock = DockStyle.Top;
+            btnRelatorios.FlatAppearance.BorderColor = Color.DarkSeaGreen;
+            btnRelatorios.FlatAppearance.MouseDownBackColor = Color.SeaGreen;
+            btnRelatorios.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
+            btnRelatorios.FlatStyle = FlatStyle.Flat;
+            btnRelatorios.Font = new Font("SimSun", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRelatorios.Location = new Point(0, 363);
+            btnRelatorios.Name = "btnRelatorios";
+            btnRelatorios.Padding = new Padding(10, 0, 0, 0);
+            btnRelatorios.Size = new Size(229, 40);
+            btnRelatorios.TabIndex = 7;
+            btnRelatorios.Text = "Relatórios";
+            btnRelatorios.TextAlign = ContentAlignment.MiddleLeft;
+            btnRelatorios.UseVisualStyleBackColor = false;
+            btnRelatorios.Click += btnRelatorios_Click;
+            // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -296,5 +318,6 @@ namespace FazendaSharpCity
         private Button btnLogOut;
         private Button btnClose;
         private Panel panel1;
+        private Button btnRelatorios;
     }
 }
