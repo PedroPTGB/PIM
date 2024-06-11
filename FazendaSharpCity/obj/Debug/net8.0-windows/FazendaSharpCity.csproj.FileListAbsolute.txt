@@ -91,3 +91,4 @@ C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-wind
 C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.QuemSomosNos.resources
 C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.QuemSomosNos.resources
 C:\Users\pedro\source\repos\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.View.Forms.RelatoriosView.resources
+C:\Users\Macho Alpha\Documents\GitHub\PIM\FazendaSharpCity\obj\Debug\net8.0-windows\FazendaSharpCity.View.Forms.RelatoriosView.resources

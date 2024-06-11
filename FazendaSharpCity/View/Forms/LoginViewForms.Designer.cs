@@ -38,7 +38,7 @@
             panelSuperior = new Panel();
             btnClose = new Button();
             panelCentro = new Panel();
-            linkLabelNOS = new LinkLabel();
+            linkLabel1 = new LinkLabel();
             panelSuperior.SuspendLayout();
             panelCentro.SuspendLayout();
             SuspendLayout();
@@ -130,7 +130,7 @@
             // panelCentro
             // 
             panelCentro.BackgroundImage = Properties.Resources.linkLab21el2;
-            panelCentro.Controls.Add(linkLabelNOS);
+            panelCentro.Controls.Add(linkLabel1);
             panelCentro.Controls.Add(label1);
             panelCentro.Controls.Add(btnEntrar);
             panelCentro.Controls.Add(loginTbx);
@@ -142,19 +142,19 @@
             panelCentro.Size = new Size(1033, 496);
             panelCentro.TabIndex = 10;
             // 
-            // linkLabelNOS
+            // linkLabel1
             // 
-            linkLabelNOS.ActiveLinkColor = Color.White;
-            linkLabelNOS.AutoSize = true;
-            linkLabelNOS.BackColor = Color.Transparent;
-            linkLabelNOS.LinkColor = Color.SeaGreen;
-            linkLabelNOS.Location = new Point(877, 458);
-            linkLabelNOS.Name = "linkLabelNOS";
-            linkLabelNOS.Size = new Size(105, 15);
-            linkLabelNOS.TabIndex = 9;
-            linkLabelNOS.TabStop = true;
-            linkLabelNOS.Text = "Quem somos nos?";
-            linkLabelNOS.LinkClicked += LoadForm;
+            linkLabel1.AutoSize = true;
+            linkLabel1.BackColor = Color.Transparent;
+            linkLabel1.LinkColor = Color.SeaGreen;
+            linkLabel1.Location = new Point(874, 456);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(108, 15);
+            linkLabel1.TabIndex = 9;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Quem Somos Nós?";
+            linkLabel1.VisitedLinkColor = Color.White;
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked_1;
             // 
             // LoginViewForms
             // 
@@ -187,6 +187,6 @@
         private Panel panelSuperior;
         private Panel panelCentro;
         private Button btnClose;
-        private LinkLabel linkLabelNOS;
+        private LinkLabel linkLabel1;
     }
 }

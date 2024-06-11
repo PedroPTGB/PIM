@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FazendaSharpCity.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace FazendaSharpCity
         public QuemSomosNos()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginViewForms LoginViewForms = new LoginViewForms();
+            LoginViewForms.ShowDialog();
+            this.Close();
         }
     }
 }
