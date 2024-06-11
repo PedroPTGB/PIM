@@ -179,99 +179,108 @@ namespace FazendaSharpCity.View
             bool sucess = true;
             FornecedorModel fornecedor = new FornecedorModel();
             fornecedor.Endereco = new EnderecoModel();
-            if (Edita)
+            string f = ValidaForms();
+            if (f != null && f != "")
             {
-                var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    fornecedor.idFornecedor = Convert.ToInt32(txtId.Text);
-                    fornecedor.razaoSocial = txtRazaoSocial.Text;
-                    fornecedor.NomeFantasia = txtNomeFantasia.Text;
-                    fornecedor.cnpj = txtCnpj.Text;
-                    fornecedor.Endereco.cep = txtCep.Text;
-                    fornecedor.Endereco.Logradouro = txtLogradouro.Text;
-                    fornecedor.Endereco.bairro = txtBairro.Text;
-                    fornecedor.Endereco.Complemento = txtComplemento.Text;
-                    fornecedor.Endereco.Cidade = txtCidade.Text;
-                    fornecedor.Endereco.Estado = cBoxUF.Text;
-                    fornecedor.Email = txtEmail.Text;
-                    fornecedor.Telefone = txtTelefone.Text;
-
-                    try
-                    {
-                        fDao.Update(fornecedor);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                        sucess = false;
-                    }
-                    if (sucess)
-                    {
-                        MessageBox.Show("Alteração realizada com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
-                    }
-
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tabControllerFornecedor.TabPages.Remove(tabPageCadastro);
-                        tabControllerFornecedor.TabPages.Add(tabPageListar);
-                        tabFornecedor.DataSource = BindList();
-                    }
-                }
+                var r = MessageBox.Show(f, "Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                var result = MessageBox.Show("Deseja adicionar novo cliente?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
+                if (Edita)
                 {
-                    
-                    fornecedor.razaoSocial = txtRazaoSocial.Text;
-                    fornecedor.NomeFantasia = txtNomeFantasia.Text;
-                    fornecedor.cnpj = txtCnpj.Text;
-                    fornecedor.Endereco.cep = txtCep.Text;
-                    fornecedor.Endereco.Logradouro = txtLogradouro.Text;
-                    fornecedor.Endereco.bairro = txtBairro.Text;
-                    fornecedor.Endereco.num = Convert.ToInt32(txtNumero.Text);
-                    fornecedor.Endereco.Complemento = txtComplemento.Text;
-                    fornecedor.Endereco.Cidade = txtCidade.Text;
-                    fornecedor.Endereco.Estado = cBoxUF.Text;
-                    fornecedor.Email = txtEmail.Text;
-                    fornecedor.Telefone = txtTelefone.Text;
+                    var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        fornecedor.idFornecedor = Convert.ToInt32(txtId.Text);
+                        fornecedor.razaoSocial = txtRazaoSocial.Text;
+                        fornecedor.NomeFantasia = txtNomeFantasia.Text;
+                        fornecedor.cnpj = txtCnpj.Text;
+                        fornecedor.Endereco.cep = txtCep.Text;
+                        fornecedor.Endereco.Logradouro = txtLogradouro.Text;
+                        fornecedor.Endereco.bairro = txtBairro.Text;
+                        fornecedor.Endereco.Complemento = txtComplemento.Text;
+                        fornecedor.Endereco.Cidade = txtCidade.Text;
+                        fornecedor.Endereco.Estado = cBoxUF.Text;
+                        fornecedor.Email = txtEmail.Text;
+                        fornecedor.Telefone = txtTelefone.Text;
 
-                    try
-                    {
-                        fDao.Insert(fornecedor);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                        sucess = false;
-                    }
-                    if (sucess)
-                    {
-                        MessageBox.Show("Cliente adicionado com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
-                    }
+                        try
+                        {
+                            fDao.Update(fornecedor);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                            sucess = false;
+                        }
+                        if (sucess)
+                        {
+                            MessageBox.Show("Alteração realizada com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                        }
 
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tabControllerFornecedor.TabPages.Remove(tabPageCadastro);
-                        tabControllerFornecedor.TabPages.Add(tabPageListar);
-                        tabFornecedor.DataSource = BindList();
+                        var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            tabControllerFornecedor.TabPages.Remove(tabPageCadastro);
+                            tabControllerFornecedor.TabPages.Add(tabPageListar);
+                            tabFornecedor.DataSource = BindList();
+                        }
                     }
+                }
+                else
+                {
+                    var result = MessageBox.Show("Deseja adicionar novo cliente?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+
+                        fornecedor.razaoSocial = txtRazaoSocial.Text;
+                        fornecedor.NomeFantasia = txtNomeFantasia.Text;
+                        fornecedor.cnpj = txtCnpj.Text;
+                        fornecedor.Endereco.cep = txtCep.Text;
+                        fornecedor.Endereco.Logradouro = txtLogradouro.Text;
+                        fornecedor.Endereco.bairro = txtBairro.Text;
+                        fornecedor.Endereco.num = Convert.ToInt32(txtNumero.Text);
+                        fornecedor.Endereco.Complemento = txtComplemento.Text;
+                        fornecedor.Endereco.Cidade = txtCidade.Text;
+                        fornecedor.Endereco.Estado = cBoxUF.Text;
+                        fornecedor.Email = txtEmail.Text;
+                        fornecedor.Telefone = txtTelefone.Text;
+
+                        try
+                        {
+                            fDao.Insert(fornecedor);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                            sucess = false;
+                        }
+                        if (sucess)
+                        {
+                            MessageBox.Show("Cliente adicionado com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                        }
+
+                        var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            tabControllerFornecedor.TabPages.Remove(tabPageCadastro);
+                            tabControllerFornecedor.TabPages.Add(tabPageListar);
+                            tabFornecedor.DataSource = BindList();
+                        }
 
 
+                    }
                 }
             }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -305,5 +314,100 @@ namespace FazendaSharpCity.View
             }
 
         }
+
+        public static void IntNumber(KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+        private void txtCnpj_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtCep_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private string ValidaForms()
+        {
+            StringBuilder sbrErrors = new StringBuilder();
+            if (txtNomeFantasia.TextLength < 5)
+            {
+                sbrErrors.AppendLine("O Nome Fantasia é obrigatório e precisa ter mais que 5 caracteres.");
+            }
+            else if (txtNomeFantasia.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O Nome Fantasia deve possuir no máximo 100 caracteres.");
+            }
+
+            if (txtRazaoSocial.TextLength < 5)
+            {
+                sbrErrors.AppendLine("A Razão Social é obrigatória e precisa ter mais que 5 caracteres.");
+            }
+            else if (txtRazaoSocial.TextLength > 100)
+            {
+                sbrErrors.AppendLine("A Razão Social deve possuir no máximo 100 caracteres.");
+            }
+
+            if (txtCnpj.Text == "")
+            {
+                sbrErrors.AppendLine("O CNPJ é obrigatório.");
+            }
+            if (txtCnpj.TextLength < 14 || txtCnpj.TextLength > 14)
+            {
+                sbrErrors.AppendLine("O CNPJ precisa conter 14 numeros.");
+            }
+            
+            if (txtCep.TextLength < 8 || txtCep.TextLength > 8)
+            {
+                sbrErrors.AppendLine("O CEP deve pssuir 8 dígitos.");
+            }
+            if (txtLogradouro.TextLength < 5 || txtLogradouro.Text.Length > 100)
+            {
+                sbrErrors.AppendLine("O Logradouro deve possuir entre 5 e 100 caracteres.");
+            }
+            if (txtBairro.TextLength < 5 || txtBairro.Text.Length > 100)
+            {
+                sbrErrors.AppendLine("O Bairro deve possuir entre 5 e 100 caracteres.");
+            }
+            if (txtNumero.TextLength == 0 || txtNumero.Text.Length > 8)
+            {
+                sbrErrors.AppendLine("O Número do endereço deve possuir entre 1 e 8 dígitos.");
+            }
+            if (txtComplemento.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O Complemento pode possuir no máximo 100 caracteres.");
+            }
+            if (txtCidade.TextLength < 5 || txtCidade.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O nome da Cidade deve possuir entre 5 e 100 caracteres.");
+            }
+            if (cBoxUF.SelectedIndex == -1)
+            {
+                sbrErrors.AppendLine("Selecione uma UF");
+            }
+            if (txtEmail.TextLength < 5 || txtEmail.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O Email deve possuir entre 5 e 100 caracteres.");
+            }
+            if (txtTelefone.TextLength != 11)
+            {
+                sbrErrors.AppendLine("O telefone deve possuir 11 digitos, contando com o DDD.");
+            }
+            return sbrErrors.ToString();
+        }
+
     }
 }

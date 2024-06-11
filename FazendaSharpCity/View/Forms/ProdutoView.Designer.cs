@@ -86,8 +86,8 @@
             tabPageListar.Controls.Add(btnEditar);
             tabPageListar.Location = new Point(4, 29);
             tabPageListar.Name = "tabPageListar";
-            tabPageListar.Padding = new Padding(3, 3, 3, 3);
-            tabPageListar.Size = new Size(1019, 643);
+            tabPageListar.Padding = new Padding(3);
+            tabPageListar.Size = new Size(1019, 492);
             tabPageListar.TabIndex = 0;
             tabPageListar.Text = "Listar";
             // 
@@ -128,7 +128,7 @@
             tabProduto.ReadOnly = true;
             tabProduto.RowHeadersWidth = 51;
             tabProduto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tabProduto.Size = new Size(854, 557);
+            tabProduto.Size = new Size(854, 406);
             tabProduto.TabIndex = 6;
             tabProduto.CellClick += tabProduto_CellClick;
             // 
@@ -183,7 +183,7 @@
             tabPageCadastro.Controls.Add(panel1);
             tabPageCadastro.Location = new Point(4, 29);
             tabPageCadastro.Name = "tabPageCadastro";
-            tabPageCadastro.Padding = new Padding(3, 3, 3, 3);
+            tabPageCadastro.Padding = new Padding(3);
             tabPageCadastro.Size = new Size(1019, 492);
             tabPageCadastro.TabIndex = 1;
             tabPageCadastro.Text = "Cadastro";
@@ -307,6 +307,7 @@
             txtPreco.Name = "txtPreco";
             txtPreco.Size = new Size(614, 27);
             txtPreco.TabIndex = 4;
+            txtPreco.KeyPress += txtPreco_KeyPress;
             // 
             // txtQtd
             // 
@@ -314,6 +315,7 @@
             txtQtd.Name = "txtQtd";
             txtQtd.Size = new Size(614, 27);
             txtQtd.TabIndex = 3;
+            txtQtd.KeyPress += txtQtd_KeyPress;
             // 
             // lblPreco
             // 

@@ -328,6 +328,7 @@
             txtQtd.Name = "txtQtd";
             txtQtd.Size = new Size(614, 27);
             txtQtd.TabIndex = 3;
+            txtQtd.KeyPress += txtQtd_KeyPress;
             // 
             // lblFormaPag
             // 
@@ -344,6 +345,7 @@
             txtPrecoUnit.Name = "txtPrecoUnit";
             txtPrecoUnit.Size = new Size(614, 27);
             txtPrecoUnit.TabIndex = 2;
+            txtPrecoUnit.KeyPress += txtPrecoUnit_KeyPress;
             // 
             // lblQtd
             // 

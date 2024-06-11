@@ -119,7 +119,7 @@ namespace FazendaSharpCity.View.Forms
             txtId.Text = "";
             txtNome.Text = "";
             txtCpf.Text = "";
-            txtSalario.Text = "";
+            txtSalario.Text = "0,00";
             txtCep.Text = "";
             txtLogradouro.Text = "";
             txtBairro.Text = "";
@@ -195,122 +195,131 @@ namespace FazendaSharpCity.View.Forms
         {
             bool sucess = true;
             FuncionarioModel funcionario = new FuncionarioModel();
-            if (Edita)
+            string f = ValidaForms();
+            if (f != null && f != "")
             {
-                var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    funcionario.idFuncionario = Convert.ToInt32(txtId.Text);
-                    funcionario.Nome = txtNome.Text;
-                    funcionario.cpf = txtCpf.Text;
-                    funcionario.dtNasc = dtPicker.Value;
-                    funcionario.salario = decimal.Parse(txtSalario.Text);
-                    funcionario.Endereco.cep = txtCep.Text;
-                    funcionario.Endereco.Logradouro = txtLogradouro.Text;
-                    funcionario.Endereco.bairro = txtBairro.Text;
-                    funcionario.Endereco.Complemento = txtComplemento.Text;
-                    funcionario.Endereco.Cidade = txtCidade.Text;
-                    funcionario.Endereco.Estado = cBoxUF.Text;
-                    funcionario.Endereco.num = Convert.ToInt32(txtNumero.Text);
-                    funcionario.Email = txtEmail.Text;
-                    funcionario.Telefone = txtTelefone.Text;
-                    funcionario.login = txtLogin.Text;
-                    funcionario.senha = txtSenha.Text;
-
-                    if (rdbGerente.Checked)
-                    {
-                        funcionario.gerente = 1;
-                    }
-                    else if (rdbFuncionario.Checked)
-                    {
-                        funcionario.gerente = 0;
-                    }
-
-                    try
-                    {
-                        fDao.Update(funcionario);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                        sucess = false;
-                    }
-                    if (sucess)
-                    {
-                        MessageBox.Show("Alteração realizada com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
-                    }
-
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tabControllerFunci.TabPages.Remove(tabPageCadastro);
-                        tabControllerFunci.TabPages.Add(tabPageListar);
-                        tabFunci.DataSource = BindList();
-                    }
-                }
+                var r = MessageBox.Show(f, "Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                var result = MessageBox.Show("Deseja adicionar novo cliente?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
+                if (Edita)
                 {
-                    funcionario.Nome = txtNome.Text;
-                    funcionario.cpf = txtCpf.Text;
-                    funcionario.dtNasc = dtPicker.Value;
-                    funcionario.salario = decimal.Parse(txtSalario.Text);
-                    funcionario.Endereco.cep = txtCep.Text;
-                    funcionario.Endereco.Logradouro = txtLogradouro.Text;
-                    funcionario.Endereco.bairro = txtBairro.Text;
-                    funcionario.Endereco.Complemento = txtComplemento.Text;
-                    funcionario.Endereco.Cidade = txtCidade.Text;
-                    funcionario.Endereco.Estado = cBoxUF.Text;
-                    funcionario.Endereco.num = Convert.ToInt32(txtNumero.Text);
-                    funcionario.Email = txtEmail.Text;
-                    funcionario.Telefone = txtTelefone.Text;
-                    funcionario.login = txtLogin.Text;
-                    funcionario.senha = txtSenha.Text;
-
-                    if (rdbGerente.Checked)
+                    var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
                     {
-                        funcionario.gerente = 1;
+                        funcionario.idFuncionario = Convert.ToInt32(txtId.Text);
+                        funcionario.Nome = txtNome.Text;
+                        funcionario.cpf = txtCpf.Text;
+                        funcionario.dtNasc = dtPicker.Value;
+                        funcionario.salario = decimal.Parse(txtSalario.Text);
+                        funcionario.Endereco.cep = txtCep.Text;
+                        funcionario.Endereco.Logradouro = txtLogradouro.Text;
+                        funcionario.Endereco.bairro = txtBairro.Text;
+                        funcionario.Endereco.Complemento = txtComplemento.Text;
+                        funcionario.Endereco.Cidade = txtCidade.Text;
+                        funcionario.Endereco.Estado = cBoxUF.Text;
+                        funcionario.Endereco.num = Convert.ToInt32(txtNumero.Text);
+                        funcionario.Email = txtEmail.Text;
+                        funcionario.Telefone = txtTelefone.Text;
+                        funcionario.login = txtLogin.Text;
+                        funcionario.senha = txtSenha.Text;
+
+                        if (rdbGerente.Checked)
+                        {
+                            funcionario.gerente = 1;
+                        }
+                        else if (rdbFuncionario.Checked)
+                        {
+                            funcionario.gerente = 0;
+                        }
+
+                        try
+                        {
+                            fDao.Update(funcionario);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                            sucess = false;
+                        }
+                        if (sucess)
+                        {
+                            MessageBox.Show("Alteração realizada com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                        }
+
+                        var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            tabControllerFunci.TabPages.Remove(tabPageCadastro);
+                            tabControllerFunci.TabPages.Add(tabPageListar);
+                            tabFunci.DataSource = BindList();
+                        }
                     }
-                    else
-                        funcionario.gerente = 0;
+                }
+                else
+                {
+                    var result = MessageBox.Show("Deseja adicionar novo cliente?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        funcionario.Nome = txtNome.Text;
+                        funcionario.cpf = txtCpf.Text;
+                        funcionario.dtNasc = dtPicker.Value;
+                        funcionario.salario = decimal.Parse(txtSalario.Text);
+                        funcionario.Endereco.cep = txtCep.Text;
+                        funcionario.Endereco.Logradouro = txtLogradouro.Text;
+                        funcionario.Endereco.bairro = txtBairro.Text;
+                        funcionario.Endereco.Complemento = txtComplemento.Text;
+                        funcionario.Endereco.Cidade = txtCidade.Text;
+                        funcionario.Endereco.Estado = cBoxUF.Text;
+                        funcionario.Endereco.num = Convert.ToInt32(txtNumero.Text);
+                        funcionario.Email = txtEmail.Text;
+                        funcionario.Telefone = txtTelefone.Text;
+                        funcionario.login = txtLogin.Text;
+                        funcionario.senha = txtSenha.Text;
+
+                        if (rdbGerente.Checked)
+                        {
+                            funcionario.gerente = 1;
+                        }
+                        else
+                            funcionario.gerente = 0;
 
 
-                    try
-                    {
-                        fDao.Insert(funcionario);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                        sucess = false;
-                    }
-                    if (sucess)
-                    {
-                        MessageBox.Show("Cliente adicionado com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
-                    }
+                        try
+                        {
+                            fDao.Insert(funcionario);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                            sucess = false;
+                        }
+                        if (sucess)
+                        {
+                            MessageBox.Show("Cliente adicionado com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                        }
 
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tabControllerFunci.TabPages.Remove(tabPageCadastro);
-                        tabControllerFunci.TabPages.Add(tabPageListar);
-                        tabFunci.DataSource = BindList();
+                        var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            tabControllerFunci.TabPages.Remove(tabPageCadastro);
+                            tabControllerFunci.TabPages.Add(tabPageListar);
+                            tabFunci.DataSource = BindList();
+                        }
+
+
                     }
-
-
                 }
             }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -358,7 +367,7 @@ namespace FazendaSharpCity.View.Forms
                     txtId.Text = "";
                     txtNome.Text = "";
                     txtCpf.Text = "";
-                    txtSalario.Text = "";
+                    txtSalario.Text = "0,00";
                     txtCep.Text = "";
                     txtLogradouro.Text = "";
                     txtBairro.Text = "";
@@ -384,9 +393,123 @@ namespace FazendaSharpCity.View.Forms
                     }
                 }
             }
-            
 
-            
+
+
         }
+
+        public static void IntNumber(KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtCep_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private string ValidaForms()
+        {
+            StringBuilder sbrErrors = new StringBuilder();
+            if (txtNome.TextLength < 5)
+            {
+                sbrErrors.AppendLine("O Nome é obrigatório e precisa ter mais que 5 caracteres.");
+            }
+            else if (txtNome.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O Nome deve possuir no máximo 100 caracteres.");
+            }
+            
+            if (txtCpf.Text == "")
+            {
+                sbrErrors.AppendLine("O CPF é obrigatório.");
+            }
+            if (txtCpf.TextLength < 11 || txtCpf.TextLength > 11)
+            {
+                sbrErrors.AppendLine("O CPF precisa conter 11 numeros.");
+            }
+            if(Convert.ToDecimal(txtSalario.Text) < 1400)
+            {
+                sbrErrors.AppendLine("O Salário deve ser superior ao salário mínimo.");
+            }
+
+            if (txtLogin.TextLength < 5)
+            {
+                sbrErrors.AppendLine("O Login é obrigatório e precisa ter mais que 5 caracteres.");
+            }
+            else if (txtLogin.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O Login deve possuir no máximo 100 caracteres.");
+            }
+
+            if (txtSenha.TextLength < 5)
+            {
+                sbrErrors.AppendLine("A senha é obrigatória e precisa ter mais que 5 caracteres.");
+            }
+            else if (txtSenha.TextLength > 100)
+            {
+                sbrErrors.AppendLine("A senha deve possuir no máximo 100 caracteres.");
+            }
+
+            if (txtCep.TextLength < 8 || txtCep.TextLength > 8)
+            {
+                sbrErrors.AppendLine("O CEP deve pssuir 8 dígitos.");
+            }
+            if (txtLogradouro.TextLength < 5 || txtLogradouro.Text.Length > 100)
+            {
+                sbrErrors.AppendLine("O Logradouro deve possuir entre 5 e 100 caracteres.");
+            }
+            if (txtBairro.TextLength < 5 || txtBairro.Text.Length > 100)
+            {
+                sbrErrors.AppendLine("O Bairro deve possuir entre 5 e 100 caracteres.");
+            }
+            if (txtNumero.TextLength == 0 || txtNumero.Text.Length > 8)
+            {
+                sbrErrors.AppendLine("O Número do endereço deve possuir entre 1 e 8 dígitos.");
+            }
+            if (txtComplemento.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O Complemento pode possuir no máximo 100 caracteres.");
+            }
+            if (txtCidade.TextLength < 5 || txtCidade.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O nome da Cidade deve possuir entre 5 e 100 caracteres.");
+            }
+            if (cBoxUF.SelectedIndex == -1)
+            {
+                sbrErrors.AppendLine("Selecione uma UF.");
+            }
+            if (txtEmail.TextLength < 5 || txtEmail.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O Email deve possuir entre 5 e 100 caracteres.");
+            }
+            if (txtTelefone.TextLength != 11)
+            {
+                sbrErrors.AppendLine("O telefone deve possuir 11 digitos, contando com o DDD.");
+            }
+            return sbrErrors.ToString();
+        }
+
     }
 }

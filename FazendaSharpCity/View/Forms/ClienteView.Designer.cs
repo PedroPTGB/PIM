@@ -46,6 +46,8 @@
             txtTelefone = new TextBox();
             txtEmail = new TextBox();
             panel2 = new Panel();
+            lblNumero = new Label();
+            txtNumero = new TextBox();
             txtCidade = new TextBox();
             lblCidade = new Label();
             lblComplemento = new Label();
@@ -74,8 +76,6 @@
             txtNome = new TextBox();
             txtId = new TextBox();
             lblId = new Label();
-            txtNumero = new TextBox();
-            lblNumero = new Label();
             ((System.ComponentModel.ISupportInitialize)tabCliente).BeginInit();
             tControlCliente.SuspendLayout();
             tpgListar.SuspendLayout();
@@ -280,6 +280,7 @@
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(623, 27);
             txtTelefone.TabIndex = 1;
+            txtTelefone.KeyPress += txtTelefone_KeyPress;
             // 
             // txtEmail
             // 
@@ -311,6 +312,25 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1046, 177);
             panel2.TabIndex = 3;
+            // 
+            // lblNumero
+            // 
+            lblNumero.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblNumero.AutoSize = true;
+            lblNumero.Location = new Point(488, 62);
+            lblNumero.Name = "lblNumero";
+            lblNumero.Size = new Size(63, 20);
+            lblNumero.TabIndex = 19;
+            lblNumero.Text = "Numero";
+            // 
+            // txtNumero
+            // 
+            txtNumero.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtNumero.Location = new Point(488, 85);
+            txtNumero.Name = "txtNumero";
+            txtNumero.Size = new Size(87, 27);
+            txtNumero.TabIndex = 18;
+            txtNumero.KeyPress += txtNumero_KeyPress;
             // 
             // txtCidade
             // 
@@ -414,6 +434,7 @@
             txtCep.Name = "txtCep";
             txtCep.Size = new Size(153, 27);
             txtCep.TabIndex = 0;
+            txtCep.KeyPress += txtCep_KeyPress;
             // 
             // cBoxUF
             // 
@@ -446,12 +467,12 @@
             dtPicker.CustomFormat = "dd/MM/yyyy";
             dtPicker.Format = DateTimePickerFormat.Custom;
             dtPicker.Location = new Point(161, 119);
-            dtPicker.MaxDate = new DateTime(2024, 6, 3, 0, 0, 0, 0);
+            dtPicker.MaxDate = new DateTime(2024, 6, 11, 0, 0, 0, 0);
             dtPicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtPicker.Name = "dtPicker";
             dtPicker.Size = new Size(126, 27);
             dtPicker.TabIndex = 11;
-            dtPicker.Value = new DateTime(2024, 6, 3, 0, 0, 0, 0);
+            dtPicker.Value = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // lblDtNasc
             // 
@@ -602,24 +623,6 @@
             lblId.Size = new Size(24, 20);
             lblId.TabIndex = 0;
             lblId.Text = "ID";
-            // 
-            // txtNumero
-            // 
-            txtNumero.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtNumero.Location = new Point(488, 85);
-            txtNumero.Name = "txtNumero";
-            txtNumero.Size = new Size(87, 27);
-            txtNumero.TabIndex = 18;
-            // 
-            // lblNumero
-            // 
-            lblNumero.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblNumero.AutoSize = true;
-            lblNumero.Location = new Point(488, 62);
-            lblNumero.Name = "lblNumero";
-            lblNumero.Size = new Size(63, 20);
-            lblNumero.TabIndex = 19;
-            lblNumero.Text = "Numero";
             // 
             // ClienteView
             // 

@@ -81,97 +81,107 @@ namespace FazendaSharpCity.View.Forms
             bool sucess = true;
             VendaModel venda = new VendaModel();
 
-            if (Edita)
+            string f = ValidaForms();
+            if (f != null && f != "")
             {
-                var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-
-                    venda.IdVenda = Convert.ToInt32(txtId.Text);
-                    venda.PrecoUnit = Convert.ToInt32(txtPrecoUnit.Text);
-                    venda.DtVenda = dtPickerDataVenda.Value;
-                    venda.FormaPag = txtFormaPag.Text;
-                    venda.Qtd = Convert.ToInt32(txtQtd.Text);
-
-
-                    try
-                    {
-                        vDao.Update(venda);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                        sucess = false;
-                    }
-                    if (sucess)
-                    {
-                        MessageBox.Show("Alteração realizada com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
-                    }
-
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tabControllerVendas.TabPages.Remove(tabPageCadastro);
-                        tabControllerVendas.TabPages.Add(tabPageListar);
-                        tabVendas.DataSource = BindList();
-                    }
-                }
+                var r = MessageBox.Show(f, "Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                var result = MessageBox.Show("Deseja cadastrar a venda?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
+                if (Edita)
                 {
-                    venda.PrecoUnit = float.Parse(txtPrecoUnit.Text);
-                    venda.DtVenda = dtPickerDataVenda.Value;
-                    venda.FormaPag = txtFormaPag.Text;
-                    venda.Qtd = Convert.ToInt32(txtQtd.Text);
+                    var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
 
-                    try
-                    {
-                        vDao.Insert(venda);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                        sucess = false;
-                    }
-                    if (sucess)
-                    {
-                        MessageBox.Show("Venda cadastrada com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
-                    }
+                        venda.IdVenda = Convert.ToInt32(txtId.Text);
+                        venda.PrecoUnit = Convert.ToInt32(txtPrecoUnit.Text);
+                        venda.DtVenda = dtPickerDataVenda.Value;
+                        venda.FormaPag = txtFormaPag.Text;
+                        venda.Qtd = Convert.ToInt32(txtQtd.Text);
 
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tabControllerVendas.TabPages.Remove(tabPageCadastro);
-                        tabControllerVendas.TabPages.Add(tabPageListar);
-                        tabVendas.DataSource = BindList();
-                    }
-                    else
-                    {
+
+                        try
+                        {
+                            vDao.Update(venda);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                            sucess = false;
+                        }
                         if (sucess)
                         {
-                            txtId.Text = "";
-                            txtPrecoUnit.Text = "";
-                            txtQtd.Text = "";
-                            txtFormaPag.Text = "";
-                            dtPickerDataVenda.Text = "";
-                            txtTotal.Text = "R$0.00";
+                            MessageBox.Show("Alteração realizada com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                        }
+
+                        var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            tabControllerVendas.TabPages.Remove(tabPageCadastro);
+                            tabControllerVendas.TabPages.Add(tabPageListar);
+                            tabVendas.DataSource = BindList();
                         }
                     }
+                }
+                else
+                {
+                    var result = MessageBox.Show("Deseja cadastrar a venda?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        venda.PrecoUnit = float.Parse(txtPrecoUnit.Text);
+                        venda.DtVenda = dtPickerDataVenda.Value;
+                        venda.FormaPag = txtFormaPag.Text;
+                        venda.Qtd = Convert.ToInt32(txtQtd.Text);
+
+                        try
+                        {
+                            vDao.Insert(venda);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                            sucess = false;
+                        }
+                        if (sucess)
+                        {
+                            MessageBox.Show("Venda cadastrada com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                        }
+
+                        var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            tabControllerVendas.TabPages.Remove(tabPageCadastro);
+                            tabControllerVendas.TabPages.Add(tabPageListar);
+                            tabVendas.DataSource = BindList();
+                        }
+                        else
+                        {
+                            if (sucess)
+                            {
+                                txtId.Text = "";
+                                txtPrecoUnit.Text = "0,00";
+                                txtQtd.Text = "00";
+                                txtFormaPag.Text = "";
+                                dtPickerDataVenda.Text = "";
+                                txtTotal.Text = "R$0.00";
+                            }
+                        }
 
 
+                    }
                 }
             }
+
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -180,8 +190,8 @@ namespace FazendaSharpCity.View.Forms
             if (r == DialogResult.Yes)
             {
                 txtId.Text = "";
-                txtPrecoUnit.Text = "";
-                txtQtd.Text = "";
+                txtPrecoUnit.Text = "0,00";
+                txtQtd.Text = "00";
                 txtFormaPag.Text = "";
                 dtPickerDataVenda.Text = "";
                 txtTotal.Text = "R$0.00";
@@ -189,7 +199,7 @@ namespace FazendaSharpCity.View.Forms
         }
         private float ObterTotal()
         {
-            if(Convert.ToInt32(txtQtd.Text) != 0 && Convert.ToInt32(txtPrecoUnit.Text) != 0)
+            if (Convert.ToInt32(txtQtd.Text) != 0 && Convert.ToInt32(txtPrecoUnit.Text) != 0)
             {
                 float n1 = float.Parse(txtPrecoUnit.Text);
                 float n2 = float.Parse(txtQtd.Text);
@@ -210,7 +220,46 @@ namespace FazendaSharpCity.View.Forms
             tabVendas.DataSource = BindList();
         }
 
-        
+        public static void IntNumber(KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != ',')
+                e.Handled = true;
+        }
+
+        private void txtPrecoUnit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private string ValidaForms()
+        {
+            StringBuilder sbrErrors = new StringBuilder();
+            if (txtFormaPag.TextLength < 5)
+            {
+                sbrErrors.AppendLine("A Forma de Pagamento é obrigatória e precisa ter mais que 5 caracteres.");
+            }
+            else if (txtFormaPag.TextLength > 20)
+            {
+                sbrErrors.AppendLine("A Forma de Pagamento deve possuir no máximo 20 caracteres.");
+            }
+
+            if (float.Parse(txtPrecoUnit.Text) <= 0 )
+            {
+                sbrErrors.AppendLine("O Preco deve ser positivo.");
+            }
+            if (float.Parse(txtQtd.Text) <= 0)
+            {
+                sbrErrors.AppendLine("A Quantidade deve ser positiva.");
+            }
+
+            return sbrErrors.ToString();
+        }
+
     }
 
 }

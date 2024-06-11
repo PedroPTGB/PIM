@@ -48,7 +48,7 @@ namespace FazendaSharpCity.View
                 produto.idProduto = Convert.ToInt32(txtPesquisa.Text);
             }
             else { }
-            
+
 
             System.Data.DataTable table = new System.Data.DataTable();
             table = pDao.Search(produto);
@@ -85,8 +85,8 @@ namespace FazendaSharpCity.View
 
             txtId.Text = "";
             txtNome.Text = "";
-            txtQtd.Text = "";
-            txtPreco.Text = "";
+            txtQtd.Text = "00";
+            txtPreco.Text = "0,00";
             dtPickerValidade.Text = "";
             txtDescricao.Text = "";
         }
@@ -123,87 +123,98 @@ namespace FazendaSharpCity.View
             bool sucess = true;
             ProdutoModel produto = new ProdutoModel();
 
-            if (Edita)
+            string f = ValidaForms();
+            if (f != null && f != "")
             {
-                var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-
-                    produto.idProduto = Convert.ToInt32(txtId.Text);
-                    produto.nome = txtNome.Text;
-                    produto.qtd = Convert.ToInt32(txtQtd.Text);
-                    produto.preco = (decimal)float.Parse(txtPreco.Text);
-                    produto.validade = dtPickerValidade.Value;
-                    produto.descricao = txtDescricao.Text;
-
-
-                    try
-                    {
-                        pDao.Update(produto);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                        sucess = false;
-                    }
-                    if (sucess)
-                    {
-                        MessageBox.Show("Alteração realizada com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
-                    }
-
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tabControllerProduto.TabPages.Remove(tabPageCadastro);
-                        tabControllerProduto.TabPages.Add(tabPageListar);
-                        tabProduto.DataSource = BindList();
-                    }
-                }
+                var r = MessageBox.Show(f, "Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                var result = MessageBox.Show("Deseja adicionar novo produto?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
+
+                if (Edita)
                 {
-                    produto.nome = txtNome.Text;
-                    produto.qtd = Convert.ToInt32(txtQtd.Text);
-                    produto.preco = (decimal)float.Parse(txtPreco.Text);
-                    produto.validade = dtPickerValidade.Value;
-                    produto.descricao = txtDescricao.Text;
+                    var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
 
-                    try
-                    {
-                        pDao.Insert(produto);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                        sucess = false;
-                    }
-                    if (sucess)
-                    {
-                        MessageBox.Show("Produto adicionado com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
-                    }
+                        produto.idProduto = Convert.ToInt32(txtId.Text);
+                        produto.nome = txtNome.Text;
+                        produto.qtd = Convert.ToInt32(txtQtd.Text);
+                        produto.preco = (decimal)float.Parse(txtPreco.Text);
+                        produto.validade = dtPickerValidade.Value;
+                        produto.descricao = txtDescricao.Text;
 
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tabControllerProduto.TabPages.Remove(tabPageCadastro);
-                        tabControllerProduto.TabPages.Add(tabPageListar);
-                        tabProduto.DataSource = BindList();
-                    }
 
+                        try
+                        {
+                            pDao.Update(produto);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                            sucess = false;
+                        }
+                        if (sucess)
+                        {
+                            MessageBox.Show("Alteração realizada com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                        }
+
+                        var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            tabControllerProduto.TabPages.Remove(tabPageCadastro);
+                            tabControllerProduto.TabPages.Add(tabPageListar);
+                            tabProduto.DataSource = BindList();
+                        }
+                    }
+                }
+                else
+                {
+                    var result = MessageBox.Show("Deseja adicionar novo produto?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        produto.nome = txtNome.Text;
+                        produto.qtd = Convert.ToInt32(txtQtd.Text);
+                        produto.preco = (decimal)float.Parse(txtPreco.Text);
+                        produto.validade = dtPickerValidade.Value;
+                        produto.descricao = txtDescricao.Text;
+
+                        try
+                        {
+                            pDao.Insert(produto);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                            sucess = false;
+                        }
+                        if (sucess)
+                        {
+                            MessageBox.Show("Produto adicionado com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                        }
+
+                        var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            tabControllerProduto.TabPages.Remove(tabPageCadastro);
+                            tabControllerProduto.TabPages.Add(tabPageListar);
+                            tabProduto.DataSource = BindList();
+                        }
+                    
+                    }
 
                 }
+                
             }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -213,8 +224,8 @@ namespace FazendaSharpCity.View
             {
                 txtId.Text = "";
                 txtNome.Text = "";
-                txtQtd.Text = "";
-                txtPreco.Text = "";
+                txtQtd.Text = "00";
+                txtPreco.Text = "0,00";
                 dtPickerValidade.Text = "";
                 txtDescricao.Text = "";
             }
@@ -227,6 +238,57 @@ namespace FazendaSharpCity.View
                 tabProduto.DataSource = BindList();
             }
         }
+
+        public static void IntNumber(KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != ',')
+                e.Handled = true;
+        }
+
+        private void txtQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtPreco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private string ValidaForms()
+        {
+            StringBuilder sbrErrors = new StringBuilder();
+            if (txtNome.TextLength < 5)
+            {
+                sbrErrors.AppendLine("O Nome é obrigatório e precisa ter mais que 5 caracteres.");
+            }
+            else if (txtNome.TextLength > 20)
+            {
+                sbrErrors.AppendLine("O Nome deve possuir no máximo 20 caracteres.");
+            }
+
+            if (float.Parse(txtPreco.Text) <= 0)
+            {
+                sbrErrors.AppendLine("O Preco é obrigatório e deve ser positivo.");
+            }
+            if (float.Parse(txtQtd.Text) <=0)
+            {
+                sbrErrors.AppendLine("A Quantidade deve ser positiva.");
+            }
+
+            if (txtDescricao.TextLength < 5)
+            {
+                sbrErrors.AppendLine("A Descrição é obrigatória e precisa ter mais que 5 caracteres.");
+            }
+            else if (txtDescricao.TextLength > 200)
+            {
+                sbrErrors.AppendLine("A Descrição deve possuir no máximo 200 caracteres.");
+            }
+
+
+            return sbrErrors.ToString();
+        }
+
 
     }
 

@@ -223,164 +223,167 @@ namespace FazendaSharpCity.View
             bool sucess = true;
             ClientePFModel cliente = new ClientePFModel();
             cliente.Endereco = new EnderecoModel();
-            if (Edita)
+            string f = ValidaForms();
+            if(f != null && f!= "")
             {
-                var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-
-                    cliente.Nome = txtNome.Text;
-                    cliente.Cpf = txtCpf.Text;
-                    cliente.Cnpj = txtCpf.Text;
-                    cliente.DtNasc = dtPicker.Value;
-                    cliente.Endereco.cep = txtCep.Text;
-                    cliente.Endereco.Logradouro = txtLogradouro.Text;
-                    cliente.Endereco.bairro = txtBairro.Text;
-                    cliente.Endereco.Complemento = txtComplemento.Text;
-                    cliente.Endereco.Cidade = txtCidade.Text;
-                    cliente.Endereco.Estado = cBoxUF.Text;
-                    if (txtNumero.Text != "")
-                        cliente.Endereco.num = Convert.ToInt32(txtNumero.Text);
-                    else
-                        cliente.Endereco.num = 0;
-                    cliente.Email = txtEmail.Text;
-                    cliente.Telefone = txtTelefone.Text;
-
-                    if (rdbPF.Checked)
-                    {
-                        cliente.TipoPessoa = true;
-                    }
-                    else if (rdbPJ.Checked)
-                    {
-                        cliente.TipoPessoa = false;
-                    }
-
-                    if (rdbMasc.Checked)
-                    {
-                        cliente.Sexo = "M";
-                    }
-                    else if (rdbFem.Checked)
-                    {
-                        cliente.Sexo = "F";
-                    }
-                    else
-                    {
-                        cliente.Sexo = "I";
-                    }
-
-                    try
-                    {
-                        pfDao.Update(cliente);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                        sucess = false;
-                    }
-                    if (sucess)
-                    {
-                        MessageBox.Show("Alteração realizada com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
-                    }
-
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tControlCliente.TabPages.Remove(tpgCadastro);
-                        tControlCliente.TabPages.Add(tpgListar);
-                        tabCliente.DataSource = BindList();
-                    }
-
-                }
+               var r = MessageBox.Show(f, "Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {    
+            {
+                if (Edita)
+                {
+                    var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
 
-                var result = MessageBox.Show("Deseja adicionar novo cliente?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
+                        cliente.Nome = txtNome.Text;
+                        cliente.Cpf = txtCpf.Text;
+                        cliente.Cnpj = txtCpf.Text;
+                        cliente.DtNasc = dtPicker.Value;
+                        cliente.Endereco.cep = txtCep.Text;
+                        cliente.Endereco.Logradouro = txtLogradouro.Text;
+                        cliente.Endereco.bairro = txtBairro.Text;
+                        cliente.Endereco.Complemento = txtComplemento.Text;
+                        cliente.Endereco.Cidade = txtCidade.Text;
+                        cliente.Endereco.Estado = cBoxUF.Text;
+                        if (txtNumero.Text != "")
+                            cliente.Endereco.num = Convert.ToInt32(txtNumero.Text);
+                        else
+                            cliente.Endereco.num = 0;
+                        cliente.Email = txtEmail.Text;
+                        cliente.Telefone = txtTelefone.Text;
+
+                        if (rdbPF.Checked)
+                        {
+                            cliente.TipoPessoa = true;
+                        }
+                        else if (rdbPJ.Checked)
+                        {
+                            cliente.TipoPessoa = false;
+                        }
+
+                        if (rdbMasc.Checked)
+                        {
+                            cliente.Sexo = "M";
+                        }
+                        else if (rdbFem.Checked)
+                        {
+                            cliente.Sexo = "F";
+                        }
+                        else
+                        {
+                            cliente.Sexo = "I";
+                        }
+
+                        try
+                        {
+                            pfDao.Update(cliente);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                            sucess = false;
+                        }
+                        if (sucess)
+                        {
+                            MessageBox.Show("Alteração realizada com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                        }
+
+                        var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            tControlCliente.TabPages.Remove(tpgCadastro);
+                            tControlCliente.TabPages.Add(tpgListar);
+                            tabCliente.DataSource = BindList();
+                        }
+
+                    }
+                }
+                else
                 {
 
-                    cliente.Nome = txtNome.Text;
-                    cliente.Cpf = txtCpf.Text;
-                    cliente.Cnpj = txtCpf.Text;
-                    cliente.DtNasc = dtPicker.Value;
-                    cliente.Endereco.cep = txtCep.Text;
-                    cliente.Endereco.Logradouro = txtLogradouro.Text;
-                    cliente.Endereco.bairro = txtBairro.Text;
-                    cliente.Endereco.Complemento = txtComplemento.Text;
-                    cliente.Endereco.Cidade = txtCidade.Text;
-                    cliente.Endereco.Estado = cBoxUF.Text;
-                    if (txtNumero.Text != "")
-                        cliente.Endereco.num = Convert.ToInt32(txtNumero.Text);
-                    else
-                        cliente.Endereco.num = 0;
-                    cliente.Email = txtEmail.Text;
-                    cliente.Telefone = txtTelefone.Text;
+                    var result = MessageBox.Show("Deseja adicionar novo cliente?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
 
-                    if (rdbPF.Checked)
-                    {
-                        cliente.TipoPessoa = true;
-                        cliente.Cnpj = "";
-                    }
-                    else
-                    {
-                        cliente.TipoPessoa = false;
-                        cliente.Cpf = "";
-                    }
+                        cliente.Nome = txtNome.Text;
+                        cliente.Cpf = txtCpf.Text;
+                        cliente.Cnpj = txtCpf.Text;
+                        cliente.DtNasc = dtPicker.Value;
+                        cliente.Endereco.cep = txtCep.Text;
+                        cliente.Endereco.Logradouro = txtLogradouro.Text;
+                        cliente.Endereco.bairro = txtBairro.Text;
+                        cliente.Endereco.Complemento = txtComplemento.Text;
+                        cliente.Endereco.Cidade = txtCidade.Text;
+                        cliente.Endereco.Estado = cBoxUF.Text;
+                        if (txtNumero.Text != "")
+                            cliente.Endereco.num = Convert.ToInt32(txtNumero.Text);
+                        else
+                            cliente.Endereco.num = 0;
+                        cliente.Email = txtEmail.Text;
+                        cliente.Telefone = txtTelefone.Text;
 
-                    if (rdbMasc.Checked)
-                    {
-                        cliente.Sexo = "M";
-                    }
-                    else if (rdbFem.Checked)
-                    {
-                        cliente.Sexo = "F";
-                    }
-                    else if (rdbIndef.Checked)
-                    {
-                        cliente.Sexo = "I";
-                    }
+                        if (rdbPF.Checked)
+                        {
+                            cliente.TipoPessoa = true;
+                            cliente.Cnpj = "";
+                        }
+                        else
+                        {
+                            cliente.TipoPessoa = false;
+                            cliente.Cpf = "";
+                        }
 
-                    try
-                    {
-                        pfDao.Insert(cliente);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                        sucess = false;
-                    }
-                    if (sucess)
-                    {
-                        MessageBox.Show("Cliente adicionado com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
-                    }
+                        if (rdbMasc.Checked)
+                        {
+                            cliente.Sexo = "M";
+                        }
+                        else if (rdbFem.Checked)
+                        {
+                            cliente.Sexo = "F";
+                        }
+                        else if (rdbIndef.Checked)
+                        {
+                            cliente.Sexo = "I";
+                        }
 
-                    var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (r == DialogResult.Yes)
-                    {
-                        tControlCliente.TabPages.Remove(tpgCadastro);
-                        tControlCliente.TabPages.Add(tpgListar);
-                        tabCliente.DataSource = BindList();
-                    }
+                        try
+                        {
+                            pfDao.Insert(cliente);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                            sucess = false;
+                        }
+                        if (sucess)
+                        {
+                            MessageBox.Show("Cliente adicionado com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro na gravação no banco de dados");
+                        }
 
+                        var r = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            tControlCliente.TabPages.Remove(tpgCadastro);
+                            tControlCliente.TabPages.Add(tpgListar);
+                            tabCliente.DataSource = BindList();
+                        }
+
+
+                    }
 
                 }
-
             }
+            
 
-        }
-        
-        public static void IntNumber(KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
-                e.Handled = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -474,9 +477,103 @@ namespace FazendaSharpCity.View
             }
         }
 
+        public static void IntNumber(KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
         private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
             IntNumber(e);
         }
+
+        private void txtCep_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private void txtTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
+
+        private string ValidaForms()
+        {
+            StringBuilder sbrErrors = new StringBuilder();
+            if (txtNome.TextLength < 5)
+            {
+                sbrErrors.AppendLine("O Nome é obrigatório e precisa ter mais que 5 caracteres.");
+            }
+            else if (txtNome.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O Nome deve possuir no máximo 100 caracteres.");
+            }
+            if (rdbPF.Checked)
+            {
+                if(txtCpf.Text == "")
+                {
+                    sbrErrors.AppendLine("O CPF é obrigatório.");
+                }
+                if (txtCpf.TextLength < 11 || txtCpf.TextLength > 11)
+                {
+                    sbrErrors.AppendLine("O CPF precisa conter 11 numeros.");
+                }
+            }
+            else if (rdbPJ.Checked)
+            {
+                if (txtCpf.Text == "")
+                {
+                    sbrErrors.AppendLine("O CNPJ é obrigatório.");
+                }
+                if (txtCpf.TextLength < 14 || txtCpf.TextLength > 14)
+                {
+                    sbrErrors.AppendLine("O CNPJ precisa conter 14 numeros.");
+                }
+            }
+            if(txtCep.TextLength < 8 ||  txtCep.TextLength > 8)
+            {
+                sbrErrors.AppendLine("O CEP deve pssuir 8 dígitos.");
+            }
+            if(txtLogradouro.TextLength < 5 || txtLogradouro.Text.Length > 100) 
+            {
+                sbrErrors.AppendLine("O Logradouro deve possuir entre 5 e 100 caracteres.");
+            }
+            if(txtBairro.TextLength < 5 || txtBairro.Text.Length > 100)
+            {
+                sbrErrors.AppendLine("O Bairro deve possuir entre 5 e 100 caracteres.");
+            }
+            if(txtNumero.TextLength == 0 || txtNumero.Text.Length > 8)
+            {
+                sbrErrors.AppendLine("O Número do endereço deve possuir entre 1 e 8 dígitos.");
+            }
+            if(txtComplemento.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O Complemento pode possuir no máximo 100 caracteres.");
+            }
+            if(txtCidade.TextLength < 5 || txtCidade.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O nome da Cidade deve possuir entre 5 e 100 caracteres.");
+            }
+            if(cBoxUF.SelectedIndex == -1)
+            {
+                sbrErrors.AppendLine("Selecione uma UF.");
+            }
+            if (txtEmail.TextLength < 5 || txtEmail.TextLength > 100)
+            {
+                sbrErrors.AppendLine("O Email deve possuir entre 5 e 100 caracteres.");
+            }
+            if (txtTelefone.TextLength != 11)
+            {
+                sbrErrors.AppendLine("O telefone deve possuir 11 digitos, contando com o DDD.");
+            }
+            return sbrErrors.ToString();
+        }
+
     }
 }

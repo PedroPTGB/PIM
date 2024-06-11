@@ -84,9 +84,9 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(293, 195);
+            label1.Location = new Point(335, 260);
             label1.Name = "label1";
-            label1.Size = new Size(0, 65);
+            label1.Size = new Size(0, 81);
             label1.TabIndex = 1;
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -96,10 +96,9 @@
             tabControllerFornecedor.Controls.Add(tabPageCadastro);
             tabControllerFornecedor.Dock = DockStyle.Fill;
             tabControllerFornecedor.Location = new Point(0, 0);
-            tabControllerFornecedor.Margin = new Padding(3, 2, 3, 2);
             tabControllerFornecedor.Name = "tabControllerFornecedor";
             tabControllerFornecedor.SelectedIndex = 0;
-            tabControllerFornecedor.Size = new Size(930, 452);
+            tabControllerFornecedor.Size = new Size(1063, 603);
             tabControllerFornecedor.TabIndex = 2;
             // 
             // tabPageListar
@@ -111,11 +110,10 @@
             tabPageListar.Controls.Add(btnExcluir);
             tabPageListar.Controls.Add(btnAdicionar);
             tabPageListar.Controls.Add(btnEditar);
-            tabPageListar.Location = new Point(4, 24);
-            tabPageListar.Margin = new Padding(3, 2, 3, 2);
+            tabPageListar.Location = new Point(4, 29);
             tabPageListar.Name = "tabPageListar";
-            tabPageListar.Padding = new Padding(3, 2, 3, 2);
-            tabPageListar.Size = new Size(922, 424);
+            tabPageListar.Padding = new Padding(3);
+            tabPageListar.Size = new Size(1055, 570);
             tabPageListar.TabIndex = 0;
             tabPageListar.Text = "Listar";
             // 
@@ -124,10 +122,9 @@
             btnPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnPesquisar.BackgroundImage = (Image)resources.GetObject("btnPesquisar.BackgroundImage");
             btnPesquisar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPesquisar.Location = new Point(686, 12);
-            btnPesquisar.Margin = new Padding(3, 2, 3, 2);
+            btnPesquisar.Location = new Point(784, 16);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(99, 25);
+            btnPesquisar.Size = new Size(113, 33);
             btnPesquisar.TabIndex = 11;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
@@ -136,10 +133,9 @@
             // txtPesquisa
             // 
             txtPesquisa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtPesquisa.Location = new Point(21, 14);
-            txtPesquisa.Margin = new Padding(3, 2, 3, 2);
+            txtPesquisa.Location = new Point(24, 19);
             txtPesquisa.Name = "txtPesquisa";
-            txtPesquisa.Size = new Size(645, 23);
+            txtPesquisa.Size = new Size(737, 27);
             txtPesquisa.TabIndex = 10;
             txtPesquisa.KeyDown += txtPesquisa_KeyDown;
             // 
@@ -152,14 +148,13 @@
             tabFornecedor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabFornecedor.BackgroundColor = Color.LightGray;
             tabFornecedor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tabFornecedor.Location = new Point(21, 52);
-            tabFornecedor.Margin = new Padding(3, 2, 3, 2);
+            tabFornecedor.Location = new Point(24, 69);
             tabFornecedor.MultiSelect = false;
             tabFornecedor.Name = "tabFornecedor";
             tabFornecedor.ReadOnly = true;
             tabFornecedor.RowHeadersWidth = 51;
             tabFornecedor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tabFornecedor.Size = new Size(747, 362);
+            tabFornecedor.Size = new Size(854, 483);
             tabFornecedor.TabIndex = 6;
             tabFornecedor.CellClick += tabFornecedor_CellClick;
             // 
@@ -168,10 +163,9 @@
             btnExcluir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnExcluir.BackgroundImage = (Image)resources.GetObject("btnExcluir.BackgroundImage");
             btnExcluir.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExcluir.Location = new Point(819, 124);
-            btnExcluir.Margin = new Padding(3, 2, 3, 2);
+            btnExcluir.Location = new Point(936, 165);
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(82, 22);
+            btnExcluir.Size = new Size(94, 29);
             btnExcluir.TabIndex = 9;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
@@ -182,10 +176,9 @@
             btnAdicionar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAdicionar.BackgroundImage = (Image)resources.GetObject("btnAdicionar.BackgroundImage");
             btnAdicionar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdicionar.Location = new Point(819, 52);
-            btnAdicionar.Margin = new Padding(3, 2, 3, 2);
+            btnAdicionar.Location = new Point(936, 69);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(82, 22);
+            btnAdicionar.Size = new Size(94, 29);
             btnAdicionar.TabIndex = 7;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
@@ -196,10 +189,9 @@
             btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEditar.BackgroundImage = (Image)resources.GetObject("btnEditar.BackgroundImage");
             btnEditar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditar.Location = new Point(819, 88);
-            btnEditar.Margin = new Padding(3, 2, 3, 2);
+            btnEditar.Location = new Point(936, 117);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(82, 22);
+            btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 8;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -215,11 +207,10 @@
             tabPageCadastro.Controls.Add(panel3);
             tabPageCadastro.Controls.Add(panel2);
             tabPageCadastro.Controls.Add(panel1);
-            tabPageCadastro.Location = new Point(4, 24);
-            tabPageCadastro.Margin = new Padding(3, 2, 3, 2);
+            tabPageCadastro.Location = new Point(4, 29);
             tabPageCadastro.Name = "tabPageCadastro";
-            tabPageCadastro.Padding = new Padding(3, 2, 3, 2);
-            tabPageCadastro.Size = new Size(922, 424);
+            tabPageCadastro.Padding = new Padding(3);
+            tabPageCadastro.Size = new Size(1055, 570);
             tabPageCadastro.TabIndex = 1;
             tabPageCadastro.Text = "Cadastro";
             // 
@@ -228,10 +219,9 @@
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.BackgroundImage = (Image)resources.GetObject("btnCancelar.BackgroundImage");
             btnCancelar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.Location = new Point(522, 394);
-            btnCancelar.Margin = new Padding(3, 2, 3, 2);
+            btnCancelar.Location = new Point(597, 525);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(107, 27);
+            btnCancelar.Size = new Size(122, 36);
             btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -242,10 +232,9 @@
             btnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSalvar.BackgroundImage = (Image)resources.GetObject("btnSalvar.BackgroundImage");
             btnSalvar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSalvar.Location = new Point(252, 394);
-            btnSalvar.Margin = new Padding(3, 2, 3, 2);
+            btnSalvar.Location = new Point(288, 525);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(103, 27);
+            btnSalvar.Size = new Size(118, 36);
             btnSalvar.TabIndex = 6;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
@@ -253,19 +242,18 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(40, 8);
-            txtId.Margin = new Padding(3, 2, 3, 2);
+            txtId.Location = new Point(46, 11);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(110, 23);
+            txtId.Size = new Size(125, 27);
             txtId.TabIndex = 4;
             // 
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(14, 10);
+            lblId.Location = new Point(16, 13);
             lblId.Name = "lblId";
-            lblId.Size = new Size(18, 15);
+            lblId.Size = new Size(24, 20);
             lblId.TabIndex = 3;
             lblId.Text = "ID";
             // 
@@ -276,19 +264,18 @@
             panel3.Controls.Add(lblEmail);
             panel3.Controls.Add(txtTelefone);
             panel3.Controls.Add(txtEmail);
-            panel3.Location = new Point(5, 304);
-            panel3.Margin = new Padding(3, 2, 3, 2);
+            panel3.Location = new Point(6, 405);
             panel3.Name = "panel3";
-            panel3.Size = new Size(911, 86);
+            panel3.Size = new Size(1041, 115);
             panel3.TabIndex = 2;
             // 
             // lblTelefone
             // 
             lblTelefone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTelefone.AutoSize = true;
-            lblTelefone.Location = new Point(9, 43);
+            lblTelefone.Location = new Point(10, 57);
             lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(51, 15);
+            lblTelefone.Size = new Size(66, 20);
             lblTelefone.TabIndex = 7;
             lblTelefone.Text = "Telefone";
             // 
@@ -296,28 +283,27 @@
             // 
             lblEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(9, 1);
+            lblEmail.Location = new Point(10, 1);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(36, 15);
+            lblEmail.Size = new Size(46, 20);
             lblEmail.TabIndex = 6;
             lblEmail.Text = "Email";
             // 
             // txtTelefone
             // 
             txtTelefone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtTelefone.Location = new Point(9, 58);
-            txtTelefone.Margin = new Padding(3, 2, 3, 2);
+            txtTelefone.Location = new Point(10, 77);
             txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(533, 23);
+            txtTelefone.Size = new Size(609, 27);
             txtTelefone.TabIndex = 5;
+            txtTelefone.KeyPress += txtTelefone_KeyPress;
             // 
             // txtEmail
             // 
             txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtEmail.Location = new Point(9, 16);
-            txtEmail.Margin = new Padding(3, 2, 3, 2);
+            txtEmail.Location = new Point(10, 21);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(533, 23);
+            txtEmail.Size = new Size(609, 27);
             txtEmail.TabIndex = 4;
             // 
             // panel2
@@ -337,46 +323,44 @@
             panel2.Controls.Add(txtLogradouro);
             panel2.Controls.Add(txtCep);
             panel2.Controls.Add(cBoxUF);
-            panel2.Location = new Point(4, 173);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(5, 231);
             panel2.Name = "panel2";
-            panel2.Size = new Size(912, 129);
+            panel2.Size = new Size(1042, 172);
             panel2.TabIndex = 1;
             // 
             // lblNumero
             // 
             lblNumero.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblNumero.AutoSize = true;
-            lblNumero.Location = new Point(480, 44);
+            lblNumero.Location = new Point(549, 59);
             lblNumero.Name = "lblNumero";
-            lblNumero.Size = new Size(51, 15);
+            lblNumero.Size = new Size(63, 20);
             lblNumero.TabIndex = 31;
             lblNumero.Text = "Número";
             // 
             // txtNumero
             // 
             txtNumero.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtNumero.Location = new Point(480, 61);
-            txtNumero.Margin = new Padding(3, 2, 3, 2);
+            txtNumero.Location = new Point(549, 81);
             txtNumero.Name = "txtNumero";
-            txtNumero.Size = new Size(109, 23);
+            txtNumero.Size = new Size(124, 27);
             txtNumero.TabIndex = 30;
+            txtNumero.KeyPress += txtNumero_KeyPress;
             // 
             // txtCidade
             // 
             txtCidade.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtCidade.Location = new Point(4, 98);
-            txtCidade.Margin = new Padding(3, 2, 3, 2);
+            txtCidade.Location = new Point(5, 131);
             txtCidade.Name = "txtCidade";
-            txtCidade.Size = new Size(791, 23);
+            txtCidade.Size = new Size(903, 27);
             txtCidade.TabIndex = 29;
             // 
             // lblCidade
             // 
             lblCidade.AutoSize = true;
-            lblCidade.Location = new Point(4, 81);
+            lblCidade.Location = new Point(5, 108);
             lblCidade.Name = "lblCidade";
-            lblCidade.Size = new Size(44, 15);
+            lblCidade.Size = new Size(56, 20);
             lblCidade.TabIndex = 28;
             lblCidade.Text = "Cidade";
             // 
@@ -384,9 +368,9 @@
             // 
             lblComplemento.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblComplemento.AutoSize = true;
-            lblComplemento.Location = new Point(594, 44);
+            lblComplemento.Location = new Point(679, 59);
             lblComplemento.Name = "lblComplemento";
-            lblComplemento.Size = new Size(84, 15);
+            lblComplemento.Size = new Size(104, 20);
             lblComplemento.TabIndex = 27;
             lblComplemento.Text = "Complemento";
             // 
@@ -394,9 +378,9 @@
             // 
             lblBairro.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblBairro.AutoSize = true;
-            lblBairro.Location = new Point(5, 44);
+            lblBairro.Location = new Point(6, 59);
             lblBairro.Name = "lblBairro";
-            lblBairro.Size = new Size(38, 15);
+            lblBairro.Size = new Size(49, 20);
             lblBairro.TabIndex = 26;
             lblBairro.Text = "Bairro";
             // 
@@ -404,9 +388,9 @@
             // 
             lblLogradouro.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblLogradouro.AutoSize = true;
-            lblLogradouro.Location = new Point(143, 4);
+            lblLogradouro.Location = new Point(163, 5);
             lblLogradouro.Name = "lblLogradouro";
-            lblLogradouro.Size = new Size(69, 15);
+            lblLogradouro.Size = new Size(87, 20);
             lblLogradouro.TabIndex = 25;
             lblLogradouro.Text = "Logradouro";
             // 
@@ -414,9 +398,9 @@
             // 
             lblCep.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblCep.AutoSize = true;
-            lblCep.Location = new Point(7, 4);
+            lblCep.Location = new Point(8, 5);
             lblCep.Name = "lblCep";
-            lblCep.Size = new Size(28, 15);
+            lblCep.Size = new Size(34, 20);
             lblCep.TabIndex = 24;
             lblCep.Text = "CEP";
             // 
@@ -424,55 +408,51 @@
             // 
             lblUF.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblUF.AutoSize = true;
-            lblUF.Location = new Point(800, 81);
+            lblUF.Location = new Point(914, 108);
             lblUF.Name = "lblUF";
-            lblUF.Size = new Size(21, 15);
+            lblUF.Size = new Size(26, 20);
             lblUF.TabIndex = 23;
             lblUF.Text = "UF";
             // 
             // txtComplemento
             // 
             txtComplemento.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtComplemento.Location = new Point(594, 61);
-            txtComplemento.Margin = new Padding(3, 2, 3, 2);
+            txtComplemento.Location = new Point(679, 81);
             txtComplemento.Name = "txtComplemento";
-            txtComplemento.Size = new Size(301, 23);
+            txtComplemento.Size = new Size(343, 27);
             txtComplemento.TabIndex = 21;
             // 
             // txtBairro
             // 
             txtBairro.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtBairro.Location = new Point(5, 61);
-            txtBairro.Margin = new Padding(3, 2, 3, 2);
+            txtBairro.Location = new Point(6, 81);
             txtBairro.Name = "txtBairro";
-            txtBairro.Size = new Size(470, 23);
+            txtBairro.Size = new Size(537, 27);
             txtBairro.TabIndex = 20;
             // 
             // txtLogradouro
             // 
             txtLogradouro.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtLogradouro.Location = new Point(143, 22);
-            txtLogradouro.Margin = new Padding(3, 2, 3, 2);
+            txtLogradouro.Location = new Point(163, 29);
             txtLogradouro.Name = "txtLogradouro";
-            txtLogradouro.Size = new Size(752, 23);
+            txtLogradouro.Size = new Size(859, 27);
             txtLogradouro.TabIndex = 19;
             // 
             // txtCep
             // 
-            txtCep.Location = new Point(7, 22);
-            txtCep.Margin = new Padding(3, 2, 3, 2);
+            txtCep.Location = new Point(8, 29);
             txtCep.Name = "txtCep";
-            txtCep.Size = new Size(134, 23);
+            txtCep.Size = new Size(153, 27);
             txtCep.TabIndex = 18;
+            txtCep.KeyPress += txtCep_KeyPress;
             // 
             // cBoxUF
             // 
             cBoxUF.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cBoxUF.FormattingEnabled = true;
-            cBoxUF.Location = new Point(800, 98);
-            cBoxUF.Margin = new Padding(3, 2, 3, 2);
+            cBoxUF.Location = new Point(914, 131);
             cBoxUF.Name = "cBoxUF";
-            cBoxUF.Size = new Size(95, 23);
+            cBoxUF.Size = new Size(108, 28);
             cBoxUF.TabIndex = 22;
             // 
             // panel1
@@ -484,38 +464,36 @@
             panel1.Controls.Add(lblRazaoSocial);
             panel1.Controls.Add(txtCnpj);
             panel1.Controls.Add(txtRazaoSocial);
-            panel1.Location = new Point(3, 40);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(3, 53);
             panel1.Name = "panel1";
-            panel1.Size = new Size(914, 131);
+            panel1.Size = new Size(1045, 175);
             panel1.TabIndex = 0;
             // 
             // lblNomeFantasia
             // 
             lblNomeFantasia.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblNomeFantasia.AutoSize = true;
-            lblNomeFantasia.Location = new Point(11, 44);
+            lblNomeFantasia.Location = new Point(13, 59);
             lblNomeFantasia.Name = "lblNomeFantasia";
-            lblNomeFantasia.Size = new Size(86, 15);
+            lblNomeFantasia.Size = new Size(107, 20);
             lblNomeFantasia.TabIndex = 21;
             lblNomeFantasia.Text = "Nome Fantasia";
             // 
             // txtNomeFantasia
             // 
             txtNomeFantasia.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtNomeFantasia.Location = new Point(10, 62);
-            txtNomeFantasia.Margin = new Padding(3, 2, 3, 2);
+            txtNomeFantasia.Location = new Point(11, 83);
             txtNomeFantasia.Name = "txtNomeFantasia";
-            txtNomeFantasia.Size = new Size(532, 23);
+            txtNomeFantasia.Size = new Size(607, 27);
             txtNomeFantasia.TabIndex = 20;
             // 
             // lblCnpj
             // 
             lblCnpj.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblCnpj.AutoSize = true;
-            lblCnpj.Location = new Point(11, 84);
+            lblCnpj.Location = new Point(13, 112);
             lblCnpj.Name = "lblCnpj";
-            lblCnpj.Size = new Size(34, 15);
+            lblCnpj.Size = new Size(41, 20);
             lblCnpj.TabIndex = 17;
             lblCnpj.Text = "CNPJ";
             // 
@@ -523,39 +501,37 @@
             // 
             lblRazaoSocial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblRazaoSocial.AutoSize = true;
-            lblRazaoSocial.Location = new Point(11, 5);
+            lblRazaoSocial.Location = new Point(13, 7);
             lblRazaoSocial.Name = "lblRazaoSocial";
-            lblRazaoSocial.Size = new Size(72, 15);
+            lblRazaoSocial.Size = new Size(94, 20);
             lblRazaoSocial.TabIndex = 16;
             lblRazaoSocial.Text = "Razao Social";
             // 
             // txtCnpj
             // 
             txtCnpj.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtCnpj.Location = new Point(10, 101);
-            txtCnpj.Margin = new Padding(3, 2, 3, 2);
+            txtCnpj.Location = new Point(11, 135);
             txtCnpj.Name = "txtCnpj";
-            txtCnpj.Size = new Size(538, 23);
+            txtCnpj.Size = new Size(614, 27);
             txtCnpj.TabIndex = 13;
+            txtCnpj.KeyPress += txtCnpj_KeyPress;
             // 
             // txtRazaoSocial
             // 
             txtRazaoSocial.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtRazaoSocial.Location = new Point(10, 22);
-            txtRazaoSocial.Margin = new Padding(3, 2, 3, 2);
+            txtRazaoSocial.Location = new Point(11, 29);
             txtRazaoSocial.Name = "txtRazaoSocial";
-            txtRazaoSocial.Size = new Size(532, 23);
+            txtRazaoSocial.Size = new Size(607, 27);
             txtRazaoSocial.TabIndex = 12;
             // 
             // FornecedorView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(930, 452);
+            ClientSize = new Size(1063, 603);
             Controls.Add(tabControllerFornecedor);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FornecedorView";
             Text = "ProdutoView";
             tabControllerFornecedor.ResumeLayout(false);
