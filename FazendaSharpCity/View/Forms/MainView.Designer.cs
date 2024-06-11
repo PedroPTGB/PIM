@@ -74,7 +74,7 @@ namespace FazendaSharpCity
             panelLateral.Dock = DockStyle.Left;
             panelLateral.Location = new Point(0, 0);
             panelLateral.Name = "panelLateral";
-            panelLateral.Size = new Size(229, 661);
+            panelLateral.Size = new Size(229, 720);
             panelLateral.TabIndex = 0;
             // 
             // btnFuncionario
@@ -204,7 +204,7 @@ namespace FazendaSharpCity
             pictureBox2.Location = new Point(0, 0);
             pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(952, 605);
+            pictureBox2.Size = new Size(1051, 664);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -218,7 +218,7 @@ namespace FazendaSharpCity
             panelSuperior.Dock = DockStyle.Top;
             panelSuperior.Location = new Point(229, 0);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(952, 56);
+            panelSuperior.Size = new Size(1051, 56);
             panelSuperior.TabIndex = 5;
             // 
             // btnLogOut
@@ -227,7 +227,7 @@ namespace FazendaSharpCity
             btnLogOut.FlatStyle = FlatStyle.Flat;
             btnLogOut.Font = new Font("SimSun", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
-            btnLogOut.Location = new Point(822, 5);
+            btnLogOut.Location = new Point(952, 5);
             btnLogOut.Margin = new Padding(0);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Size = new Size(42, 43);
@@ -241,7 +241,7 @@ namespace FazendaSharpCity
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
-            btnClose.Location = new Point(898, 3);
+            btnClose.Location = new Point(997, 5);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(42, 43);
             btnClose.TabIndex = 0;
@@ -255,19 +255,19 @@ namespace FazendaSharpCity
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(229, 56);
             panel1.Name = "panel1";
-            panel1.Size = new Size(952, 605);
+            panel1.Size = new Size(1051, 664);
             panel1.TabIndex = 6;
             // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1181, 661);
+            ClientSize = new Size(1280, 720);
             Controls.Add(panel1);
             Controls.Add(panelSuperior);
             Controls.Add(panelLateral);
             FormBorderStyle = FormBorderStyle.None;
-            MinimumSize = new Size(1181, 661);
+            MinimumSize = new Size(1280, 720);
             Name = "MainView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FazendaSharpCity";

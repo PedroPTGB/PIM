@@ -196,7 +196,7 @@
             btnLogOut.FlatStyle = FlatStyle.Flat;
             btnLogOut.Font = new Font("SimSun", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
-            btnLogOut.Location = new Point(827, 5);
+            btnLogOut.Location = new Point(952, 5);
             btnLogOut.Margin = new Padding(0);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Size = new Size(42, 43);
@@ -210,7 +210,7 @@
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
-            btnClose.Location = new Point(872, 5);
+            btnClose.Location = new Point(997, 6);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(42, 43);
             btnClose.TabIndex = 0;
