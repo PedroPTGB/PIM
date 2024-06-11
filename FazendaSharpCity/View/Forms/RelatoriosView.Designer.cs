@@ -93,6 +93,7 @@
             btnPesquisarFornecedores.TabIndex = 19;
             btnPesquisarFornecedores.Text = "Pesquisar";
             btnPesquisarFornecedores.UseVisualStyleBackColor = true;
+            btnPesquisarFornecedores.Click += btnPesquisarFornecedores_Click;
             // 
             // txtPesquisaFornecedores
             // 
@@ -101,6 +102,7 @@
             txtPesquisaFornecedores.Name = "txtPesquisaFornecedores";
             txtPesquisaFornecedores.Size = new Size(869, 27);
             txtPesquisaFornecedores.TabIndex = 18;
+            txtPesquisaFornecedores.KeyDown += txtPesquisaFornecedores_KeyDown;
             // 
             // tabFornecedores
             // 
@@ -130,6 +132,7 @@
             btnExportarFornecedores.TabIndex = 16;
             btnExportarFornecedores.Text = "Exportar Relatório";
             btnExportarFornecedores.UseVisualStyleBackColor = true;
+            btnExportarFornecedores.Click += btnExportarFornecedores_Click;
             // 
             // tabClientes
             // 
@@ -159,6 +162,7 @@
             btnExportarClientes.TabIndex = 14;
             btnExportarClientes.Text = "Exportar Relatório";
             btnExportarClientes.UseVisualStyleBackColor = true;
+            btnExportarClientes.Click += btnExportarClientes_Click;
             // 
             // tabPageClientes
             // 
@@ -185,6 +189,7 @@
             btnPesquisarClientes.TabIndex = 17;
             btnPesquisarClientes.Text = "Pesquisar";
             btnPesquisarClientes.UseVisualStyleBackColor = true;
+            btnPesquisarClientes.Click += btnPesquisarClientes_Click;
             // 
             // txtPesquisaClientes
             // 
@@ -193,6 +198,7 @@
             txtPesquisaClientes.Name = "txtPesquisaClientes";
             txtPesquisaClientes.Size = new Size(869, 27);
             txtPesquisaClientes.TabIndex = 16;
+            txtPesquisaClientes.KeyDown += txtPesquisaClientes_KeyDown;
             // 
             // tabControllerRelatorios
             // 
@@ -233,14 +239,16 @@
             btnPesquisarProdutos.TabIndex = 21;
             btnPesquisarProdutos.Text = "Pesquisar";
             btnPesquisarProdutos.UseVisualStyleBackColor = true;
+            btnPesquisarProdutos.Click += btnPesquisarProdutos_Click;
             // 
             // txtPesquisaProdutos
             // 
             txtPesquisaProdutos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtPesquisaProdutos.Location = new Point(3, 6);
+            txtPesquisaProdutos.Location = new Point(8, 6);
             txtPesquisaProdutos.Name = "txtPesquisaProdutos";
-            txtPesquisaProdutos.Size = new Size(869, 27);
+            txtPesquisaProdutos.Size = new Size(864, 27);
             txtPesquisaProdutos.TabIndex = 20;
+            txtPesquisaProdutos.KeyDown += txtPesquisaProdutos_KeyDown;
             // 
             // tabProdutos
             // 
@@ -270,6 +278,7 @@
             btnExportarProdutos.TabIndex = 18;
             btnExportarProdutos.Text = "Exportar Relatório";
             btnExportarProdutos.UseVisualStyleBackColor = true;
+            btnExportarProdutos.Click += btnExportarProdutos_Click;
             // 
             // tabPageVendas
             // 
@@ -294,6 +303,7 @@
             btnPesquisaVendas.TabIndex = 22;
             btnPesquisaVendas.Text = "Pesquisar";
             btnPesquisaVendas.UseVisualStyleBackColor = true;
+            btnPesquisaVendas.Click += btnPesquisaVendas_Click;
             // 
             // lblDataVenda
             // 
@@ -341,6 +351,7 @@
             btnExportarVendas.TabIndex = 18;
             btnExportarVendas.Text = "Exportar Relatório";
             btnExportarVendas.UseVisualStyleBackColor = true;
+            btnExportarVendas.Click += btnExportarVendas_Click;
             // 
             // tabPageFuncionarios
             // 
@@ -366,6 +377,7 @@
             btnPesquisarFuncionarios.TabIndex = 21;
             btnPesquisarFuncionarios.Text = "Pesquisar";
             btnPesquisarFuncionarios.UseVisualStyleBackColor = true;
+            btnPesquisarFuncionarios.Click += btnPesquisarFuncionarios_Click;
             // 
             // txtPesquisaFuncionarios
             // 
@@ -374,6 +386,7 @@
             txtPesquisaFuncionarios.Name = "txtPesquisaFuncionarios";
             txtPesquisaFuncionarios.Size = new Size(869, 27);
             txtPesquisaFuncionarios.TabIndex = 20;
+            txtPesquisaFuncionarios.KeyDown += txtPesquisaFuncionarios_KeyDown;
             // 
             // tabFuncionarios
             // 
@@ -403,6 +416,7 @@
             btnExportarFuncionarios.TabIndex = 18;
             btnExportarFuncionarios.Text = "Exportar Relatório";
             btnExportarFuncionarios.UseVisualStyleBackColor = true;
+            btnExportarFuncionarios.Click += btnExportarFuncionarios_Click;
             // 
             // RelatoriosView
             // 
