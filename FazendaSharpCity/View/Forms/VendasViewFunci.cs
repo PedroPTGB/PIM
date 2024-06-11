@@ -49,6 +49,7 @@ namespace FazendaSharpCity.View.Forms
             else
             {
                 MessageBox.Show("Pesquise apenas pelo ID da Venda!");
+                this.tabVendas.DataSource = BindList();
             }
 
             System.Data.DataTable table = new System.Data.DataTable();

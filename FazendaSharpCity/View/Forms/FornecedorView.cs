@@ -402,9 +402,9 @@ namespace FazendaSharpCity.View
             {
                 sbrErrors.AppendLine("O Email deve possuir entre 5 e 100 caracteres.");
             }
-            if (txtTelefone.TextLength != 11)
+            if (txtTelefone.TextLength < 10 || txtTelefone.TextLength > 11)
             {
-                sbrErrors.AppendLine("O telefone deve possuir 11 digitos, contando com o DDD.");
+                sbrErrors.AppendLine("O telefone deve possuir entre 10 e 11 digitos, contando com o DDD.");
             }
             return sbrErrors.ToString();
         }

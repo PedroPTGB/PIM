@@ -50,12 +50,11 @@
             loginTbx.BackColor = Color.SeaGreen;
             loginTbx.Font = new Font("Corbel", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             loginTbx.ForeColor = SystemColors.Window;
-            loginTbx.Location = new Point(576, 199);
-            loginTbx.Margin = new Padding(3, 2, 3, 2);
+            loginTbx.Location = new Point(658, 265);
             loginTbx.Multiline = true;
             loginTbx.Name = "loginTbx";
             loginTbx.PlaceholderText = "        USUARIO";
-            loginTbx.Size = new Size(234, 54);
+            loginTbx.Size = new Size(267, 71);
             loginTbx.TabIndex = 3;
             // 
             // senhaTbx
@@ -65,13 +64,12 @@
             senhaTbx.BackColor = Color.SeaGreen;
             senhaTbx.Font = new Font("Corbel", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             senhaTbx.ForeColor = SystemColors.Window;
-            senhaTbx.Location = new Point(576, 274);
-            senhaTbx.Margin = new Padding(3, 2, 3, 2);
+            senhaTbx.Location = new Point(658, 365);
             senhaTbx.Multiline = true;
             senhaTbx.Name = "senhaTbx";
             senhaTbx.PasswordChar = '*';
             senhaTbx.PlaceholderText = "          SENHA";
-            senhaTbx.Size = new Size(234, 53);
+            senhaTbx.Size = new Size(267, 69);
             senhaTbx.TabIndex = 4;
             // 
             // btnEntrar
@@ -79,9 +77,10 @@
             btnEntrar.AllowDrop = true;
             btnEntrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEntrar.BackColor = Color.SeaGreen;
-            btnEntrar.Location = new Point(613, 343);
+            btnEntrar.Location = new Point(701, 457);
+            btnEntrar.Margin = new Padding(3, 4, 3, 4);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(155, 40);
+            btnEntrar.Size = new Size(177, 53);
             btnEntrar.TabIndex = 7;
             btnEntrar.Text = "ENTRAR";
             btnEntrar.UseVisualStyleBackColor = false;
@@ -95,9 +94,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SeaGreen;
-            label1.Location = new Point(608, 120);
+            label1.Location = new Point(695, 160);
             label1.Name = "label1";
-            label1.Size = new Size(175, 56);
+            label1.Size = new Size(221, 70);
             label1.TabIndex = 8;
             label1.Text = "LOGIN";
             // 
@@ -108,9 +107,8 @@
             panelSuperior.Controls.Add(btnClose);
             panelSuperior.Dock = DockStyle.Top;
             panelSuperior.Location = new Point(0, 0);
-            panelSuperior.Margin = new Padding(3, 2, 3, 2);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(1033, 36);
+            panelSuperior.Size = new Size(1181, 48);
             panelSuperior.TabIndex = 9;
             // 
             // btnClose
@@ -119,17 +117,16 @@
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Image = Properties.Resources.botao_excluir_3_;
-            btnClose.Location = new Point(984, 2);
-            btnClose.Margin = new Padding(3, 2, 3, 2);
+            btnClose.Location = new Point(1125, 3);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(39, 34);
+            btnClose.Size = new Size(45, 45);
             btnClose.TabIndex = 0;
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
             // panelCentro
             // 
-            panelCentro.BackgroundImage = Properties.Resources.linkLab21el2;
+            panelCentro.BackgroundImage = (Image)resources.GetObject("panelCentro.BackgroundImage");
             panelCentro.Controls.Add(linkLabel1);
             panelCentro.Controls.Add(label1);
             panelCentro.Controls.Add(btnEntrar);
@@ -137,9 +134,8 @@
             panelCentro.Controls.Add(senhaTbx);
             panelCentro.Dock = DockStyle.Fill;
             panelCentro.Location = new Point(0, 0);
-            panelCentro.Margin = new Padding(3, 2, 3, 2);
             panelCentro.Name = "panelCentro";
-            panelCentro.Size = new Size(1033, 496);
+            panelCentro.Size = new Size(1181, 661);
             panelCentro.TabIndex = 10;
             // 
             // linkLabel1
@@ -147,9 +143,9 @@
             linkLabel1.AutoSize = true;
             linkLabel1.BackColor = Color.Transparent;
             linkLabel1.LinkColor = Color.SeaGreen;
-            linkLabel1.Location = new Point(874, 456);
+            linkLabel1.Location = new Point(999, 608);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(108, 15);
+            linkLabel1.Size = new Size(135, 20);
             linkLabel1.TabIndex = 9;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Quem Somos Nós?";
@@ -158,16 +154,15 @@
             // 
             // LoginViewForms
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1033, 496);
+            ClientSize = new Size(1181, 661);
             Controls.Add(panelSuperior);
             Controls.Add(panelCentro);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginViewForms";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
