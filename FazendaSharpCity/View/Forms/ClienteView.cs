@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -123,33 +124,24 @@ namespace FazendaSharpCity.View
             ClientePFModel cliente = new ClientePFModel();
 
             cliente.IdCliente = (int)row.Cells[0].Value;
-            cliente.Nome = (string)row.Cells[1].Value;
-            cliente.Cpf = (string)row.Cells[2].Value;
-            cliente.DtNasc = (DateTime)row.Cells[3].Value;
+            cliente = pfDao.SearchCompleto(cliente);
             cliente.Endereco = pfDao.SearchEndereco(cliente);
-
-            if (!string.IsNullOrEmpty(row.Cells[4].Value.ToString()))
-                cliente.Email = (string)row.Cells[4].Value;
-            else
-                cliente.Email = "";
-
-            if (!string.IsNullOrEmpty(row.Cells[5].Value.ToString()))
-                cliente.Telefone = (string)row.Cells[5].Value;
-            else
-                cliente.Telefone = "";
-
 
             tControlCliente.TabPages.Remove(tpgListar);
             tControlCliente.TabPages.Add(tpgCadastro);
             txtId.Text = cliente.IdCliente.ToString();
             txtNome.Text = cliente.Nome;
-            txtCpf.Text = cliente.Cpf;
-            dtPicker.Text = cliente.DtNasc.ToString();
+            if (cliente.Cpf != "")
+                txtCpf.Text = cliente.Cpf;
+            if (cliente.Cnpj != "")
+                txtCpf.Text = cliente.Cnpj;
+            dtPicker.Value = cliente.DtNasc;
             txtCep.Text = cliente.Endereco.cep;
             txtLogradouro.Text = cliente.Endereco.Logradouro;
             txtBairro.Text = cliente.Endereco.bairro;
             txtComplemento.Text = cliente.Endereco.Complemento;
             txtCidade.Text = cliente.Endereco.Cidade;
+            txtNumero.Text = cliente.Endereco.num.ToString();
 
             if (cliente.Sexo == "M")
             {
@@ -174,7 +166,7 @@ namespace FazendaSharpCity.View
             {
                 rdbPF.Checked = true;
                 rdbPJ.Checked = false;
-                lblCep.Text = "CPF";
+                lblCpf.Text = "CPF";
             }
             else
             {
@@ -236,9 +228,10 @@ namespace FazendaSharpCity.View
                 var result = MessageBox.Show("Deseja salvar a alteração?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    cliente.IdCliente = Convert.ToInt32(txtId.Text);
+
                     cliente.Nome = txtNome.Text;
                     cliente.Cpf = txtCpf.Text;
+                    cliente.Cnpj = txtCpf.Text;
                     cliente.DtNasc = dtPicker.Value;
                     cliente.Endereco.cep = txtCep.Text;
                     cliente.Endereco.Logradouro = txtLogradouro.Text;
@@ -246,6 +239,10 @@ namespace FazendaSharpCity.View
                     cliente.Endereco.Complemento = txtComplemento.Text;
                     cliente.Endereco.Cidade = txtCidade.Text;
                     cliente.Endereco.Estado = cBoxUF.Text;
+                    if (txtNumero.Text != "")
+                        cliente.Endereco.num = Convert.ToInt32(txtNumero.Text);
+                    else
+                        cliente.Endereco.num = 0;
                     cliente.Email = txtEmail.Text;
                     cliente.Telefone = txtTelefone.Text;
 
@@ -253,7 +250,7 @@ namespace FazendaSharpCity.View
                     {
                         cliente.TipoPessoa = true;
                     }
-                    else
+                    else if (rdbPJ.Checked)
                     {
                         cliente.TipoPessoa = false;
                     }
@@ -270,7 +267,6 @@ namespace FazendaSharpCity.View
                     {
                         cliente.Sexo = "I";
                     }
-
 
                     try
                     {
@@ -297,32 +293,42 @@ namespace FazendaSharpCity.View
                         tControlCliente.TabPages.Add(tpgListar);
                         tabCliente.DataSource = BindList();
                     }
+
                 }
             }
             else
-            {
+            {    
+
                 var result = MessageBox.Show("Deseja adicionar novo cliente?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
+
                     cliente.Nome = txtNome.Text;
                     cliente.Cpf = txtCpf.Text;
+                    cliente.Cnpj = txtCpf.Text;
                     cliente.DtNasc = dtPicker.Value;
-                    cliente.Endereco.cep = txtCep.Text.ToString();
+                    cliente.Endereco.cep = txtCep.Text;
                     cliente.Endereco.Logradouro = txtLogradouro.Text;
                     cliente.Endereco.bairro = txtBairro.Text;
                     cliente.Endereco.Complemento = txtComplemento.Text;
                     cliente.Endereco.Cidade = txtCidade.Text;
                     cliente.Endereco.Estado = cBoxUF.Text;
+                    if (txtNumero.Text != "")
+                        cliente.Endereco.num = Convert.ToInt32(txtNumero.Text);
+                    else
+                        cliente.Endereco.num = 0;
                     cliente.Email = txtEmail.Text;
                     cliente.Telefone = txtTelefone.Text;
 
                     if (rdbPF.Checked)
                     {
                         cliente.TipoPessoa = true;
+                        cliente.Cnpj = "";
                     }
                     else
                     {
                         cliente.TipoPessoa = false;
+                        cliente.Cpf = "";
                     }
 
                     if (rdbMasc.Checked)
@@ -333,7 +339,7 @@ namespace FazendaSharpCity.View
                     {
                         cliente.Sexo = "F";
                     }
-                    else
+                    else if (rdbIndef.Checked)
                     {
                         cliente.Sexo = "I";
                     }
@@ -366,44 +372,88 @@ namespace FazendaSharpCity.View
 
 
                 }
+
             }
 
+        }
+        
+        public static void IntNumber(KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+                e.Handled = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
-            var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do cliente serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (c == DialogResult.Yes)
+            if (Edita)
             {
-                txtId.Text = "";
-                txtNome.Text = "";
-                txtCpf.Text = "";
-                dtPicker.Text = "";
-                txtCep.Text = "";
-                txtLogradouro.Text = "";
-                txtBairro.Text = "";
-                txtComplemento.Text = "";
-                txtCidade.Text = "";
-
-                cBoxUF.SelectedItem = -1;
-
-                txtEmail.Text = "";
-                txtTelefone.Text = "";
-                rdbPF.Checked = true;
-                rdbPJ.Checked = false;
-                rdbIndef.Checked = true;
-                rdbMasc.Checked = false;
-                rdbFem.Checked = false;
-
-                var f = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (f == DialogResult.Yes)
+                var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados alterados do cliente serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (c == DialogResult.Yes)
                 {
-                    tControlCliente.TabPages.Remove(tpgCadastro);
-                    tControlCliente.TabPages.Add(tpgListar);
-                    tabCliente.DataSource = BindList();
-                }
+                    txtId.Text = "";
+                    txtNome.Text = "";
+                    txtCpf.Text = "";
+                    dtPicker.Text = "";
+                    txtCep.Text = "";
+                    txtLogradouro.Text = "";
+                    txtBairro.Text = "";
+                    txtComplemento.Text = "";
+                    txtCidade.Text = "";
 
+                    cBoxUF.SelectedItem = -1;
+
+                    txtEmail.Text = "";
+                    txtTelefone.Text = "";
+                    rdbPF.Checked = true;
+                    rdbPJ.Checked = false;
+                    rdbIndef.Checked = true;
+                    rdbMasc.Checked = false;
+                    rdbFem.Checked = false;
+
+                    var f = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (f == DialogResult.Yes)
+                    {
+                        tControlCliente.TabPages.Remove(tpgCadastro);
+                        tControlCliente.TabPages.Add(tpgListar);
+                        tabCliente.DataSource = BindList();
+                    }
+
+                }
+            }
+            else
+            {
+                var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do cliente serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (c == DialogResult.Yes)
+                {
+                    txtId.Text = "";
+                    txtNome.Text = "";
+                    txtCpf.Text = "";
+                    dtPicker.Text = "";
+                    txtCep.Text = "";
+                    txtLogradouro.Text = "";
+                    txtBairro.Text = "";
+                    txtComplemento.Text = "";
+                    txtCidade.Text = "";
+
+                    cBoxUF.SelectedItem = -1;
+
+                    txtEmail.Text = "";
+                    txtTelefone.Text = "";
+                    rdbPF.Checked = true;
+                    rdbPJ.Checked = false;
+                    rdbIndef.Checked = true;
+                    rdbMasc.Checked = false;
+                    rdbFem.Checked = false;
+
+                    var f = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (f == DialogResult.Yes)
+                    {
+                        tControlCliente.TabPages.Remove(tpgCadastro);
+                        tControlCliente.TabPages.Add(tpgListar);
+                        tabCliente.DataSource = BindList();
+                    }
+
+                }
             }
 
         }
@@ -424,5 +474,9 @@ namespace FazendaSharpCity.View
             }
         }
 
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            IntNumber(e);
+        }
     }
 }

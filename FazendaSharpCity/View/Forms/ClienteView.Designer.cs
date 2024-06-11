@@ -74,6 +74,8 @@
             txtNome = new TextBox();
             txtId = new TextBox();
             lblId = new Label();
+            txtNumero = new TextBox();
+            lblNumero = new Label();
             ((System.ComponentModel.ISupportInitialize)tabCliente).BeginInit();
             tControlCliente.SuspendLayout();
             tpgListar.SuspendLayout();
@@ -291,6 +293,8 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(lblNumero);
+            panel2.Controls.Add(txtNumero);
             panel2.Controls.Add(txtCidade);
             panel2.Controls.Add(lblCidade);
             panel2.Controls.Add(lblComplemento);
@@ -330,7 +334,7 @@
             // 
             lblComplemento.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblComplemento.AutoSize = true;
-            lblComplemento.Location = new Point(558, 62);
+            lblComplemento.Location = new Point(581, 62);
             lblComplemento.Name = "lblComplemento";
             lblComplemento.Size = new Size(104, 20);
             lblComplemento.TabIndex = 15;
@@ -380,9 +384,9 @@
             // 
             txtComplemento.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtComplemento.BackColor = Color.White;
-            txtComplemento.Location = new Point(560, 85);
+            txtComplemento.Location = new Point(581, 85);
             txtComplemento.Name = "txtComplemento";
-            txtComplemento.Size = new Size(474, 27);
+            txtComplemento.Size = new Size(453, 27);
             txtComplemento.TabIndex = 3;
             // 
             // txtBairro
@@ -391,7 +395,7 @@
             txtBairro.BackColor = Color.White;
             txtBairro.Location = new Point(6, 85);
             txtBairro.Name = "txtBairro";
-            txtBairro.Size = new Size(548, 27);
+            txtBairro.Size = new Size(476, 27);
             txtBairro.TabIndex = 2;
             // 
             // txtLogradouro
@@ -570,6 +574,7 @@
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(632, 27);
             txtCpf.TabIndex = 1;
+            txtCpf.KeyPress += txtCpf_KeyPress;
             // 
             // txtNome
             // 
@@ -597,6 +602,24 @@
             lblId.Size = new Size(24, 20);
             lblId.TabIndex = 0;
             lblId.Text = "ID";
+            // 
+            // txtNumero
+            // 
+            txtNumero.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtNumero.Location = new Point(488, 85);
+            txtNumero.Name = "txtNumero";
+            txtNumero.Size = new Size(87, 27);
+            txtNumero.TabIndex = 18;
+            // 
+            // lblNumero
+            // 
+            lblNumero.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblNumero.AutoSize = true;
+            lblNumero.Location = new Point(488, 62);
+            lblNumero.Name = "lblNumero";
+            lblNumero.Size = new Size(63, 20);
+            lblNumero.TabIndex = 19;
+            lblNumero.Text = "Numero";
             // 
             // ClienteView
             // 
@@ -673,5 +696,7 @@
         private Label lblCidade;
         private Button btnCancelar;
         private Button btnSalvar;
+        private Label lblNumero;
+        private TextBox txtNumero;
     }
 }
