@@ -124,25 +124,7 @@ namespace FazendaSharpCity.View
             cliente.IdCliente = (int)row.Cells[0].Value;
 
             cliente = pfDao.SearchCompleto(cliente);
-
-            /*cliente.Nome = (string)row.Cells[1].Value;
-            cliente.Cpf = (string)row.Cells[2].Value;
-            cliente.DtNasc = (DateTime)row.Cells[3].Value;*/
-
             cliente.Endereco = pfDao.SearchEndereco(cliente);
-
-            /*
-            if (!string.IsNullOrEmpty(row.Cells[4].Value.ToString()))
-                cliente.Email = (string)row.Cells[4].Value;
-            else
-                cliente.Email = "";
-
-            if (!string.IsNullOrEmpty(row.Cells[5].Value.ToString()))
-                cliente.Telefone = (string)row.Cells[5].Value;
-            else
-                cliente.Telefone = "";
-            */
-
 
             tControlCliente.TabPages.Remove(tpgListar);
             tControlCliente.TabPages.Add(tpgCadastro);

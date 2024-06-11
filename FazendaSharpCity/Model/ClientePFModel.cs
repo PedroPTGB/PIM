@@ -18,7 +18,7 @@ namespace FazendaSharpCity.Model
         public ClientePFModel()  
         {
             EnderecoModel Endereco = new EnderecoModel();
-            if (Cpf != null) 
+            if (Cpf != "") 
                 TipoPessoa = true;
             else
                 TipoPessoa = false;

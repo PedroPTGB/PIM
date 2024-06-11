@@ -62,7 +62,7 @@
             panelLateral.Dock = DockStyle.Left;
             panelLateral.Location = new Point(0, 0);
             panelLateral.Name = "panelLateral";
-            panelLateral.Size = new Size(229, 661);
+            panelLateral.Size = new Size(229, 720);
             panelLateral.TabIndex = 2;
             // 
             // btnVendas
@@ -172,7 +172,7 @@
             pictureBox2.Location = new Point(0, 0);
             pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(952, 605);
+            pictureBox2.Size = new Size(1051, 664);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
@@ -186,7 +186,7 @@
             panelSuperior.Dock = DockStyle.Top;
             panelSuperior.Location = new Point(229, 0);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(952, 56);
+            panelSuperior.Size = new Size(1051, 56);
             panelSuperior.TabIndex = 4;
             // 
             // btnLogOut
@@ -224,14 +224,14 @@
             panelCentral.Dock = DockStyle.Fill;
             panelCentral.Location = new Point(229, 56);
             panelCentral.Name = "panelCentral";
-            panelCentral.Size = new Size(952, 605);
+            panelCentral.Size = new Size(1051, 664);
             panelCentral.TabIndex = 5;
             // 
             // MainViewFuncionario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1181, 661);
+            ClientSize = new Size(1280, 720);
             Controls.Add(panelCentral);
             Controls.Add(panelSuperior);
             Controls.Add(panelLateral);
