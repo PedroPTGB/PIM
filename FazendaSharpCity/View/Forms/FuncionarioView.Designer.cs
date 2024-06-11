@@ -237,7 +237,6 @@
             // 
             // dtPicker
             // 
-            dtPicker.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dtPicker.CustomFormat = "dd/MM/yyyy";
             dtPicker.Format = DateTimePickerFormat.Custom;
             dtPicker.Location = new Point(3, 149);
@@ -466,17 +465,18 @@
             panel3.Controls.Add(lblEmail);
             panel3.Controls.Add(txtTelefone);
             panel3.Controls.Add(txtEmail);
-            panel3.Location = new Point(3, 435);
+            panel3.Location = new Point(6, 452);
             panel3.Name = "panel3";
-            panel3.Size = new Size(986, 155);
+            panel3.Size = new Size(986, 128);
             panel3.TabIndex = 4;
             // 
             // btnCancelar
             // 
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.BackColor = Color.SeaGreen;
             btnCancelar.BackgroundImage = (Image)resources.GetObject("btnCancelar.BackgroundImage");
             btnCancelar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.Location = new Point(830, 111);
+            btnCancelar.Location = new Point(830, 84);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(122, 41);
             btnCancelar.TabIndex = 5;
@@ -486,10 +486,11 @@
             // 
             // btnSalvar
             // 
+            btnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSalvar.BackColor = Color.SeaGreen;
             btnSalvar.BackgroundImage = (Image)resources.GetObject("btnSalvar.BackgroundImage");
             btnSalvar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSalvar.Location = new Point(669, 111);
+            btnSalvar.Location = new Point(669, 84);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(94, 41);
             btnSalvar.TabIndex = 4;
@@ -499,7 +500,7 @@
             // 
             // lblTelefone
             // 
-            lblTelefone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblTelefone.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTelefone.AutoSize = true;
             lblTelefone.Location = new Point(3, 67);
             lblTelefone.Name = "lblTelefone";
@@ -509,7 +510,7 @@
             // 
             // lblEmail
             // 
-            lblEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblEmail.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblEmail.AutoSize = true;
             lblEmail.Location = new Point(3, 11);
             lblEmail.Name = "lblEmail";
@@ -519,16 +520,16 @@
             // 
             // txtTelefone
             // 
-            txtTelefone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtTelefone.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtTelefone.BackColor = Color.White;
-            txtTelefone.Location = new Point(3, 89);
+            txtTelefone.Location = new Point(3, 90);
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(434, 27);
             txtTelefone.TabIndex = 1;
             // 
             // txtEmail
             // 
-            txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtEmail.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtEmail.BackColor = Color.White;
             txtEmail.Location = new Point(3, 33);
             txtEmail.Name = "txtEmail";
@@ -554,7 +555,7 @@
             panel2.Controls.Add(cBoxUF);
             panel2.Location = new Point(3, 244);
             panel2.Name = "panel2";
-            panel2.Size = new Size(986, 191);
+            panel2.Size = new Size(986, 216);
             panel2.TabIndex = 3;
             // 
             // lblNumero

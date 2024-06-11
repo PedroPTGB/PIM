@@ -51,11 +51,13 @@ namespace FazendaSharpCity
             panelSuperior = new Panel();
             btnLogOut = new Button();
             btnClose = new Button();
+            panel1 = new Panel();
             panelLateral.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelSuperior.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panelLateral
@@ -71,9 +73,8 @@ namespace FazendaSharpCity
             panelLateral.Controls.Add(panelLogo);
             panelLateral.Dock = DockStyle.Left;
             panelLateral.Location = new Point(0, 0);
-            panelLateral.Margin = new Padding(3, 2, 3, 2);
             panelLateral.Name = "panelLateral";
-            panelLateral.Size = new Size(200, 696);
+            panelLateral.Size = new Size(229, 661);
             panelLateral.TabIndex = 0;
             // 
             // btnFuncionario
@@ -86,11 +87,10 @@ namespace FazendaSharpCity
             btnFuncionario.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
             btnFuncionario.FlatStyle = FlatStyle.Flat;
             btnFuncionario.Font = new Font("SimSun", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnFuncionario.Location = new Point(0, 242);
-            btnFuncionario.Margin = new Padding(3, 2, 3, 2);
+            btnFuncionario.Location = new Point(0, 323);
             btnFuncionario.Name = "btnFuncionario";
-            btnFuncionario.Padding = new Padding(9, 0, 0, 0);
-            btnFuncionario.Size = new Size(200, 30);
+            btnFuncionario.Padding = new Padding(10, 0, 0, 0);
+            btnFuncionario.Size = new Size(229, 40);
             btnFuncionario.TabIndex = 6;
             btnFuncionario.Text = "Funcionarios";
             btnFuncionario.TextAlign = ContentAlignment.MiddleLeft;
@@ -107,11 +107,10 @@ namespace FazendaSharpCity
             btnVendas.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
             btnVendas.FlatStyle = FlatStyle.Flat;
             btnVendas.Font = new Font("SimSun", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVendas.Location = new Point(0, 212);
-            btnVendas.Margin = new Padding(3, 2, 3, 2);
+            btnVendas.Location = new Point(0, 283);
             btnVendas.Name = "btnVendas";
-            btnVendas.Padding = new Padding(9, 0, 0, 0);
-            btnVendas.Size = new Size(200, 30);
+            btnVendas.Padding = new Padding(10, 0, 0, 0);
+            btnVendas.Size = new Size(229, 40);
             btnVendas.TabIndex = 5;
             btnVendas.Text = "Vendas";
             btnVendas.TextAlign = ContentAlignment.MiddleLeft;
@@ -128,11 +127,10 @@ namespace FazendaSharpCity
             btnProduto.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
             btnProduto.FlatStyle = FlatStyle.Flat;
             btnProduto.Font = new Font("SimSun", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnProduto.Location = new Point(0, 182);
-            btnProduto.Margin = new Padding(3, 2, 3, 2);
+            btnProduto.Location = new Point(0, 243);
             btnProduto.Name = "btnProduto";
-            btnProduto.Padding = new Padding(9, 0, 0, 0);
-            btnProduto.Size = new Size(200, 30);
+            btnProduto.Padding = new Padding(10, 0, 0, 0);
+            btnProduto.Size = new Size(229, 40);
             btnProduto.TabIndex = 4;
             btnProduto.Text = "Produtos";
             btnProduto.TextAlign = ContentAlignment.MiddleLeft;
@@ -149,11 +147,10 @@ namespace FazendaSharpCity
             btnFornecedor.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
             btnFornecedor.FlatStyle = FlatStyle.Flat;
             btnFornecedor.Font = new Font("SimSun", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnFornecedor.Location = new Point(0, 152);
-            btnFornecedor.Margin = new Padding(3, 2, 3, 2);
+            btnFornecedor.Location = new Point(0, 203);
             btnFornecedor.Name = "btnFornecedor";
-            btnFornecedor.Padding = new Padding(9, 0, 0, 0);
-            btnFornecedor.Size = new Size(200, 30);
+            btnFornecedor.Padding = new Padding(10, 0, 0, 0);
+            btnFornecedor.Size = new Size(229, 40);
             btnFornecedor.TabIndex = 2;
             btnFornecedor.Text = "Fornecedores";
             btnFornecedor.TextAlign = ContentAlignment.MiddleLeft;
@@ -170,11 +167,10 @@ namespace FazendaSharpCity
             btnCliente.FlatAppearance.MouseOverBackColor = Color.SeaGreen;
             btnCliente.FlatStyle = FlatStyle.Flat;
             btnCliente.Font = new Font("SimSun", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCliente.Location = new Point(0, 122);
-            btnCliente.Margin = new Padding(3, 2, 3, 2);
+            btnCliente.Location = new Point(0, 163);
             btnCliente.Name = "btnCliente";
-            btnCliente.Padding = new Padding(9, 0, 0, 0);
-            btnCliente.Size = new Size(200, 30);
+            btnCliente.Padding = new Padding(10, 0, 0, 0);
+            btnCliente.Size = new Size(229, 40);
             btnCliente.TabIndex = 0;
             btnCliente.Text = "Clientes";
             btnCliente.TextAlign = ContentAlignment.MiddleLeft;
@@ -187,9 +183,8 @@ namespace FazendaSharpCity
             panelLogo.Controls.Add(pictureBox1);
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
-            panelLogo.Margin = new Padding(3, 2, 3, 2);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(200, 122);
+            panelLogo.Size = new Size(229, 163);
             panelLogo.TabIndex = 0;
             // 
             // pictureBox1
@@ -197,19 +192,19 @@ namespace FazendaSharpCity
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(200, 122);
+            pictureBox1.Size = new Size(229, 163);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
-            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox2.Dock = DockStyle.Fill;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(200, 39);
+            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1000, 657);
+            pictureBox2.Size = new Size(952, 605);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -221,10 +216,9 @@ namespace FazendaSharpCity
             panelSuperior.Controls.Add(btnLogOut);
             panelSuperior.Controls.Add(btnClose);
             panelSuperior.Dock = DockStyle.Top;
-            panelSuperior.Location = new Point(200, 0);
-            panelSuperior.Margin = new Padding(3, 2, 3, 2);
+            panelSuperior.Location = new Point(229, 0);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(1000, 42);
+            panelSuperior.Size = new Size(952, 56);
             panelSuperior.TabIndex = 5;
             // 
             // btnLogOut
@@ -233,10 +227,10 @@ namespace FazendaSharpCity
             btnLogOut.FlatStyle = FlatStyle.Flat;
             btnLogOut.Font = new Font("SimSun", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
-            btnLogOut.Location = new Point(891, 2);
+            btnLogOut.Location = new Point(822, 5);
             btnLogOut.Margin = new Padding(0);
             btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new Size(37, 32);
+            btnLogOut.Size = new Size(42, 43);
             btnLogOut.TabIndex = 1;
             btnLogOut.UseVisualStyleBackColor = true;
             btnLogOut.Click += btnLogOut_Click;
@@ -247,26 +241,33 @@ namespace FazendaSharpCity
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
-            btnClose.Location = new Point(944, 2);
-            btnClose.Margin = new Padding(3, 2, 3, 2);
+            btnClose.Location = new Point(898, 3);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(37, 32);
+            btnClose.Size = new Size(42, 43);
             btnClose.TabIndex = 0;
             btnClose.Text = "X";
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(pictureBox2);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(229, 56);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(952, 605);
+            panel1.TabIndex = 6;
+            // 
             // MainView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 696);
+            ClientSize = new Size(1181, 661);
+            Controls.Add(panel1);
             Controls.Add(panelSuperior);
-            Controls.Add(pictureBox2);
             Controls.Add(panelLateral);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(1200, 696);
+            MinimumSize = new Size(1181, 661);
             Name = "MainView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FazendaSharpCity";
@@ -275,6 +276,7 @@ namespace FazendaSharpCity
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panelSuperior.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -293,5 +295,6 @@ namespace FazendaSharpCity
         private Panel panelSuperior;
         private Button btnLogOut;
         private Button btnClose;
+        private Panel panel1;
     }
 }

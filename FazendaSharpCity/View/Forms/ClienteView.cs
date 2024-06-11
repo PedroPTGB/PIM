@@ -423,5 +423,6 @@ namespace FazendaSharpCity.View
                 lblCpf.Text = "CPF";
             }
         }
+
     }
 }

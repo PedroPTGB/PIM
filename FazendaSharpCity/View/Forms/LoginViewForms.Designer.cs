@@ -50,12 +50,11 @@
             loginTbx.BackColor = Color.SeaGreen;
             loginTbx.Font = new Font("Corbel", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             loginTbx.ForeColor = SystemColors.Window;
-            loginTbx.Location = new Point(700, 245);
-            loginTbx.Margin = new Padding(3, 2, 3, 2);
+            loginTbx.Location = new Point(628, 327);
             loginTbx.Multiline = true;
             loginTbx.Name = "loginTbx";
             loginTbx.PlaceholderText = "        USUARIO";
-            loginTbx.Size = new Size(234, 54);
+            loginTbx.Size = new Size(267, 71);
             loginTbx.TabIndex = 3;
             // 
             // senhaTbx
@@ -65,13 +64,12 @@
             senhaTbx.BackColor = Color.SeaGreen;
             senhaTbx.Font = new Font("Corbel", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             senhaTbx.ForeColor = SystemColors.Window;
-            senhaTbx.Location = new Point(700, 322);
-            senhaTbx.Margin = new Padding(3, 2, 3, 2);
+            senhaTbx.Location = new Point(628, 429);
             senhaTbx.Multiline = true;
             senhaTbx.Name = "senhaTbx";
             senhaTbx.PasswordChar = '*';
             senhaTbx.PlaceholderText = "          SENHA";
-            senhaTbx.Size = new Size(234, 53);
+            senhaTbx.Size = new Size(267, 69);
             senhaTbx.TabIndex = 4;
             // 
             // linkLabel1
@@ -82,9 +80,9 @@
             linkLabel1.AutoSize = true;
             linkLabel1.BackColor = Color.Transparent;
             linkLabel1.LinkColor = Color.SeaGreen;
-            linkLabel1.Location = new Point(764, 442);
+            linkLabel1.Location = new Point(701, 589);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(97, 15);
+            linkLabel1.Size = new Size(122, 20);
             linkLabel1.TabIndex = 5;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Esqueceu Senha?";
@@ -98,9 +96,9 @@
             linkLabel2.AutoSize = true;
             linkLabel2.BackColor = Color.Transparent;
             linkLabel2.LinkColor = Color.SeaGreen;
-            linkLabel2.Location = new Point(778, 467);
+            linkLabel2.Location = new Point(717, 623);
             linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(67, 15);
+            linkLabel2.Size = new Size(83, 20);
             linkLabel2.TabIndex = 6;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Criar Conta";
@@ -111,9 +109,10 @@
             btnEntrar.AllowDrop = true;
             btnEntrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEntrar.BackColor = Color.SeaGreen;
-            btnEntrar.Location = new Point(737, 392);
+            btnEntrar.Location = new Point(670, 523);
+            btnEntrar.Margin = new Padding(3, 4, 3, 4);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(155, 40);
+            btnEntrar.Size = new Size(177, 53);
             btnEntrar.TabIndex = 7;
             btnEntrar.Text = "ENTRAR";
             btnEntrar.UseVisualStyleBackColor = false;
@@ -127,9 +126,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SeaGreen;
-            label1.Location = new Point(729, 162);
+            label1.Location = new Point(661, 216);
             label1.Name = "label1";
-            label1.Size = new Size(175, 56);
+            label1.Size = new Size(221, 70);
             label1.TabIndex = 8;
             label1.Text = "LOGIN";
             // 
@@ -140,9 +139,8 @@
             panelSuperior.Controls.Add(btnClose);
             panelSuperior.Dock = DockStyle.Top;
             panelSuperior.Location = new Point(0, 0);
-            panelSuperior.Margin = new Padding(3, 2, 3, 2);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(1184, 40);
+            panelSuperior.Size = new Size(1181, 48);
             panelSuperior.TabIndex = 9;
             // 
             // btnClose
@@ -151,10 +149,9 @@
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Image = Properties.Resources.botao_excluir_3_;
-            btnClose.Location = new Point(1134, 4);
-            btnClose.Margin = new Padding(3, 2, 3, 2);
+            btnClose.Location = new Point(1124, 3);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(39, 34);
+            btnClose.Size = new Size(45, 45);
             btnClose.TabIndex = 0;
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
@@ -164,18 +161,17 @@
             panelCentro.BackgroundImage = (Image)resources.GetObject("panelCentro.BackgroundImage");
             panelCentro.Dock = DockStyle.Fill;
             panelCentro.Location = new Point(0, 0);
-            panelCentro.Margin = new Padding(3, 2, 3, 2);
             panelCentro.Name = "panelCentro";
-            panelCentro.Size = new Size(1184, 661);
+            panelCentro.Size = new Size(1181, 661);
             panelCentro.TabIndex = 10;
             // 
             // LoginViewForms
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1184, 661);
+            ClientSize = new Size(1181, 661);
             Controls.Add(panelSuperior);
             Controls.Add(label1);
             Controls.Add(btnEntrar);
@@ -186,7 +182,6 @@
             Controls.Add(panelCentro);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginViewForms";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
