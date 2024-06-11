@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Imagens\imasdaczxcfcge_2.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +16,10 @@
       <VersionMajor>6</VersionMajor>
       <Guid>000204ef-0000-0000-c000-000000000046</Guid>
     </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Imagens\imasdaczxcfcge_2.ico" />
   </ItemGroup>
 
   <ItemGroup>

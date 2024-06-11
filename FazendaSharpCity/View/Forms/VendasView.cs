@@ -85,14 +85,14 @@ namespace FazendaSharpCity
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Edita = true;
-            DataGridViewRow row = tabVendas.Rows[CellIndex];
+            DataGridViewRow row = this.tabVendas.Rows[CellIndex];
             VendaModel venda = new VendaModel();
 
             venda.IdVenda = (int)row.Cells[0].Value;
-            venda.PrecoUnit = (int)row.Cells[1].Value;
-            venda.DtVenda = (DateTime)row.Cells[3].Value;
-            venda.FormaPag = (string)row.Cells[5].Value;
-            venda.Qtd = (int)row.Cells[2].Value;
+            venda.PrecoUnit = (float)(double)row.Cells[1].Value;
+            venda.DtVenda = Convert.ToDateTime(row.Cells[2].Value);
+            venda.FormaPag = (string)row.Cells[3].Value;
+            venda.Qtd = (int)row.Cells[4].Value;
 
             tabControllerVendas.TabPages.Remove(tabPageListar);
             tabControllerVendas.TabPages.Add(tabPageCadastro);

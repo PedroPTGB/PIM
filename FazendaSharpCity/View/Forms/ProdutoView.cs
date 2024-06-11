@@ -244,7 +244,7 @@ namespace FazendaSharpCity.View
 
         public static void IntNumber(KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != ',')
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != ',' && e.KeyChar != '.')
                 e.Handled = true;
         }
 

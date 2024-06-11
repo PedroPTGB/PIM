@@ -154,7 +154,8 @@ namespace FazendaSharpCity.Model
                 endereco.Cidade = (string)reader[0];
                 endereco.bairro = (string)reader[1];
                 endereco.Logradouro = (string)reader[2];
-                endereco.Complemento = (string)reader[3];
+                if (reader[3] != null )
+                    endereco.Complemento = (string)reader[3];
                 endereco.Estado = (string)reader[4];
                 endereco.cep = (string)reader[5];
                 endereco.num = (int)reader[6];
@@ -169,13 +170,14 @@ namespace FazendaSharpCity.Model
         public void Insert(ClientePFModel cliente)
         {
             string query =  "INSERT INTO telefone (telefone) VALUES (@telefone);" +
-                            "INSERT INTO cliente (nome, CPF, dtnascimento, email, estado, cidade, bairro, logradouro, complemento, cep, numero, sexo, tipopessoa, idtelefonecliente) " +
-                            "VALUES (@Nome, @CPF, @DtNasc, @email, @estado, @cidade, @bairro, @logradouro, @complemento, @cep, @numero, @sexo, @tipopessoa, (SELECT idtelefone FROM telefone T WHERE T.telefone = @telefone));";
+                            "INSERT INTO cliente (nome, CPF,cnpj,  dtnascimento, email, estado, cidade, bairro, logradouro, complemento, cep, numero, sexo, tipopessoa, idtelefonecliente) " +
+                            "VALUES (@Nome, @CPF, @cnpj, @DtNasc, @email, @estado, @cidade, @bairro, @logradouro, @complemento, @cep, @numero, @sexo, @tipopessoa, (SELECT idtelefone FROM telefone T WHERE T.telefone = @telefone));";
 
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
             c2.Parameters.AddWithValue("Nome", cliente.Nome);
             c2.Parameters.AddWithValue("CPF", cliente.Cpf);
+            c2.Parameters.AddWithValue("cnpj", cliente.Cnpj);
             c2.Parameters.AddWithValue("dtNasc", cliente.DtNasc);
             c2.Parameters.AddWithValue("email", cliente.Email);
             c2.Parameters.AddWithValue("telefone", cliente.Telefone);
