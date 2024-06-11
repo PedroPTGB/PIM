@@ -73,6 +73,16 @@ namespace FazendaSharpCity.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap linkLab21el2 {
+            get {
+                object obj = ResourceManager.GetObject("linkLab21el2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap porta_2_ {
             get {
                 object obj = ResourceManager.GetObject("porta(2)", resourceCulture);
