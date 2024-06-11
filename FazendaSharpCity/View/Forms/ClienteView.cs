@@ -121,13 +121,17 @@ namespace FazendaSharpCity.View
             Edita = true;
             DataGridViewRow row = tabCliente.Rows[CellIndex];
             ClientePFModel cliente = new ClientePFModel();
-
             cliente.IdCliente = (int)row.Cells[0].Value;
-            cliente.Nome = (string)row.Cells[1].Value;
+
+            cliente = pfDao.SearchCompleto(cliente);
+
+            /*cliente.Nome = (string)row.Cells[1].Value;
             cliente.Cpf = (string)row.Cells[2].Value;
-            cliente.DtNasc = (DateTime)row.Cells[3].Value;
+            cliente.DtNasc = (DateTime)row.Cells[3].Value;*/
+
             cliente.Endereco = pfDao.SearchEndereco(cliente);
 
+            /*
             if (!string.IsNullOrEmpty(row.Cells[4].Value.ToString()))
                 cliente.Email = (string)row.Cells[4].Value;
             else
@@ -137,14 +141,18 @@ namespace FazendaSharpCity.View
                 cliente.Telefone = (string)row.Cells[5].Value;
             else
                 cliente.Telefone = "";
+            */
 
 
             tControlCliente.TabPages.Remove(tpgListar);
             tControlCliente.TabPages.Add(tpgCadastro);
             txtId.Text = cliente.IdCliente.ToString();
             txtNome.Text = cliente.Nome;
-            txtCpf.Text = cliente.Cpf;
-            dtPicker.Text = cliente.DtNasc.ToString();
+            if (cliente.Cpf != "")
+                txtCpf.Text = cliente.Cpf;
+            if(cliente.Cnpj != "")
+                txtCpf.Text = cliente.Cnpj;
+            dtPicker.Value = cliente.DtNasc;
             txtCep.Text = cliente.Endereco.cep;
             txtLogradouro.Text = cliente.Endereco.Logradouro;
             txtBairro.Text = cliente.Endereco.bairro;
@@ -174,7 +182,7 @@ namespace FazendaSharpCity.View
             {
                 rdbPF.Checked = true;
                 rdbPJ.Checked = false;
-                lblCep.Text = "CPF";
+                lblCpf.Text = "CPF";
             }
             else
             {
@@ -239,6 +247,7 @@ namespace FazendaSharpCity.View
                     cliente.IdCliente = Convert.ToInt32(txtId.Text);
                     cliente.Nome = txtNome.Text;
                     cliente.Cpf = txtCpf.Text;
+                    cliente.Cnpj = txtCpf.Text;
                     cliente.DtNasc = dtPicker.Value;
                     cliente.Endereco.cep = txtCep.Text;
                     cliente.Endereco.Logradouro = txtLogradouro.Text;
@@ -252,10 +261,12 @@ namespace FazendaSharpCity.View
                     if (rdbPF.Checked)
                     {
                         cliente.TipoPessoa = true;
+                        cliente.Cnpj = "";
                     }
-                    else
+                    else if (rdbPJ.Checked)
                     {
                         cliente.TipoPessoa = false;
+                        cliente.Cpf = "";
                     }
 
                     if (rdbMasc.Checked)
@@ -266,7 +277,7 @@ namespace FazendaSharpCity.View
                     {
                         cliente.Sexo = "F";
                     }
-                    else
+                    else if (rdbIndef.Checked)
                     {
                         cliente.Sexo = "I";
                     }

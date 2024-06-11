@@ -54,6 +54,54 @@ namespace FazendaSharpCity.Model
 
         }
 
+        public ClientePFModel SearchCompleto(ClientePFModel cliente)
+        {
+            ClientePFModel c = new ClientePFModel();
+
+            string query = "SELECT idcliente, nome, cpf, cnpj, dtnascimento, email, tipopessoa, sexo, telefone FROM cliente C INNER JOIN telefone T ON C.idtelefonecliente = T.idtelefone WHERE C.idcliente = @ID;";
+
+            NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+            c2.Parameters.AddWithValue("ID", cliente.IdCliente);
+
+            NpgsqlDataReader reader = c2.ExecuteReader();
+
+            while (reader.Read())
+            {
+                c.IdCliente = (int)reader[0];
+                c.Nome = (string)reader[1];
+                if (!string.IsNullOrEmpty((string)reader[2]))
+                    c.Cpf = (string)reader[2];
+                else
+                    c.Cpf = "";
+                //if (!string.IsNullOrEmpty((string)reader[3]))
+                if (reader[3] != null && reader[3] != DBNull.Value)
+                    c.Cnpj = (string)reader[3];
+                else
+                    c.Cnpj = "";
+
+                c.DtNasc = (DateTime)reader[4];
+
+                if (!string.IsNullOrEmpty((string)reader[5]))
+                    c.Email = (string)reader[5];
+                else
+                    c.Email = "";
+                c.TipoPessoa = (bool)reader[6];
+                c.Sexo = (string)reader[7];
+
+                if (!string.IsNullOrEmpty((string)reader[8]))
+                    c.Telefone = (string)reader[8];
+                else
+                    c.Telefone = "";
+            }
+
+            reader.Close();
+
+            return c;
+        }
+
         public EnderecoModel SearchEndereco(ClientePFModel cliente)
         {
             EnderecoModel endereco = new EnderecoModel();
@@ -108,6 +156,7 @@ namespace FazendaSharpCity.Model
             string query =  "UPDATE cliente SET " +
                             "nome = @Nome, " +
                             "cpf = @CPF, " +
+                            "cnpj = @cnpj, " +
                             "dtnascimento = @dtNasc, " +
                             "email = @email, " +
                             "estado = @estado, " +
@@ -115,7 +164,10 @@ namespace FazendaSharpCity.Model
                             "bairro = @bairro, " +
                             "logradouro = @logradouro, " +
                             "complemento = @complemento, " +
-                            "cep = @cep " +
+                            "numero = @numero, " +
+                            "cep = @cep, " +
+                            "tipopessoa = @tipopessoa, " +
+                            "sexo = @sexo " +
                             "WHERE idcliente = @ID;" +
 
                             "UPDATE telefone T SET " +
@@ -126,7 +178,8 @@ namespace FazendaSharpCity.Model
 
             c2.Parameters.AddWithValue("ID", cliente.IdCliente);
             c2.Parameters.AddWithValue("Nome", (string)cliente.Nome);
-            c2.Parameters.AddWithValue("CPF", cliente.Cpf); 
+            c2.Parameters.AddWithValue("CPF", (string)cliente.Cpf);
+            c2.Parameters.AddWithValue("cnpj", (string)cliente.Cnpj);
             c2.Parameters.AddWithValue("dtNasc", cliente.DtNasc);
             c2.Parameters.AddWithValue("email", cliente.Email);
             c2.Parameters.AddWithValue("telefone", cliente.Telefone);
@@ -134,8 +187,11 @@ namespace FazendaSharpCity.Model
             c2.Parameters.AddWithValue("cidade", cliente.Endereco.Cidade);
             c2.Parameters.AddWithValue("bairro", cliente.Endereco.bairro);
             c2.Parameters.AddWithValue("logradouro", cliente.Endereco.Logradouro);
+            c2.Parameters.AddWithValue("numero", cliente.Endereco.num);
             c2.Parameters.AddWithValue("complemento", cliente.Endereco.Complemento);
             c2.Parameters.AddWithValue("cep", cliente.Endereco.cep);
+            c2.Parameters.AddWithValue("tipopessoa", cliente.TipoPessoa);
+            c2.Parameters.AddWithValue("sexo", cliente.Sexo);
 
             c2.ExecuteNonQuery();
         }
@@ -151,7 +207,7 @@ namespace FazendaSharpCity.Model
         }
         public System.Data.DataTable List()
         {
-            string query = "SELECT idcliente, nome, cpf, dtnascimento, email, telefone FROM cliente C INNER JOIN telefone T ON C.idtelefonecliente = T.idtelefone ORDER BY idcliente;";
+            string query = "SELECT idcliente, nome, cpf, cnpj, dtnascimento, email, telefone FROM cliente C INNER JOIN telefone T ON C.idtelefonecliente = T.idtelefone ORDER BY idcliente;";
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
