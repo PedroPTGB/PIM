@@ -365,39 +365,77 @@ namespace FazendaSharpCity.View
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
-            var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do cliente serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (c == DialogResult.Yes)
+            if (Edita)
             {
-                txtId.Text = "";
-                txtNome.Text = "";
-                txtCpf.Text = "";
-                dtPicker.Text = "";
-                txtCep.Text = "";
-                txtLogradouro.Text = "";
-                txtBairro.Text = "";
-                txtComplemento.Text = "";
-                txtCidade.Text = "";
-
-                cBoxUF.SelectedItem = -1;
-
-                txtEmail.Text = "";
-                txtTelefone.Text = "";
-                rdbPF.Checked = true;
-                rdbPJ.Checked = false;
-                rdbIndef.Checked = true;
-                rdbMasc.Checked = false;
-                rdbFem.Checked = false;
-
-                var f = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (f == DialogResult.Yes)
+                var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados alterados do cliente serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (c == DialogResult.Yes)
                 {
-                    tControlCliente.TabPages.Remove(tpgCadastro);
-                    tControlCliente.TabPages.Add(tpgListar);
-                    tabCliente.DataSource = BindList();
-                }
+                    txtId.Text = "";
+                    txtNome.Text = "";
+                    txtCpf.Text = "";
+                    dtPicker.Text = "";
+                    txtCep.Text = "";
+                    txtLogradouro.Text = "";
+                    txtBairro.Text = "";
+                    txtComplemento.Text = "";
+                    txtCidade.Text = "";
 
+                    cBoxUF.SelectedItem = -1;
+
+                    txtEmail.Text = "";
+                    txtTelefone.Text = "";
+                    rdbPF.Checked = true;
+                    rdbPJ.Checked = false;
+                    rdbIndef.Checked = true;
+                    rdbMasc.Checked = false;
+                    rdbFem.Checked = false;
+
+                    var f = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (f == DialogResult.Yes)
+                    {
+                        tControlCliente.TabPages.Remove(tpgCadastro);
+                        tControlCliente.TabPages.Add(tpgListar);
+                        tabCliente.DataSource = BindList();
+                    }
+
+                }
             }
+            else
+            {
+                var c = MessageBox.Show("Tem certeza que deseja cancelar? Todos os dados do cliente serão perdidos...", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (c == DialogResult.Yes)
+                {
+                    txtId.Text = "";
+                    txtNome.Text = "";
+                    txtCpf.Text = "";
+                    dtPicker.Text = "";
+                    txtCep.Text = "";
+                    txtLogradouro.Text = "";
+                    txtBairro.Text = "";
+                    txtComplemento.Text = "";
+                    txtCidade.Text = "";
+
+                    cBoxUF.SelectedItem = -1;
+
+                    txtEmail.Text = "";
+                    txtTelefone.Text = "";
+                    rdbPF.Checked = true;
+                    rdbPJ.Checked = false;
+                    rdbIndef.Checked = true;
+                    rdbMasc.Checked = false;
+                    rdbFem.Checked = false;
+
+                    var f = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (f == DialogResult.Yes)
+                    {
+                        tControlCliente.TabPages.Remove(tpgCadastro);
+                        tControlCliente.TabPages.Add(tpgListar);
+                        tabCliente.DataSource = BindList();
+                    }
+
+                }
+            }
+           
 
         }
 

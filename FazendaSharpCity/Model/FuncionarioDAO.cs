@@ -45,7 +45,7 @@ namespace FazendaSharpCity.Model
             }
             else
             {
-                string query = "SELECT idcliente, nome, cpf, dtnascimento, email, telefone FROM funcionario F INNER JOIN telefone T ON F.idtelefonefuncionario = T.idtelefone WHERE F.nome ILIKE ANY (ARRAY[@Nome, @Nome2, @Nome3]) ORDER BY F.idfuncionario;";
+                string query = "SELECT idfuncionario, nome, cpf, dtnascimento, email, telefone FROM funcionario F INNER JOIN telefone T ON F.idtelefonefuncionario = T.idtelefone WHERE F.nome ILIKE ANY (ARRAY[@Nome, @Nome2, @Nome3]) ORDER BY F.idfuncionario;";
 
                 NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 

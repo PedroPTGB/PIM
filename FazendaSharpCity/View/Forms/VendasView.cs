@@ -254,6 +254,14 @@ namespace FazendaSharpCity
                     txtFormaPag.Text = "";
                     dtPickerDataVenda.Text = "";
                     txtTotal.Text = "R$0.00";
+
+                    var c = MessageBox.Show("Deseja voltar à tela de listagem?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (c == DialogResult.Yes)
+                    {
+                        tabControllerVendas.TabPages.Remove(tabPageCadastro);
+                        tabControllerVendas.TabPages.Add(tabPageListar);
+                        tabVendas.DataSource = BindList();
+                    }
                 }
             }
             
