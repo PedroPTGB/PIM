@@ -449,9 +449,9 @@ namespace FazendaSharpCity.View.Forms
             {
                 sbrErrors.AppendLine("O CPF precisa conter 11 numeros.");
             }
-            if(Convert.ToDecimal(txtSalario.Text) < 1400)
+            if(Convert.ToDecimal(txtSalario.Text) < 1412)
             {
-                sbrErrors.AppendLine("O Salário deve ser superior ao salário mínimo.");
+                sbrErrors.AppendLine("O Salário deve ser superior ao salário mínimo (1412).");
             }
 
             if (txtLogin.TextLength < 5)
