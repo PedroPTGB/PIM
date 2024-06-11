@@ -28,14 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuemSomosNos));
+            button1 = new Button();
             SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            button1.Location = new Point(477, 609);
+            button1.Name = "button1";
+            button1.Size = new Size(120, 55);
+            button1.TabIndex = 0;
+            button1.Text = "Retornar ao login";
+            button1.UseVisualStyleBackColor = false;
             // 
             // QuemSomosNos
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1262, 673);
-            Margin = new Padding(3, 4, 3, 4);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1280, 720);
+            Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.None;
             MinimumSize = new Size(1280, 720);
             Name = "QuemSomosNos";
             Text = "Form1";
@@ -43,5 +59,7 @@
         }
 
         #endregion
+
+        private Button button1;
     }
 }
