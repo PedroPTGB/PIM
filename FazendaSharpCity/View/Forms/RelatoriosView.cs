@@ -26,6 +26,7 @@ namespace FazendaSharpCity.View.Forms
             tabVendas.DataSource = BindListVenda();
             tabFuncionarios.DataSource = BindListFuncionario();
 
+
         }
 
         ClientePFDAO pfDao = new ClientePFDAO("localhost", "5432", "PIM", "postgres", "dbadmin");
@@ -38,14 +39,14 @@ namespace FazendaSharpCity.View.Forms
         public System.Data.DataTable BindListCliente()
         {
             System.Data.DataTable table = new System.Data.DataTable();
-            table = pfDao.List();
+            table = pfDao.ListR();
             return table;
         }
 
         public System.Data.DataTable BindListFornecedor()
         {
             System.Data.DataTable table = new System.Data.DataTable();
-            table = fDao.List();
+            table = fDao.ListR();
             return table;
         }
 
@@ -66,7 +67,7 @@ namespace FazendaSharpCity.View.Forms
         public System.Data.DataTable BindListFuncionario()
         {
             System.Data.DataTable table = new System.Data.DataTable();
-            table = funciDao.List();
+            table = funciDao.ListR();
             return table;
         }
 
@@ -85,7 +86,7 @@ namespace FazendaSharpCity.View.Forms
 
 
             System.Data.DataTable table = new System.Data.DataTable();
-            table = pfDao.Search(cliente);
+            table = pfDao.SearchR(cliente);
             tabClientes.DataSource = table;
         }
         private void txtPesquisaClientes_KeyDown(object sender, KeyEventArgs e)
@@ -110,7 +111,7 @@ namespace FazendaSharpCity.View.Forms
 
 
             System.Data.DataTable table = new System.Data.DataTable();
-            table = fDao.Search(fornecedor);
+            table = fDao.SearchR(fornecedor);
             tabFornecedores.DataSource = table;
         }
         private void txtPesquisaFornecedores_KeyDown(object sender, KeyEventArgs e)
@@ -127,7 +128,10 @@ namespace FazendaSharpCity.View.Forms
             {
                 produto.idProduto = Convert.ToInt32(txtPesquisaProdutos.Text);
             }
-            else { }
+            else
+            {
+                produto.nome = txtPesquisaProdutos.Text;
+            }
 
 
             System.Data.DataTable table = new System.Data.DataTable();
@@ -144,12 +148,10 @@ namespace FazendaSharpCity.View.Forms
         {
             VendaModel venda = new VendaModel();
 
-            
-            venda.DtVenda = dtPickerDataVenda.Value;
-            
+            venda.DtVenda = dtPickerVendas.Value.Date;
 
             System.Data.DataTable table = new System.Data.DataTable();
-            table = vDao.Search(venda);
+            table = vDao.SearchDT(venda);
             tabVendas.DataSource = table;
         }
 
@@ -179,26 +181,233 @@ namespace FazendaSharpCity.View.Forms
 
         private void btnExportarClientes_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (StreamWriter csv = new StreamWriter(@"..\..\..\relatorios\relatorio_clientes.csv"))
+                {
+                    var header =    tabClientes.Columns["idcliente"].Name.ToString() + ";" +
+                                    tabClientes.Columns["nome"].Name.ToString() + ";" +
+                                    tabClientes.Columns["cpf"].Name.ToString() + ";" +
+                                    tabClientes.Columns["cnpj"].Name.ToString() + ";" +
+                                    tabClientes.Columns["dtnascimento"].Name.ToString() + ";" +
+                                    tabClientes.Columns["email"].Name.ToString() + ";" +
+                                    tabClientes.Columns["estado"].Name.ToString() + ";" +
+                                    tabClientes.Columns["cidade"].Name.ToString() + ";" +
+                                    tabClientes.Columns["bairro"].Name.ToString() + ";" +
+                                    tabClientes.Columns["logradouro"].Name.ToString() + ";" +
+                                    tabClientes.Columns["numero"].Name.ToString() + ";" +
+                                    tabClientes.Columns["complemento"].Name.ToString() + ";" +
+                                    tabClientes.Columns["cep"].Name.ToString() + ";" +
+                                    tabClientes.Columns["tipopessoa"].Name.ToString() + ";" +
+                                    tabClientes.Columns["sexo"].Name.ToString() + ";" +
+                                    tabClientes.Columns["telefone"].Name.ToString();
 
+                    csv.Write(header);
+
+                    for (int i = 0; i < tabClientes.RowCount; i++)
+                    {
+                        var linha = tabClientes.Rows[i].Cells[0].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[1].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[2].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[3].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[4].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[5].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[6].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[7].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[8].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[9].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[10].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[11].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[12].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[13].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[14].Value.ToString() + ";" +
+                                    tabClientes.Rows[i].Cells[15].Value.ToString();
+
+                        csv.WriteLine(linha);
+                    }
+                }
+                MessageBox.Show("Gravado em arquivo .csv com sucesso!");
+            }
+            catch
+            {
+                MessageBox.Show("Erro na gravação do arquivo csv.");
+            }
         }
 
         private void btnExportarFornecedores_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (StreamWriter csv = new StreamWriter(@"..\..\..\relatorios\relatorio_fornecedores.csv"))
+                {
 
-        }
+                    var header =    tabFornecedores.Columns["idfornecedor"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["nomefantasia"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["razaosocial"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["cnpj"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["email"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["estado"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["cidade"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["bairro"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["numero"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["complemento"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["cep"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["logradouro"].Name.ToString() + ";" +
+                                    tabFornecedores.Columns["telefone"].Name.ToString();
+                                    
+                    csv.Write(header);
+
+                    for (int i = 0; i < tabFornecedores.RowCount; i++)
+                    {
+                        var linha = tabFornecedores.Rows[i].Cells[0].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[1].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[2].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[3].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[4].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[5].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[6].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[7].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[8].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[9].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[10].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[11].Value.ToString() + ";" +
+                                    tabFornecedores.Rows[i].Cells[12].Value.ToString();
+
+                        csv.WriteLine(linha);
+                    }
+                }
+                MessageBox.Show("Gravado em arquivo .csv com sucesso!");
+            }
+            catch
+            {
+                MessageBox.Show("Erro na gravação do arquivo csv.");
+            }
+}
 
         private void btnExportarProdutos_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (StreamWriter csv = new StreamWriter(@"..\..\..\relatorios\relatorio_produtos.csv"))
+                {
 
+                    var header = tabProdutos.Columns["idproduto"].Name.ToString() + ";" +
+                                   tabProdutos.Columns["produto"].Name.ToString() + ";" +
+                                   tabProdutos.Columns["qtdproduto"].Name.ToString() + ";" +
+                                   tabProdutos.Columns["validade"].Name.ToString() + ";" +
+                                   tabProdutos.Columns["preco"].Name.ToString() + ";" +
+                                   tabProdutos.Columns["descricao"].Name.ToString();
+
+                    csv.Write(header);
+
+                    for (int i = 0; i < tabProdutos.RowCount; i++)
+                    {
+                        var linha = tabProdutos.Rows[i].Cells[0].Value.ToString() + ";" +
+                                    tabProdutos.Rows[i].Cells[1].Value.ToString() + ";" +
+                                    tabProdutos.Rows[i].Cells[2].Value.ToString() + ";" +
+                                    tabProdutos.Rows[i].Cells[3].Value.ToString() + ";" +
+                                    tabProdutos.Rows[i].Cells[4].Value.ToString() + ";" +
+                                    tabProdutos.Rows[i].Cells[5].Value.ToString();
+
+                        csv.WriteLine(linha);
+                    }
+                }
+                MessageBox.Show("Gravado em arquivo .csv com sucesso!");
+            }
+            catch
+            {
+                MessageBox.Show("Erro na gravação do arquivo csv.");
+            }
         }
 
         private void btnExportarVendas_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (StreamWriter csv = new StreamWriter(@"..\..\..\relatorios\relatorio_vendas.csv"))
+                {
 
+                    var header =   tabVendas.Columns["idvenda"].Name.ToString() + ";" +
+                                   tabVendas.Columns["precounitario"].Name.ToString() + ";" +
+                                   tabVendas.Columns["dtvenda"].Name.ToString() + ";" +
+                                   tabVendas.Columns["formapagamento"].Name.ToString() + ";" +
+                                   tabVendas.Columns["quantidade"].Name.ToString();
+
+                    csv.Write(header);
+
+                    for (int i = 0; i < tabVendas.RowCount; i++)
+                    {
+                        var linha = tabVendas.Rows[i].Cells[0].Value.ToString() + ";" +
+                                    tabVendas.Rows[i].Cells[1].Value.ToString() + ";" +
+                                    tabVendas.Rows[i].Cells[2].Value.ToString() + ";" +
+                                    tabVendas.Rows[i].Cells[3].Value.ToString() + ";" +
+                                    tabVendas.Rows[i].Cells[4].Value.ToString();
+
+                        csv.WriteLine(linha);
+                    }
+                }
+                MessageBox.Show("Gravado em arquivo .csv com sucesso!");
+            }
+            catch
+            {
+                MessageBox.Show("Erro na gravação do arquivo csv.");
+            }
         }
+    
+
 
         private void btnExportarFuncionarios_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (StreamWriter csv = new StreamWriter(@"..\..\..\relatorios\relatorio_funcionarios.csv"))
+                {
+
+                    var header =    tabFuncionarios.Columns["idfuncionario"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["nome"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["cpf"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["dtnascimento"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["email"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["gerente"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["salario"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["estado"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["cidade"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["bairro"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["numero"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["complemento"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["cep"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["logradouro"].Name.ToString() + ";" +
+                                    tabFuncionarios.Columns["telefone"].Name.ToString();
+
+                    csv.Write(header);
+
+                    for (int i = 0; i < tabFuncionarios.RowCount; i++)
+                    {
+                        var linha = tabFuncionarios.Rows[i].Cells[0].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[1].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[2].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[3].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[4].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[5].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[6].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[7].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[8].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[9].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[10].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[11].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[12].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[13].Value.ToString() + ";" +
+                                    tabFuncionarios.Rows[i].Cells[14].Value.ToString();
+
+                        csv.WriteLine(linha);
+                    }
+                }
+                MessageBox.Show("Gravado em arquivo .csv com sucesso!");
+            }
+            catch
+            {
+                MessageBox.Show("Erro na gravação do arquivo csv.");
+            }
 
         }
 

@@ -34,6 +34,23 @@ namespace FazendaSharpCity.Model
 
         }
 
+        public System.Data.DataTable SearchDT(VendaModel venda)
+        {
+            string query = "SELECT * FROM venda WHERE dtvenda = @dtvenda ORDER BY idvenda;";
+
+            NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+            c2.Parameters.AddWithValue("dtvenda", venda.DtVenda);
+
+            System.Data.DataTable table = new System.Data.DataTable();
+            da.Fill(table);
+
+            return table;
+
+        }
+
         public System.Data.DataTable List()
         {
             string query = "SELECT * FROM venda ORDER BY idvenda;";

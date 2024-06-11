@@ -27,7 +27,19 @@ namespace FazendaSharpCity.Model
             da.Fill(table);
             return table;
         }
-        
+
+        public System.Data.DataTable ListR()
+        {
+            string query = "SELECT idfornecedor, nomefantasia, razaosocial, cnpj, email, estado, cidade, bairro, numero, complemento, cep, logradouro, telefone FROM fornecedor F INNER JOIN telefone T ON F.idtelefonefornecedor = T.idtelefone ORDER BY F.idfornecedor;";
+            NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+            System.Data.DataTable table = new System.Data.DataTable();
+            da.Fill(table);
+            return table;
+        }
+
         public System.Data.DataTable Search(FornecedorModel fornecedor)
         {
             if (fornecedor.Nome == null)
@@ -68,6 +80,48 @@ namespace FazendaSharpCity.Model
             }
 
         }
+
+        public System.Data.DataTable SearchR(FornecedorModel fornecedor)
+        {
+            if (fornecedor.Nome == null)
+            {
+                string query = "SELECT idfornecedor, nomefantasia, razaosocial, cnpj, email, estado, cidade, bairro, numero, complemento, cep, logradouro, telefone FROM fornecedor F INNER JOIN telefone T ON F.idtelefonefornecedor = T.idtelefone WHERE F.idfornecedor = @ID ORDER BY F.idfornecedor";
+
+                NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+                c2.Parameters.AddWithValue("ID", fornecedor.idFornecedor);
+
+                System.Data.DataTable table = new System.Data.DataTable();
+                da.Fill(table);
+
+                return table;
+            }
+            else
+            {
+                string query = "SELECT idfornecedor, nomefantasia, razaosocial, cnpj, email, estado, cidade, bairro, numero, complemento, cep, logradouro, telefone FROM fornecedor F INNER JOIN telefone T ON F.idtelefonefornecedor = T.idtelefone WHERE nomefantasia ILIKE ANY (ARRAY[@Nome, @Nome2, @Nome3]) AND razaosocial ILIKE ANY (ARRAY[@Nome4, @Nome5, @Nome6]);";
+
+                NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+                c2.Parameters.AddWithValue("Nome", "%" + fornecedor.NomeFantasia + "%");
+                c2.Parameters.AddWithValue("Nome2", fornecedor.NomeFantasia + "%");
+                c2.Parameters.AddWithValue("Nome3", "%" + fornecedor.NomeFantasia);
+                c2.Parameters.AddWithValue("Nome4", "%" + fornecedor.razaoSocial + "%");
+                c2.Parameters.AddWithValue("Nome5", fornecedor.razaoSocial + "%");
+                c2.Parameters.AddWithValue("Nome6", "%" + fornecedor.razaoSocial);
+
+
+                System.Data.DataTable table = new System.Data.DataTable();
+                da.Fill(table);
+
+                return table;
+            }
+
+        }
+
 
         public FornecedorModel SearchCompleto(FornecedorModel fornecedor)
         {

@@ -1,0 +1,20 @@
+idfornecedor;nomefantasia;razaosocial;cnpj;email;estado;cidade;bairro;numero;complemento;cep;logradouro;telefone1;Alpha;Fornecedor Alpha Ltda;11.111.111/0001-11;contato@alpha.com;SP;São Paulo;Centro;0;Sala 1;01000-000;rua 1;1234567890
+2;Beta;Fornecedor Beta Ltda;22.222.222/0001-22;contato@beta.com;RJ;Rio de Janeiro;Botafogo;200;;22200-000;rua 2;0987654321
+3;Gamma;Fornecedor Gamma Ltda;33.333.333/0001-33;contato@gamma.com;MG;Belo Horizonte;Savassi;300;Loja 2;30100-000;rua 3;1122334455
+4;Delta;Fornecedor Delta Ltda;44.444.444/0001-44;contato@delta.com;RS;Porto Alegre;Centro;400;Apto 1;90000-000;rua 14;2233445566
+5;Epsilon;Fornecedor Epsilon Ltda;55.555.555/0001-55;contato@epsilon.com;PR;Curitiba;Batel;500;;80420-000;rua 15;3344556677
+6;Zeta;Fornecedor Zeta Ltda;66.666.666/0001-66;contato@zeta.com;SC;Florian¢polis;Trindade;600;Sala 3;88036-000;rua 16;4455667788
+7;Eta;Fornecedor Eta Ltda;77.777.777/0001-77;contato@eta.com;BA;Salvador;Barra;700;;40140-000;rua 12;5566778899
+8;Theta;Fornecedor Theta Ltda;88.888.888/0001-88;contato@theta.com;PE;Recife;Boa Viagem;800;Apto 2;51030-000;rua 13;6677889900
+9;Iota;Fornecedor Iota Ltda;99.999.999/0001-99;contato@iota.com;CE;Fortaleza;Meireles;900;;60160-000;rua 17;7788990011
+10;Kappa;Fornecedor Kappa Ltda;10.010.010/0001-10;contato@kappa.com;ES;Vit¢ria;Centro;1010;Bloco A;29050-000;rua 21;8899001122
+11;Lambda;Fornecedor Lambda Ltda;11.011.011/0001-11;contato@lambda.com;DF;Bras¡lia;Asa Norte;1100;Sala 101;70000-000;rua 22;9900112233
+12;Mu;Fornecedor Mu Ltda;12.012.012/0001-12;contato@mu.com;GO;Goiƒnia;Setor Bueno;1200;;74000-000;rua 23;0011223344
+13;Nu;Fornecedor Nu Ltda;13.013.013/0001-13;contato@nu.com;MT;Cuiab ;Centro;1300;Casa 1;78000-000;rua 24;1133557799
+14;Xi;Fornecedor Xi Ltda;14.014.014/0001-14;contato@xi.com;MS;Campo Grande;Centro;1400;Sala 5;79000-000;rua 25;2244668800
+15;Omicron;Fornecedor Omicron Ltda;15.015.015/0001-15;contato@omicron.com;AM;Manaus;Adrian¢polis;1500;;69000-000;rua 31;3355779911
+16;Pi;Fornecedor Pi Ltda;16.016.016/0001-16;contato@pi.com;PA;Bel‚m;Nazar‚;1600;Bloco B;66000-000;rua 33;4466880022
+17;Rho;Fornecedor Rho Ltda;17.017.017/0001-17;contato@rho.com;MA;SÆo Lu¡s;Centro;1700;;65000-000;rua 34;5577991133
+18;Sigma;Fornecedor Sigma Ltda;18.018.018/0001-18;contato@sigma.com;PB;JoÆo Pessoa;Centro;1800;Apto 3;58000-000;rua 37;6688002244
+19;Tau;Fornecedor Tau Ltda;19.019.019/0001-19;contato@tau.com;RN;Natal;Petr¢polis;1900;;59000-000;rua 39;7799113355
+20;Upsilon;Fornecedor Upsilon Ltda;20.020.020/0001-20;contato@upsilon.com;AL;Macei¢;Paju‡ara;0;Sala 6;57000-000;rua 69;8800224466

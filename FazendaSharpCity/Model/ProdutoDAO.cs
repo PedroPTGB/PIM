@@ -68,6 +68,8 @@ namespace FazendaSharpCity.Model
             return table;
         }
 
+
+
         public void Insert(ProdutoModel produto)
         {
             string query = "INSERT INTO produto (produto, qtdproduto, validade, preco, descricao ) VALUES (@Nome, @QTD, @Validade, @Preco, @Descricao)";

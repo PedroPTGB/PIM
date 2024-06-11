@@ -275,7 +275,7 @@ namespace FazendaSharpCity
         }
         private float ObterTotal()
         {
-            if (Convert.ToInt32(txtQtd.Text) != 0 && Convert.ToInt32(txtPrecoUnit.Text) != 0)
+            if (Convert.ToInt32(txtQtd.Text) != 0 && Convert.ToDecimal(txtPrecoUnit.Text) != 0)
             {
                 float n1 = float.Parse(txtPrecoUnit.Text);
                 float n2 = float.Parse(txtQtd.Text);

@@ -47,7 +47,10 @@ namespace FazendaSharpCity.View
             {
                 produto.idProduto = Convert.ToInt32(txtPesquisa.Text);
             }
-            else { }
+            else 
+            { 
+                produto.nome = txtPesquisa.Text;
+            }
 
 
             System.Data.DataTable table = new System.Data.DataTable();

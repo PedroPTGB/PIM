@@ -1,0 +1,26 @@
+idcliente;nome;cpf;cnpj;dtnascimento;email;estado;cidade;bairro;logradouro;numero;complemento;cep;tipopessoa;sexo;telefone1;João Silva;123;;15/05/1985 00:00:00;joao.silva@example.com;SP;SÆo Paulo;Centro;Rua A;0;Apto 101;01000-000;True;M;1234567890
+2;Maria Oliveira;987.654.321-00;;25/08/1990 00:00:00;maria.oliveira@example.com;RJ;Rio de Janeiro;Copacabana;Avenida B;200;;22000-000;True;F;0987654321
+3;Ana Costa;111.222.333-44;;14/02/1987 00:00:00;ana.costa@example.com;SP;SÆo Paulo;Vila Mariana;Rua E;101;Apto 202;04100-000;True;F;1122334455
+4;Carlos Pereira;222.333.444-55;;23/11/1982 00:00:00;carlos.pereira@example.com;RJ;Niter¢i;Icara¡;Avenida F;102;;24200-000;True;M;2233445566
+5;Fernanda Lima;333.444.555-66;;30/07/1995 00:00:00;fernanda.lima@example.com;MG;Belo Horizonte;Lourdes;Rua G;103;Apto 303;30150-000;True;F;3344556677
+6;Pedro Souza;444.555.666-77;;12/03/1978 00:00:00;pedro.souza@example.com;RS;Porto Alegre;Cidade Baixa;Avenida H;104;Casa;90050-000;True;M;4455667788
+7;Juliana Fernandes;555.666.777-88;;18/06/1980 00:00:00;juliana.fernandes@example.com;PR;Curitiba;Batel;Rua I;105;Apto 404;80420-000;True;F;5566778899
+8;Rafael Almeida;666.777.888-99;;04/09/1992 00:00:00;rafael.almeida@example.com;SC;Florian¢polis;Trindade;Rua J;106;;88036-000;True;M;6677889900
+9;Camila Santos;777.888.999-00;;22/01/1989 00:00:00;camila.santos@example.com;BA;Salvador;Barra;Avenida K;107;Apto 505;40140-000;True;F;7788990011
+10;Lucas Rocha;888.999.000-11;;09/12/1983 00:00:00;lucas.rocha@example.com;PE;Recife;Boa Viagem;Rua L;108;Apto 606;51030-000;True;M;8899001122
+11;Patr¡cia Gomes;999.000.111-22;;17/10/1990 00:00:00;patricia.gomes@example.com;CE;Fortaleza;Meireles;Avenida M;109;;60160-000;True;F;9900112233
+12;Gustavo Ribeiro;000.111.222-33;;25/04/1985 00:00:00;gustavo.ribeiro@example.com;ES;Vit¢ria;Praia do Canto;Rua N;110;Apto 707;29055-000;True;M;0011223344
+13;Marardo Costa;222.333.444-66;;13/08/1984 00:00:00;eduardo.costa@example.com;DF;Bras¡lia;Asa Sul;Avenida P;112;Bloco Q;70200-000;True;M;1133557799
+14;Beaiana Oliveira;111.222.333-55;;05/05/1991 00:00:00;mariana.oliveira@example.com;GO;Goiƒnia;Setor Oeste;Rua O;111;;74110-000;True;F;2244668800
+15;Edutriz Azevedo;333.444.555-77;;21/06/1993 00:00:00;beatriz.azevedo@example.com;MT;Cuiab ;Jardim It lia;Rua Q;113;;78060-000;True;F;3355779911
+16;Andr‚ Souza;444.555.666-88;;27/03/1979 00:00:00;andre.souza@example.com;MS;Campo Grande;Centro;Avenida R;114;Sala 2;79002-000;True;M;4466880022
+17;Let¡cia Gomes;555.666.777-99;;11/02/1988 00:00:00;leticia.gomes@example.com;AM;Manaus;Adrian¢polis;Rua S;115;Casa 1;69057-000;True;F;5577991133
+18;Empresa XYZ;;12.345.678/0001-99;;contato@xyz.com;MG;Belo Horizonte;Savassi;Rua C;300;Sala 201;30100-000;False;;6688002244
+19;Empresa ABC;;98.765.432/0001-88;;contato@abc.com;RS;Porto Alegre;Moinhos de Vento;Avenida D;400;;90500-000;False;;7799113355
+20;Tech Solutions;;23.456.789/0001-00;;contato@techsolutions.com;SP;Campinas;Cambu¡;Rua T;200;Sala 301;13025-000;False;;8800224466
+21;Global Services;;34.567.890/0001-11;;info@globalservices.com;RJ;Nova Igua‡u;Centro;Avenida U;201;;26210-000;False;;9911335577
+22;Ind£stria Alfa;;45.678.901/0001-22;;contato@alfaprodutos.com;RS;Caxias do Sul;Cinquenten rio;Rua V;202;GalpÆo;95010-000;False;;0022446688
+23;Com‚rcio Beta;;56.789.012/0001-33;;vendas@betacomercio.com;MG;Uberlƒndia;Santa M“nica;Avenida W;203;Loja 5;38400-000;False;;1133667799
+24;Servi‡os Delta;;67.890.123/0001-44;;contato@deltaservicos.com;PR;Londrina;Centro;Rua X;204;;86010-000;False;;2244778899
+25;Constru‡äes Epsilon;;78.901.234/0001-55;;contato@epsilonconstrucoes.com;BA;Feira de Santana;Centro;Avenida Y;205;Bloco 2;44001-000;False;;6593714691
+38;asdfq;;;11/06/2024 00:00:00;asdfg;AC;asdfg;asdfg;asdfg;1;;12345678;False;I;12345678978

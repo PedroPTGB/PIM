@@ -124,7 +124,7 @@
             // 
             // btnExportarFornecedores
             // 
-            btnExportarFornecedores.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportarFornecedores.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnExportarFornecedores.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExportarFornecedores.Location = new Point(420, 488);
             btnExportarFornecedores.Name = "btnExportarFornecedores";
@@ -154,7 +154,7 @@
             // 
             // btnExportarClientes
             // 
-            btnExportarClientes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportarClientes.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnExportarClientes.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExportarClientes.Location = new Point(420, 488);
             btnExportarClientes.Name = "btnExportarClientes";
@@ -270,7 +270,7 @@
             // 
             // btnExportarProdutos
             // 
-            btnExportarProdutos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportarProdutos.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnExportarProdutos.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExportarProdutos.Location = new Point(420, 488);
             btnExportarProdutos.Name = "btnExportarProdutos";
@@ -319,9 +319,11 @@
             dtPickerVendas.CustomFormat = "dd/MMMM/yyyy";
             dtPickerVendas.Format = DateTimePickerFormat.Custom;
             dtPickerVendas.Location = new Point(170, 20);
+            dtPickerVendas.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtPickerVendas.Name = "dtPickerVendas";
             dtPickerVendas.Size = new Size(177, 27);
             dtPickerVendas.TabIndex = 20;
+            dtPickerVendas.Value = new DateTime(2024, 6, 11, 14, 31, 22, 0);
             // 
             // tabVendas
             // 
@@ -343,7 +345,7 @@
             // 
             // btnExportarVendas
             // 
-            btnExportarVendas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportarVendas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnExportarVendas.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExportarVendas.Location = new Point(420, 488);
             btnExportarVendas.Name = "btnExportarVendas";
@@ -408,7 +410,7 @@
             // 
             // btnExportarFuncionarios
             // 
-            btnExportarFuncionarios.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportarFuncionarios.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnExportarFuncionarios.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExportarFuncionarios.Location = new Point(420, 488);
             btnExportarFuncionarios.Name = "btnExportarFuncionarios";

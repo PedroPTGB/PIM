@@ -26,6 +26,19 @@ namespace FazendaSharpCity.Model
             da.Fill(table);
             return table;
         }
+
+        public System.Data.DataTable ListR()
+        {
+            string query = "SELECT idfuncionario, nome, cpf, dtnascimento, email, gerente, salario, estado, cidade, bairro, numero, complemento, cep, logradouro, telefone FROM funcionario F INNER JOIN telefone T ON F.idtelefonefuncionario = T.idtelefone ORDER BY idfuncionario;";
+            NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+            System.Data.DataTable table = new System.Data.DataTable();
+            da.Fill(table);
+            return table;
+        }
+
         public System.Data.DataTable Search(FuncionarioModel funci)
         {
             if (funci.Nome == null)
@@ -46,6 +59,44 @@ namespace FazendaSharpCity.Model
             else
             {
                 string query = "SELECT idfuncionario, nome, cpf, dtnascimento, email, telefone FROM funcionario F INNER JOIN telefone T ON F.idtelefonefuncionario = T.idtelefone WHERE F.nome ILIKE ANY (ARRAY[@Nome, @Nome2, @Nome3]) ORDER BY F.idfuncionario;";
+
+                NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+                c2.Parameters.AddWithValue("Nome", "%" + funci.Nome + "%");
+                c2.Parameters.AddWithValue("Nome2", funci.Nome + "%");
+                c2.Parameters.AddWithValue("Nome3", "%" + funci.Nome);
+
+
+                System.Data.DataTable table = new System.Data.DataTable();
+                da.Fill(table);
+
+                return table;
+            }
+        }
+
+
+        public System.Data.DataTable SearchR(FuncionarioModel funci)
+        {
+            if (funci.Nome == null)
+            {
+                string query = "SELECT idfuncionario, nome, cpf, dtnascimento, email, gerente, salario, estado, cidade, bairro, numero, complemento, cep, logradouro, telefone FROM funcionario F INNER JOIN telefone T ON F.idtelefonefuncionario = T.idtelefone ORDER BY idfuncionario ;";
+
+                NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+                c2.Parameters.AddWithValue("ID", funci.idFuncionario);
+
+                System.Data.DataTable table = new System.Data.DataTable();
+                da.Fill(table);
+
+                return table;
+            }
+            else
+            {
+                string query = "SELECT idfuncionario, nome, cpf, dtnascimento, email, gerente, salario, estado, cidade, bairro, numero, complemento, cep, logradouro, telefone FROM funcionario F INNER JOIN telefone T ON F.idtelefonefuncionario = T.idtelefone WHERE F.nome ILIKE ANY (ARRAY[@Nome, @Nome2, @Nome3]) ORDER BY F.idfuncionario;";
 
                 NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 

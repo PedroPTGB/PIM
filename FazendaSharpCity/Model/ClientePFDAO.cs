@@ -51,8 +51,46 @@ namespace FazendaSharpCity.Model
                 return table;
             }
 
+        }
+
+        public System.Data.DataTable SearchR(ClientePFModel cliente)
+        {
+            if (cliente.Nome == null)
+            {
+                string query = "SELECT idcliente, nome, cpf, cnpj, dtnascimento, email, estado, cidade, bairro, logradouro, numero, complemento, cep, tipopessoa, sexo, telefone FROM cliente C INNER JOIN telefone T ON C.idtelefonecliente = T.idtelefone WHERE C.idcliente = @ID ORDER BY C.idcliente ;";
+
+                NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+                c2.Parameters.AddWithValue("ID", cliente.IdCliente);
+
+                System.Data.DataTable table = new System.Data.DataTable();
+                da.Fill(table);
+
+                return table;
+            }
+            else
+            {
+                string query = "SELECT idcliente, nome, cpf, cnpj, dtnascimento, email, estado, cidade, bairro, logradouro, numero, complemento, cep, tipopessoa, sexo, telefone FROM cliente C INNER JOIN telefone T ON C.idtelefonecliente = T.idtelefone WHERE C.nome ILIKE ANY (ARRAY[@Nome, @Nome2, @Nome3]) ORDER BY C.idcliente;";
+
+                NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+                c2.Parameters.AddWithValue("Nome", "%" + cliente.Nome + "%");
+                c2.Parameters.AddWithValue("Nome2", cliente.Nome + "%");
+                c2.Parameters.AddWithValue("Nome3", "%" + cliente.Nome);
+
+
+                System.Data.DataTable table = new System.Data.DataTable();
+                da.Fill(table);
+
+                return table;
+            }
 
         }
+
         public ClientePFModel SearchCompleto(ClientePFModel cliente)
         {
             ClientePFModel c = new ClientePFModel();
@@ -211,6 +249,18 @@ namespace FazendaSharpCity.Model
         public System.Data.DataTable List()
         {
             string query = "SELECT idcliente, nome, cpf, cnpj, dtnascimento, email, telefone FROM cliente C INNER JOIN telefone T ON C.idtelefonecliente = T.idtelefone ORDER BY idcliente;";
+            NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
+
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);
+
+            System.Data.DataTable table = new System.Data.DataTable();
+            da.Fill(table);
+            return table;
+        }
+
+        public System.Data.DataTable ListR()
+        {
+            string query = "SELECT idcliente, nome, cpf, cnpj, dtnascimento, email, estado, cidade, bairro, logradouro, numero, complemento, cep, tipopessoa, sexo, telefone FROM cliente C INNER JOIN telefone T ON C.idtelefonecliente = T.idtelefone ORDER BY idcliente;";
             NpgsqlCommand c2 = new NpgsqlCommand(query, Connection);
 
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(c2);

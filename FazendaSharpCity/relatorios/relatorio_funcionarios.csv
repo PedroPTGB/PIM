@@ -1,0 +1,20 @@
+idfuncionario;nome;cpf;dtnascimento;email;gerente;salario;estado;cidade;bairro;numero;complemento;cep;logradouro;telefone1;Alice Nogueira;000.111.222-11;12/04/1985 00:00:00;alice.nogueira@example.com;0;3500,00;SP;SÆo Paulo;Centro;101;Apto 1;01000-000;rua 1;1234567890
+2;Bruno Souza;111.222.333-12;24/06/1990 00:00:00;bruno.souza@example.com;0;4200,50;RJ;Rio de Janeiro;Botafogo;200;Casa;22250-040;rua 2;0987654321
+3;Carlos Almeida;222.333.444-13;15/08/1982 00:00:00;carlos.almeida@example.com;0;4100,75;MG;Belo Horizonte;Savassi;300;Apto 2;30140-000;rua 3;1122334455
+4;Daniela Santos;333.444.555-14;30/01/1987 00:00:00;daniela.santos@example.com;1;3750,25;RS;Porto Alegre;Centro;400;Sala 3;90010-000;rua 4;2233445566
+5;Eduardo Ferreira;444.555.666-15;18/09/1979 00:00:00;eduardo.ferreira@example.com;0;3900,00;PR;Curitiba;Batel;500;Apto 4;80430-100;rua 5;3344556677
+6;Fernanda Oliveira;555.666.777-16;06/05/1992 00:00:00;fernanda.oliveira@example.com;0;3800,50;SC;Florian¢polis;Centro;600;Bloco B;88015-600;rua 6;4455667788
+7;Gabriel Lima;666.777.888-17;21/12/1984 00:00:00;gabriel.lima@example.com;0;4050,00;BA;Salvador;Barra;700;Casa 5;40140-000;rua 7;5566778899
+8;Helena Costa;777.888.999-18;11/11/1989 00:00:00;helena.costa@example.com;0;3900,75;PE;Recife;Boa Viagem;800;Apto 6;51030-020;rua 8;6677889900
+9;Igor Ribeiro;888.999.000-19;07/07/1986 00:00:00;igor.ribeiro@example.com;0;3850,25;CE;Fortaleza;Centro;900;Sala 7;60110-000;rua 9;7788990011
+10;Julia Silva;999.000.111-20;25/03/1993 00:00:00;julia.silva@example.com;0;4150,00;ES;Vit¢ria;Centro;1000;Apto 8;29010-000;rua 10;8899001122
+11;Lucas Martins;000.111.222-21;17/06/1981 00:00:00;lucas.martins@example.com;1;4300,75;DF;Bras¡lia;Asa Norte;1100;Bloco C;70040-000;rua 11;9900112233
+12;Mariana Rocha;111.222.333-22;09/02/1983 00:00:00;mariana.rocha@example.com;0;3950,00;GO;Goiƒnia;Setor Oeste;1200;Apto 9;74010-000;rua 12;0011223344
+13;Nathalia Mendes;222.333.444-23;20/08/1988 00:00:00;nathalia.mendes@example.com;0;4000,50;MT;Cuiab ;Centro;1300;Sala 10;78010-000;rua 13;1133557799
+14;Ot vio Gomes;333.444.555-24;15/04/1985 00:00:00;otavio.gomes@example.com;0;4100,25;MS;Campo Grande;Centro;1400;Apto 11;79002-000;rua 14;2244668800
+15;Paula Carvalho;444.555.666-25;23/01/1991 00:00:00;paula.carvalho@example.com;0;4200,00;AM;Manaus;Centro;1500;Bloco D;69010-000;rua 15;3355779911
+16;Rafael Sousa;555.666.777-26;30/09/1987 00:00:00;rafael.sousa@example.com;0;4250,75;PA;Bel‚m;Centro;1600;Apto 12;66010-000;rua 16;4466880022
+17;Sofia Barros;666.777.888-27;05/05/1990 00:00:00;sofia.barros@example.com;1;3950,25;MA;SÆo Lu¡s;Centro;1700;Sala 13;65010-000;rua 17;5577991133
+18;Thiago Almeida;777.888.999-28;11/12/1984 00:00:00;thiago.almeida@example.com;0;4050,00;PB;JoÆo Pessoa;Centro;1800;Apto 14;58010-000;rua 18;6688002244
+19;Vit¢ria Campos;888.999.000-29;22/03/1986 00:00:00;vitoria.campos@example.com;0;4100,50;RN;Natal;Centro;1900;Bloco E;59010-000;rua 19;7799113355
+20;William Ferreira;999.000.111-30;18/07/1992 00:00:00;william.ferreira@example.com;1;4200,25;AL;Macei¢;Centro;2000;Sala 15;57010-000;rua 20;8800224466
