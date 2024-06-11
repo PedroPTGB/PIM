@@ -20,8 +20,7 @@ namespace FazendaSharpCity
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoginViewForms LoginViewForms = new LoginViewForms();
-            LoginViewForms.ShowDialog();
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

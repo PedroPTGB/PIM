@@ -93,7 +93,6 @@ namespace FazendaSharpCity.View
         {
             QuemSomosNos QuemSomosNos = new QuemSomosNos();
             QuemSomosNos.ShowDialog();
-            this.Close();
         }
     }
 }
