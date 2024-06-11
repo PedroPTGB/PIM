@@ -86,17 +86,14 @@ namespace FazendaSharpCity.View
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-            
+
         }
 
-        private void LoadForm(object forms, LinkLabelLinkClickedEventArgs e)
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            LoadForm(new QuemSomosNos());
-        }
-
-        private void LoadForm(QuemSomosNos quemSomosNos)
-        {
-            LoadForm(new QuemSomosNos());
+            QuemSomosNos QuemSomosNos = new QuemSomosNos();
+            QuemSomosNos.ShowDialog();
+            this.Close();
         }
     }
 }
